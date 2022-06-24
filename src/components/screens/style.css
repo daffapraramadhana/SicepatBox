@@ -1,0 +1,58 @@
+.logo {
+    font-weight: bold;
+    align-items: center;
+    align-items: center;
+}
+
+.navbar {
+    background-color: #A01823;
+    align-items: center;
+    align-content: center;
+    
+}
+
+.text {
+    color: aliceblue;
+    padding-top: 10px;   
+}
+
+.body {
+    /* flex-direction: column; */
+}
+
+.img {
+    width: 100px;
+        height: 100px;
+        margin-top: 100px;
+        margin-bottom: -10px;
+        margin-left: 100px;
+}
+
+.img-ambil {
+    width: 100px;
+    height: 100px;
+    margin-top: 100px;
+    margin-bottom: -10px;
+    margin-left: 100px;
+    
+}
+
+
+.Pinfield {
+    background-color: #ebeffc;
+    border: 1px solid #ebeffc;
+    border-radius: 15px;
+    font-size: 2rem;
+    margin: 0.25rem;
+    margin-top: 5rem;
+    height: 3.5rem;
+    outline: none;
+    text-align: center;
+    transition-duration: 250ms;
+    width: 3rem;
+}
+
+.pin {
+    text-align: center;
+    margin-top: 3rem;
+}
