@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { Navbar, Container, Row, Button, Col } from "react-bootstrap";
+import { Navbar, Container, Row, Button, Col, Form } from "react-bootstrap";
 import "../screens/style.css";
-// import PinField from "../comp/PinFields.js";
-import PinField from "react-pin-field";
-import { FaHome } from "react-icons/fa";
+import { FaArrowRight, FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+import ButtonDimensi from "../comp/ButtonDimensi";
 
-const PelangganKirimScanInput = () => {
-  const [code, setCode] = useState("");
-  const [completed, setCompleted] = useState(false);
+const MasukanDimensi = () => {
   return (
     <div className="">
       <Navbar class="navbar navbar-light">
@@ -28,29 +27,19 @@ const PelangganKirimScanInput = () => {
           style={{
             textAlign: "center",
             marginTop: "5rem",
+            marginRight: "3rem",
           }}
         >
-          SCAN BARCODE ATAU INPUT KODE PEMESANAN
+          Pilih Ukuran Dimensi Paket
         </h3>
-
-        <div className="pin">
-          <PinField
-            className="field-a"
-            onChange={setCode}
-            validate={/^[0-9]$/}
-            onComplete={() => setCompleted(true)}
-            style={{
-              backgroundColor: "#ebeffc",
-              borderRadius: "15px",
-              fontSize: "2rem",
-              textAlign: "center",
-              width: "4.5rem",
-              margin: "0.25rem",
-              height: "4rem",
-              borderColor: "#ebeffc",
-              outline: "none",
-            }}
-          />
+        <div
+          style={{
+            margin: "auto",
+            width: "45%",
+            marginTop: "3rem",
+          }}
+        >
+          <ButtonDimensi />
         </div>
       </body>
 
@@ -80,18 +69,20 @@ const PelangganKirimScanInput = () => {
           </Col>
           <Col>
             <Button
-              href="/MasukanDetailPengiriman"
+              href="/"
               variant="primary"
               size="lg"
               style={{
-                width: "30rem",
-                marginLeft: "-8.5rem",
+                width: "10rem",
+                // marginLeft: "30rem",
+                // // marginRight: "-50rem",
                 borderRadius: "50px",
                 backgroundColor: "#CD2028",
                 borderColor: "#CD2028",
               }}
             >
-              Belum Melakukan Pemesanan
+              Next
+              <FaArrowRight style={{ marginLeft: "3rem" }} />
             </Button>
           </Col>
         </Row>
@@ -100,4 +91,4 @@ const PelangganKirimScanInput = () => {
   );
 };
 
-export default PelangganKirimScanInput;
+export default MasukanDimensi;

@@ -26,7 +26,6 @@ const LandingPage = () => {
             <Link to="/PelangganKirimScanInput">
               <Card
                 class="card-block stretched-link text-decoration-none"
-                href="#"
                 style={{ width: "30rem", marginTop: "2rem" }}
               >
                 <Card.Img src={ambil} alt="ambil" className="img" />
@@ -49,30 +48,33 @@ const LandingPage = () => {
               </Card>
             </Link>
 
-            <Card
-              style={{
-                width: "30rem",
-                marginTop: "2rem",
-                // marginBottom: "2rem",
-                paddingBottom: "2rem",
-              }}
-            >
-              <Card.Img src={kirim} alt="kirim" className="img-ambil" />
-              <Card.Body>
-                <Card.ImgOverlay>
-                  <Card.Text
-                    class="fs-3"
-                    style={{
-                      marginTop: "30px",
-                      marginLeft: "50px",
-                      fontWeight: "normal",
-                    }}
-                  >
-                    KIRIM
-                  </Card.Text>
-                </Card.ImgOverlay>
-              </Card.Body>
-            </Card>
+            <Link to="/PelangganKirimScanInput">
+              <Card
+                style={{
+                  width: "30rem",
+                  marginTop: "2rem",
+                  // marginBottom: "2rem",
+                  paddingBottom: "2rem",
+                }}
+              >
+                <Card.Img src={kirim} alt="kirim" className="img-ambil" />
+                <Card.Body>
+                  <Card.ImgOverlay>
+                    <Card.Text
+                      class="fs-3"
+                      style={{
+                        marginTop: "30px",
+                        marginLeft: "50px",
+                        fontWeight: "normal",
+                        color: "black",
+                      }}
+                    >
+                      KIRIM
+                    </Card.Text>
+                  </Card.ImgOverlay>
+                </Card.Body>
+              </Card>
+            </Link>
           </Col>
 
           <Col md={{ span: 2, offset: 2 }}>
