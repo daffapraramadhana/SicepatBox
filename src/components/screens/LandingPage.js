@@ -52,10 +52,13 @@ const LandingPage = () => {
       param: {num},
     }),
     headers: ({
-      "Content-Type" : "application/json" 
+      "Content-Type" : "application/json" ,
+      "Acces-Control-Allow-Origin" : "*"
     }),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      console.log(response)
+      response.json()})
     .then((data) => {
       console.log(data);
     })
