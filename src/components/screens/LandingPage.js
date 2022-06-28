@@ -1,18 +1,55 @@
-import React from "react";
+import React, {useState} from "react";
 import { Navbar, Container, Card, Row, Col, Button } from "react-bootstrap";
 import "../screens/style.css";
 import ambil from "../image/ambil.svg";
 import kirim from "../image/kirim.svg";
 import { Link } from "react-router-dom";
 
-const addPosts = async () => {
+
+
+// const addPosts = async () => {
+//   await fetch("http://localhost:5000/service", {
+//     method: "POST",
+//     body: JSON.stringify({
+//       code: "0.0.0.0",
+//       latency: "time",
+//       message: "open door",
+//       param: 5,
+//     }),
+//     headers: ({
+//       "Content-Type" : "application/json" 
+//     }),
+//   })
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log(data);
+//     })
+//     .catch((err) => {
+//       console.log(err.message + "SHKDSBHDSHBD");
+//     });
+// };
+
+const LandingPage = () => {
+  const [num, setNum] = useState(0);
+
+    function randomNumberInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+   const generate = () => {
+    setNum(randomNumberInRange(1, 16));
+  };
+
+  const addPosts = async () => {
+  generate()
+  console.log(num)
   await fetch("http://localhost:5000/service", {
     method: "POST",
     body: JSON.stringify({
       code: "0.0.0.0",
       latency: "time",
       message: "open door",
-      param: 5,
+      param: {num},
     }),
     headers: ({
       "Content-Type" : "application/json" 
@@ -27,7 +64,7 @@ const addPosts = async () => {
     });
 };
 
-const LandingPage = () => {
+  
   return (
     <div>
       <Navbar class="navbar navbar-light">

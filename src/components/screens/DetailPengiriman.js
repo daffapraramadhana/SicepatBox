@@ -127,7 +127,7 @@ const DetailPengiriman = () => {
               textAlign: "center",
             }}
           >
-            <Link to="/MasukanDetailPengiriman">
+            <Link to="/MasukanDimensi">
               <Button
                 variant="primary"
                 size="lg"
@@ -170,7 +170,7 @@ const DetailPengiriman = () => {
             }}
           >
             <Button
-              href="/MasukanDimensi"
+              href="/ScanBarcode"
               variant="primary"
               size="lg"
               style={{

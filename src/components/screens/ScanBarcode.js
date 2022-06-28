@@ -1,9 +1,10 @@
 import React from "react";
-import { Navbar, Container, Row, Button, Col } from "react-bootstrap";
+import { Navbar, Container, Row, Button, Col, Image } from "react-bootstrap";
 import "../screens/style.css";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "react-phone-number-input/style.css";
+import qris from "../image/qris.svg"
 
 const ScanBarcode = () => {
   return (
@@ -27,21 +28,39 @@ const ScanBarcode = () => {
             marginTop: "5rem",
           }}
         >
-          Silahkan Scan Barcode Untuk Bayar
+          Silahkan Scan Qris Untuk Bayar
         </h3>
 
-        <Container></Container>
+        <Container style={{
+          textAlign: "center"
+        }}>
+        <Image src={qris} style={{
+          width:"200px",
+        }}/>
+        </Container>
       </body>
 
       <Container
+        fluid
         style={{
           position: "absolute",
           bottom: "0",
           marginBottom: "3rem",
+          flex: "1",
         }}
       >
-        <Row>
-          <Col>
+        <Row
+          style={{
+            flex: "1",
+          }}
+        >
+          <Col
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
             <Link to="/MasukanDimensi">
               <Button
                 variant="primary"
@@ -51,6 +70,7 @@ const ScanBarcode = () => {
                   borderRadius: "50px",
                   backgroundColor: "#CD2028",
                   borderColor: "#CD2028",
+                  marginLeft: "-10rem",
                 }}
               >
                 <FaArrowLeft
@@ -61,7 +81,46 @@ const ScanBarcode = () => {
               </Button>
             </Link>
           </Col>
-          <Col></Col>
+
+          <Col
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            <Container
+              style={{
+                backgroundColor: "none",
+                height: "3rem",
+              }}
+            ></Container>
+          </Col>
+          <Col
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            <Button
+              href="/ScanBarcode"
+              variant="primary"
+              size="lg"
+              style={{
+                width: "10rem",
+                // marginLeft: "30rem",
+                // // marginRight: "-50rem",
+                borderRadius: "50px",
+                backgroundColor: "#CD2028",
+                borderColor: "#CD2028",
+                marginRight: "-10rem",
+              }}
+            >
+              Next
+              <FaArrowRight style={{ marginLeft: "3rem" }} />
+            </Button>
+          </Col>
         </Row>
       </Container>
     </div>
