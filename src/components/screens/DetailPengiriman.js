@@ -1,20 +1,11 @@
-import React, { useState } from "react";
-import { Navbar, Container, Row, Button, Col, Form } from "react-bootstrap";
+import React from "react";
+import { Navbar, Container, Row, Button, Col } from "react-bootstrap";
 import "../screens/style.css";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import Select from "react-select";
 
-const options = [
-  { value: "kuningan", label: "Sibox-Kuningan City" },
-  { value: "karawaci", label: "Sibox-Lippo Karawaci" },
-  { value: "depok", label: "Sibox-Margocity" },
-];
-
-const MasukanDetailPenerima = () => {
-  const [value, setValue] = useState();
+const DetailPengiriman = () => {
   return (
     <div className="">
       <Navbar class="navbar navbar-light">
@@ -36,92 +27,84 @@ const MasukanDetailPenerima = () => {
             marginTop: "5rem",
           }}
         >
-          Masukan Detail Penerima
+          Detail Pengiriman
         </h3>
 
         <Container>
-          <Form>
-            <Form.Group controlId="formName">
-              <Form.Label>Penerima :</Form.Label>
-              <Form.Control type="text" placeholder="Masukan Nama Pengirim " />
-            </Form.Group>
-            <Form.Group
-              controlId="form.TelpPengirim"
-              style={{
-                marginTop: "1.5rem",
-              }}
-            >
-              <Form.Label>No Telpon Penerima :</Form.Label>
-
-              <PhoneInput
-                placeholder="Masukan Nomer Telepon"
-                countryCallingCodeEditable={false}
-                defaultCountry="ID"
-                value={value}
-                onChange={setValue}
-              />
-            </Form.Group>
-            <Form.Group
-              controlId="formAlamat"
-              style={{
-                marginTop: "1.5rem",
-              }}
-            >
-              <Form.Label>Alamat :</Form.Label>
-              <Select options={options} />
-            </Form.Group>
-          </Form>
+          <form>
+            <div class="form-group row">
+              <label for="Pengirim" class="col-sm-2 col-form-label">
+                Pengirim :
+              </label>
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="Pengirim"
+                  value="Akmal"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="NoPengirim" class="col-sm-2 col-form-label">
+                Nomer Pengirim :
+              </label>
+              <div class="col-sm-10">
+                <input
+                  type="tel"
+                  readonly
+                  class="form-control-plaintext"
+                  id="NoPengirim"
+                  value="0812-1234-1234"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Penerima" class="col-sm-2 col-form-label">
+                Penerima :
+              </label>
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="Penerima"
+                  value="Daffa"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="NoPenerima" class="col-sm-2 col-form-label">
+                Nomer Penerima :
+              </label>
+              <div class="col-sm-10">
+                <input
+                  type="tel"
+                  readonly
+                  class="form-control-plaintext"
+                  id="NoPengirim"
+                  value="0812-7777-1234"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Penerima" class="col-sm-2 col-form-label">
+                Alamat Tujuan :
+              </label>
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="AlamatTujuan"
+                  value="Sibox-Margocity Depok"
+                />
+              </div>
+            </div>
+          </form>
         </Container>
       </body>
-
-      {/* <Container
-        style={{
-          position: "absolute",
-          bottom: "0",
-          marginBottom: "3rem",
-        }}
-      >
-        <Row>
-          <Col>
-            <Link to="/MasukanDetailPengiriman">
-              <Button
-                variant="primary"
-                size="lg"
-                style={{
-                  width: "5rem",
-                  borderRadius: "50px",
-                  backgroundColor: "#CD2028",
-                  borderColor: "#CD2028",
-                }}
-              >
-                <FaArrowLeft
-                  style={{
-                    marginBottom: "5px",
-                  }}
-                />
-              </Button>
-            </Link>
-          </Col>
-          <Col>
-            <Button
-              href="/MasukanDimensi"
-              variant="primary"
-              size="lg"
-              style={{
-                width: "10rem",
-                // marginLeft: "30rem",
-                // // marginRight: "-50rem",
-                borderRadius: "50px",
-                backgroundColor: "#CD2028",
-                borderColor: "#CD2028",
-              }}
-            >
-              Next
-              <FaArrowRight style={{ marginLeft: "3rem" }} />
-            </Button>
-          </Col>
-        </Row>
-      </Container> */}
 
       <Container
         fluid
@@ -210,4 +193,4 @@ const MasukanDetailPenerima = () => {
   );
 };
 
-export default MasukanDetailPenerima;
+export default DetailPengiriman;

@@ -1,9 +1,31 @@
 import React from "react";
-import { Navbar, Container, Card, Row, Col } from "react-bootstrap";
+import { Navbar, Container, Card, Row, Col, Button } from "react-bootstrap";
 import "../screens/style.css";
 import ambil from "../image/ambil.svg";
 import kirim from "../image/kirim.svg";
 import { Link } from "react-router-dom";
+
+const addPosts = async () => {
+  await fetch("http://localhost:5000/service", {
+    method: "POST",
+    body: JSON.stringify({
+      code: "0.0.0.0",
+      latency: "time",
+      message: "open door",
+      param: 5,
+    }),
+    headers: ({
+      "Content-Type" : "application/json" 
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((err) => {
+      console.log(err.message + "SHKDSBHDSHBD");
+    });
+};
 
 const LandingPage = () => {
   return (
@@ -89,7 +111,15 @@ const LandingPage = () => {
             >
               <Card.Body>
                 <Card.Title>Ekstra Section</Card.Title>
-                <Card.Text></Card.Text>
+                <Button onClick={addPosts}>Test</Button>
+                <Container
+                  style={{
+                    marginTop: "20px",
+                    backgroundColor: "GrayText",
+                  }}
+                >
+                  2
+                </Container>
               </Card.Body>
             </Card>
           </Col>

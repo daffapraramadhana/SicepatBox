@@ -5,6 +5,8 @@ import MasukanDetailPengiriman from "./components/screens/MasukanDetailPengirima
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MasukanDetailPenerima from "./components/screens/MasukanDetailPenerima";
 import MasukanDimensi from "./components/screens/MasukanDimensi";
+import DetailPengiriman from "./components/screens/DetailPengiriman";
+import ScanBarcode from "./components/screens/ScanBarcode";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           element={<MasukanDetailPenerima />}
         />
         <Route path="/MasukanDimensi" element={<MasukanDimensi />} />
+        <Route path="/DetailPengiriman" element={<DetailPengiriman />} />
+        <Route path="/ScanBarcode" element={<ScanBarcode />} />
       </Routes>
     </Router>
   );

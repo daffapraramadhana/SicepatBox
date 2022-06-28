@@ -55,14 +55,26 @@ const PelangganKirimScanInput = () => {
       </body>
 
       <Container
+        fluid
         style={{
           position: "absolute",
           bottom: "0",
           marginBottom: "3rem",
+          flex: "1",
         }}
       >
-        <Row>
-          <Col>
+        <Row
+          style={{
+            flex: "1",
+          }}
+        >
+          <Col
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
             <Link to="/">
               <Button
                 variant="primary"
@@ -72,13 +84,39 @@ const PelangganKirimScanInput = () => {
                   borderRadius: "50px",
                   backgroundColor: "#CD2028",
                   borderColor: "#CD2028",
+                  marginLeft: "-10rem",
                 }}
               >
-                <FaHome />
+                <FaHome
+                  style={{
+                    marginBottom: "5px",
+                  }}
+                />
               </Button>
             </Link>
           </Col>
-          <Col>
+
+          <Col
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            <Container
+              style={{
+                backgroundColor: "none",
+                height: "3rem",
+              }}
+            ></Container>
+          </Col>
+          <Col
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
             <Button
               href="/MasukanDetailPengiriman"
               variant="primary"

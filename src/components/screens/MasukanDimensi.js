@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { Navbar, Container, Row, Button, Col, Form } from "react-bootstrap";
+import React from "react";
+import { Navbar, Container, Row, Button, Col } from "react-bootstrap";
 import "../screens/style.css";
-import { FaArrowRight, FaHome } from "react-icons/fa";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import ButtonDimensi from "../comp/ButtonDimensi";
 
@@ -22,7 +21,7 @@ const MasukanDimensi = () => {
         </Container>
       </Navbar>
 
-      <body>
+      <Container fluid>
         <h3
           style={{
             textAlign: "center",
@@ -33,6 +32,7 @@ const MasukanDimensi = () => {
           Pilih Ukuran Dimensi Paket
         </h3>
         <div
+          fluid
           style={{
             margin: "auto",
             width: "45%",
@@ -41,18 +41,30 @@ const MasukanDimensi = () => {
         >
           <ButtonDimensi />
         </div>
-      </body>
+      </Container>
 
       <Container
+        fluid
         style={{
           position: "absolute",
           bottom: "0",
           marginBottom: "3rem",
+          flex: "1",
         }}
       >
-        <Row>
-          <Col>
-            <Link to="/">
+        <Row
+          style={{
+            flex: "1",
+          }}
+        >
+          <Col
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            <Link to="/MasukanDetailPenerima">
               <Button
                 variant="primary"
                 size="lg"
@@ -61,15 +73,45 @@ const MasukanDimensi = () => {
                   borderRadius: "50px",
                   backgroundColor: "#CD2028",
                   borderColor: "#CD2028",
+                  marginLeft: "-10rem",
                 }}
               >
-                <FaHome />
+                <FaArrowLeft
+                  style={{
+                    marginBottom: "5px",
+                  }}
+                />
               </Button>
             </Link>
           </Col>
-          <Col>
+
+          <Col
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            <Container
+              style={{
+                backgroundColor: "#d9d9d9",
+                height: "3rem",
+                textAlign: "center",
+                alignItems: "center",
+              }}
+            >
+              <p>Loker Tersedia</p>
+            </Container>
+          </Col>
+          <Col
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
             <Button
-              href="/"
+              href="/DetailPengiriman"
               variant="primary"
               size="lg"
               style={{
@@ -79,6 +121,7 @@ const MasukanDimensi = () => {
                 borderRadius: "50px",
                 backgroundColor: "#CD2028",
                 borderColor: "#CD2028",
+                marginRight: "-10rem",
               }}
             >
               Next

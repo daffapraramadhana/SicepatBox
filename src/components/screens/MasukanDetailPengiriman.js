@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navbar, Container, Row, Button, Col, Form } from "react-bootstrap";
 import "../screens/style.css";
-import { FaArrowRight, FaHome } from "react-icons/fa";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
@@ -53,12 +53,6 @@ const MasukanDetailPengiriman = () => {
                 value={value}
                 onChange={setValue}
               />
-
-              {/* <Form.Control
-                type="tel"
-                placeholder="No Telephone"
-                pattern="+62 [7-9]{1}[0-9]{9}"
-              /> */}
             </Form.Group>
             <Form.Group
               controlId="formAlamat"
@@ -73,7 +67,7 @@ const MasukanDetailPengiriman = () => {
         </Container>
       </body>
 
-      <Container
+      {/* <Container
         style={{
           position: "absolute",
           bottom: "0",
@@ -82,7 +76,7 @@ const MasukanDetailPengiriman = () => {
       >
         <Row>
           <Col>
-            <Link to="/">
+            <Link to="/PelangganKirimScanInput">
               <Button
                 variant="primary"
                 size="lg"
@@ -93,7 +87,11 @@ const MasukanDetailPengiriman = () => {
                   borderColor: "#CD2028",
                 }}
               >
-                <FaHome />
+                <FaArrowLeft
+                  style={{
+                    marginBottom: "5px",
+                  }}
+                />
               </Button>
             </Link>
           </Col>
@@ -109,6 +107,89 @@ const MasukanDetailPengiriman = () => {
                 borderRadius: "50px",
                 backgroundColor: "#CD2028",
                 borderColor: "#CD2028",
+              }}
+            >
+              Next
+              <FaArrowRight style={{ marginLeft: "3rem" }} />
+            </Button>
+          </Col>
+        </Row>
+      </Container> */}
+      <Container
+        fluid
+        style={{
+          position: "absolute",
+          bottom: "0",
+          marginBottom: "3rem",
+          flex: "1",
+        }}
+      >
+        <Row
+          style={{
+            flex: "1",
+          }}
+        >
+          <Col
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            <Link to="/PelangganKirimScanInput">
+              <Button
+                variant="primary"
+                size="lg"
+                style={{
+                  width: "5rem",
+                  borderRadius: "50px",
+                  backgroundColor: "#CD2028",
+                  borderColor: "#CD2028",
+                  marginLeft: "-10rem",
+                }}
+              >
+                <FaArrowLeft
+                  style={{
+                    marginBottom: "5px",
+                  }}
+                />
+              </Button>
+            </Link>
+          </Col>
+
+          <Col
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            <Container
+              style={{
+                backgroundColor: "none",
+                height: "3rem",
+              }}
+            ></Container>
+          </Col>
+          <Col
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            <Button
+              href="/MasukanDetailPenerima"
+              variant="primary"
+              size="lg"
+              style={{
+                width: "10rem",
+                // marginLeft: "30rem",
+                // // marginRight: "-50rem",
+                borderRadius: "50px",
+                backgroundColor: "#CD2028",
+                borderColor: "#CD2028",
+                marginRight: "-10rem",
               }}
             >
               Next
