@@ -10,11 +10,7 @@ const MasukanDimensi = () => {
   return (
     <div className="">
       <Navbar class="navbar navbar-light">
-        <Container
-          style={{
-            paddingBottom: "10px",
-          }}
-        >
+        <Container>
           <Navbar.Brand className="logo">
             <p className="text">Sibox</p>
           </Navbar.Brand>
@@ -35,8 +31,9 @@ const MasukanDimensi = () => {
           fluid
           style={{
             margin: "auto",
-            width: "45%",
+            width: "37%",
             marginTop: "3rem",
+            textAlign: "center",
           }}
         >
           <ButtonDimensi />
@@ -91,18 +88,7 @@ const MasukanDimensi = () => {
               justifyContent: "center",
               textAlign: "center",
             }}
-          >
-            <Container
-              style={{
-                backgroundColor: "#d9d9d9",
-                height: "3rem",
-                textAlign: "center",
-                alignItems: "center",
-              }}
-            >
-              <p>Loker Tersedia</p>
-            </Container>
-          </Col>
+          ></Col>
           <Col
             style={{
               alignItems: "center",
@@ -124,7 +110,7 @@ const MasukanDimensi = () => {
                 marginRight: "-10rem",
               }}
             >
-              Next
+              Lanjut
               <FaArrowRight style={{ marginLeft: "3rem" }} />
             </Button>
           </Col>

@@ -6,7 +6,7 @@ const Button = styled.button`
   bordercolor: red;
   color: black;
   font-size: 20px;
-  padding: 60px 50px;
+  padding: 50px 70px;
   border-radius: 50px;
   margin: 10px 10px;
   cursor: pointer;
@@ -30,19 +30,31 @@ const ButtonToggle = styled(Button)`
 const ButtonGroup = styled.div`
   display: flex;
 `;
-const types = ["Small", "Medium", "Large"];
+const lokers = [
+  { type: "S", size: "Small", ready: "3" },
+  { type: "M", size: "Medium", ready: "6" },
+  { type: "L", size: "Large", ready: "2" },
+];
+// const readys = ["1", "5", "10"];
 
 function ButtonDimensi() {
-  const [active, setActive] = useState(types[0]);
+  const [active, setActive] = useState();
   return (
     <ButtonGroup>
-      {types.map((type) => (
+      {lokers.map((loker, index) => (
         <ButtonToggle
-          key={type}
-          active={active === type}
-          onClick={() => setActive(type)}
+          key={loker.type}
+          active={active === loker.type}
+          onClick={() => setActive(loker.type)}
         >
-          {type}
+          <div style={{ fontWeight: "bold", fontSize: "30px" }}>
+            {" "}
+            {loker.type}
+          </div>
+          <br />
+          {loker.size}
+          <br />
+          {loker.ready}
         </ButtonToggle>
       ))}
     </ButtonGroup>

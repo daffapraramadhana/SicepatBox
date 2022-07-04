@@ -9,11 +9,7 @@ const DetailPengiriman = () => {
   return (
     <div className="">
       <Navbar class="navbar navbar-light">
-        <Container
-          style={{
-            paddingBottom: "10px",
-          }}
-        >
+        <Container>
           <Navbar.Brand className="logo">
             <p className="text">Sibox</p>
           </Navbar.Brand>
@@ -29,14 +25,13 @@ const DetailPengiriman = () => {
         >
           Detail Pengiriman
         </h3>
-
-        <Container>
-          <form>
+        <Container style={{ marginTop: "5rem" }}>
+          <form style={{ fontSize: "25px" }}>
             <div class="form-group row">
-              <label for="Pengirim" class="col-sm-2 col-form-label">
+              <label for="Pengirim" class="col-sm-3 col-form-label">
                 Pengirim :
               </label>
-              <div class="col-sm-10">
+              <div class="col-sm-7">
                 <input
                   type="text"
                   readonly
@@ -47,10 +42,10 @@ const DetailPengiriman = () => {
               </div>
             </div>
             <div class="form-group row">
-              <label for="NoPengirim" class="col-sm-2 col-form-label">
+              <label for="NoPengirim" class="col-sm-3 col-form-label">
                 Nomer Pengirim :
               </label>
-              <div class="col-sm-10">
+              <div class="col-sm-7">
                 <input
                   type="tel"
                   readonly
@@ -61,10 +56,10 @@ const DetailPengiriman = () => {
               </div>
             </div>
             <div class="form-group row">
-              <label for="Penerima" class="col-sm-2 col-form-label">
+              <label for="Penerima" class="col-sm-3 col-form-label">
                 Penerima :
               </label>
-              <div class="col-sm-10">
+              <div class="col-sm-7">
                 <input
                   type="text"
                   readonly
@@ -75,10 +70,10 @@ const DetailPengiriman = () => {
               </div>
             </div>
             <div class="form-group row">
-              <label for="NoPenerima" class="col-sm-2 col-form-label">
+              <label for="NoPenerima" class="col-sm-3 col-form-label">
                 Nomer Penerima :
               </label>
-              <div class="col-sm-10">
+              <div class="col-sm-5">
                 <input
                   type="tel"
                   readonly
@@ -89,16 +84,16 @@ const DetailPengiriman = () => {
               </div>
             </div>
             <div class="form-group row">
-              <label for="Penerima" class="col-sm-2 col-form-label">
+              <label for="Penerima" class="col-sm-3 col-form-label">
                 Alamat Tujuan :
               </label>
-              <div class="col-sm-10">
+              <div class="col-sm-7">
                 <input
                   type="text"
                   readonly
                   class="form-control-plaintext"
                   id="AlamatTujuan"
-                  value="Sibox-Margocity Depok"
+                  value="Karawaci, Tangerang"
                 />
               </div>
             </div>
@@ -183,7 +178,7 @@ const DetailPengiriman = () => {
                 marginRight: "-10rem",
               }}
             >
-              Next
+              Lanjut
               <FaArrowRight style={{ marginLeft: "3rem" }} />
             </Button>
           </Col>

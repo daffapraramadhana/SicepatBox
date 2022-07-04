@@ -11,11 +11,7 @@ const MasukanDetailPengiriman = () => {
   return (
     <div className="">
       <Navbar class="navbar navbar-light">
-        <Container
-          style={{
-            paddingBottom: "10px",
-          }}
-        >
+        <Container>
           <Navbar.Brand className="logo">
             <p className="text">Sibox</p>
           </Navbar.Brand>
@@ -33,7 +29,7 @@ const MasukanDetailPengiriman = () => {
         </h3>
 
         <Container>
-          <Form>
+          <Form style={{ fontSize: "20px" }}>
             <Form.Group controlId="formName">
               <Form.Label>Penerima :</Form.Label>
               <Form.Control type="text" placeholder="Masukan Nama Pengirim " />
@@ -61,7 +57,11 @@ const MasukanDetailPengiriman = () => {
               }}
             >
               <Form.Label>Alamat :</Form.Label>
-              <Form.Control type="text" readOnly />
+              <Form.Control
+                type="text"
+                value="Sibox - Suppermall Karawaci"
+                readOnly
+              />
             </Form.Group>
           </Form>
         </Container>
@@ -192,7 +192,7 @@ const MasukanDetailPengiriman = () => {
                 marginRight: "-10rem",
               }}
             >
-              Next
+              Lanjut
               <FaArrowRight style={{ marginLeft: "3rem" }} />
             </Button>
           </Col>

@@ -4,17 +4,13 @@ import "../screens/style.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "react-phone-number-input/style.css";
-import qris from "../image/qris.svg"
+import qris from "../image/qris.svg";
 
 const ScanBarcode = () => {
   return (
     <div className="">
       <Navbar class="navbar navbar-light">
-        <Container
-          style={{
-            paddingBottom: "10px",
-          }}
-        >
+        <Container>
           <Navbar.Brand className="logo">
             <p className="text">Sibox</p>
           </Navbar.Brand>
@@ -31,12 +27,18 @@ const ScanBarcode = () => {
           Silahkan Scan Qris Untuk Bayar
         </h3>
 
-        <Container style={{
-          textAlign: "center"
-        }}>
-        <Image src={qris} style={{
-          width:"200px",
-        }}/>
+        <Container
+          style={{
+            textAlign: "center",
+            marginTop: "5rem",
+          }}
+        >
+          <Image
+            src={qris}
+            style={{
+              width: "350px",
+            }}
+          />
         </Container>
       </body>
 
@@ -61,7 +63,7 @@ const ScanBarcode = () => {
               textAlign: "center",
             }}
           >
-            <Link to="/MasukanDimensi">
+            <Link to="/DetailPengiriman">
               <Button
                 variant="primary"
                 size="lg"
@@ -104,7 +106,7 @@ const ScanBarcode = () => {
             }}
           >
             <Button
-              href="/ScanBarcode"
+              href="/LabelPrint"
               variant="primary"
               size="lg"
               style={{
@@ -117,7 +119,7 @@ const ScanBarcode = () => {
                 marginRight: "-10rem",
               }}
             >
-              Next
+              Lanjut
               <FaArrowRight style={{ marginLeft: "3rem" }} />
             </Button>
           </Col>

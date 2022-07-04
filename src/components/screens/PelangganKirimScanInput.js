@@ -1,27 +1,14 @@
-import React, { useState } from "react";
-import { Navbar, Container, Row, Button, Col } from "react-bootstrap";
+import React from "react";
+import { Container, Row, Button, Col } from "react-bootstrap";
 import "../screens/style.css";
-// import PinField from "../comp/PinFields.js";
-import PinField from "react-pin-field";
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Navbar from "../comp/Navbar";
 
 const PelangganKirimScanInput = () => {
-  const [code, setCode] = useState("");
-  const [completed, setCompleted] = useState(false);
   return (
     <div className="">
-      <Navbar class="navbar navbar-light">
-        <Container
-          style={{
-            paddingBottom: "10px",
-          }}
-        >
-          <Navbar.Brand className="logo">
-            <p className="text">Sibox</p>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
+      <Navbar />
 
       <body>
         <h3
@@ -33,7 +20,7 @@ const PelangganKirimScanInput = () => {
           SCAN BARCODE ATAU INPUT KODE PEMESANAN
         </h3>
 
-        <div className="pin">
+        {/* <div className="pin">
           <PinField
             className="field-a"
             onChange={setCode}
@@ -50,6 +37,25 @@ const PelangganKirimScanInput = () => {
               borderColor: "#ebeffc",
               outline: "none",
             }}
+          />
+        </div> */}
+        <div
+          style={{
+            textAlign: "center",
+          }}
+        >
+          <input
+            type="text"
+            style={{
+              width: "50rem",
+              height: "6rem",
+              borderRadius: "50px",
+              marginTop: "5rem",
+              textAlign: "center",
+              fontSize: "30px",
+              backgroundColor: "#CED4D3CC",
+            }}
+            placeholder="Masukan kode Pemesanan"
           />
         </div>
       </body>
@@ -108,7 +114,22 @@ const PelangganKirimScanInput = () => {
                 backgroundColor: "none",
                 height: "3rem",
               }}
-            ></Container>
+            >
+              {" "}
+              <Button
+                href="/MasukanDetailPengiriman"
+                variant="primary"
+                size="lg"
+                style={{
+                  width: "30rem",
+                  borderRadius: "50px",
+                  backgroundColor: "#CD2028",
+                  borderColor: "#CD2028",
+                }}
+              >
+                Belum Melakukan Pemesanan
+              </Button>
+            </Container>
           </Col>
           <Col
             style={{
@@ -117,19 +138,23 @@ const PelangganKirimScanInput = () => {
               textAlign: "center",
             }}
           >
+            {" "}
             <Button
-              href="/MasukanDetailPengiriman"
+              href="/DetailPengirimanBarcode"
               variant="primary"
               size="lg"
               style={{
-                width: "30rem",
-                marginLeft: "-8.5rem",
+                width: "10rem",
+                // marginLeft: "30rem",
+                // // marginRight: "-50rem",
                 borderRadius: "50px",
                 backgroundColor: "#CD2028",
                 borderColor: "#CD2028",
+                marginRight: "-10rem",
               }}
             >
-              Belum Melakukan Pemesanan
+              Lanjut
+              <FaArrowRight style={{ marginLeft: "3rem" }} />
             </Button>
           </Col>
         </Row>

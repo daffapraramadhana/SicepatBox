@@ -7,12 +7,27 @@ import MasukanDetailPenerima from "./components/screens/MasukanDetailPenerima";
 import MasukanDimensi from "./components/screens/MasukanDimensi";
 import DetailPengiriman from "./components/screens/DetailPengiriman";
 import ScanBarcode from "./components/screens/ScanBarcode";
+import LabelPrint from "./components/screens/LabelPrint";
+import LokerTerbuka from "./components/screens/LokerTerbuka";
+import PaketTersimpan from "./components/screens/PaketTersimpan";
+import TerimaKasih from "./components/screens/TerimaKasih";
+import TestLandingPage from "./components/screens/TestLandingPage";
+import InputPinAmbil from "./components/screens/InputPinAmbil";
+import DetailPengirimanBarcode from "./components/screens/DetailPengirimanBarcode";
+import LokerTerbukaBarcode from "./components/screens/LokerTerbukaBarcode";
+import LokerTerbukaAmbil from "./components/screens/LokerTerbukaAmbil";
+import LoginKurir from "./components/screens/LoginKurir";
+import DashboardKurir from "./components/screens/DashboardKurir";
+import InputPinKurir from "./components/screens/InputPinKurir";
+import DetailPengirimanKurir from "./components/screens/DetailPengirimanKurir";
+import LokerTerbukaKurir from "./components/screens/LokerTerbukaKurir";
+import TestJson from "./components/screens/TestJson";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<TestLandingPage />} />
         <Route
           path="/PelangganKirimScanInput"
           element={<PelangganKirimScanInput />}
@@ -28,6 +43,27 @@ function App() {
         <Route path="/MasukanDimensi" element={<MasukanDimensi />} />
         <Route path="/DetailPengiriman" element={<DetailPengiriman />} />
         <Route path="/ScanBarcode" element={<ScanBarcode />} />
+        <Route path="/LabelPrint" element={<LabelPrint />} />
+        <Route path="/LokerTerbuka" element={<LokerTerbuka />} />
+        <Route path="/PaketTersimpan" element={<PaketTersimpan />} />
+        <Route path="/TerimaKasih" element={<TerimaKasih />} />
+        <Route path="/LandingPage" element={<LandingPage />} />
+        <Route path="/InputPinAmbil" element={<InputPinAmbil />} />
+        <Route
+          path="/DetailPengirimanBarcode"
+          element={<DetailPengirimanBarcode />}
+        />
+        <Route path="/LokerTerbukaBarcode" element={<LokerTerbukaBarcode />} />
+        <Route path="/LokerTerbukaAmbil" element={<LokerTerbukaAmbil />} />
+        <Route path="/LoginKurir" element={<LoginKurir />} />
+        <Route path="/DashboardKurir" element={<DashboardKurir />} />
+        <Route path="/InputPinKurir" element={<InputPinKurir />} />
+        <Route
+          path="/DetailPengirimanKurir"
+          element={<DetailPengirimanKurir />}
+        />
+        <Route path="/LokerTerbukaKurir" element={<LokerTerbukaKurir />} />
+        <Route path="/TestJson" element={<TestJson />} />
       </Routes>
     </Router>
   );

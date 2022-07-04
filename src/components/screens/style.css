@@ -47,12 +47,12 @@
     outline: none;
     text-align: center;
     transition-duration: 250ms;
-    width: 3rem;
+    width: 5rem;
 }
 
 .pin {
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 5rem;
 }
 
 code {
@@ -70,8 +70,8 @@ code {
 }
 
 .field-a {
-    width: 75px;
-    height: 75px;
+    width: 90px;
+    height: 90px;
     font-size: 40px;
     text-align: center;
     outline: none;
@@ -101,4 +101,11 @@ code {
 
 .pin-field {
     border: 2px solid red;
+}
+
+::placeholder1 {
+    color: deeppink;
+    text-transform: uppercase;
+    opacity: 1;
+    text-align: center;
 }

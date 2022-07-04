@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Option } from "react";
 import { Navbar, Container, Row, Button, Col, Form } from "react-bootstrap";
 import "../screens/style.css";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import Select from "react-select";
+import provinsi from "../Json/Provinsi";
 
 const options = [
   { value: "kuningan", label: "Sibox-Kuningan City" },
@@ -18,11 +19,7 @@ const MasukanDetailPenerima = () => {
   return (
     <div className="">
       <Navbar class="navbar navbar-light">
-        <Container
-          style={{
-            paddingBottom: "10px",
-          }}
-        >
+        <Container>
           <Navbar.Brand className="logo">
             <p className="text">Sibox</p>
           </Navbar.Brand>
@@ -40,7 +37,7 @@ const MasukanDetailPenerima = () => {
         </h3>
 
         <Container>
-          <Form>
+          <Form style={{ fontSize: "20px" }}>
             <Form.Group controlId="formName">
               <Form.Label>Penerima :</Form.Label>
               <Form.Control type="text" placeholder="Masukan Nama Pengirim " />
@@ -68,8 +65,63 @@ const MasukanDetailPenerima = () => {
               }}
             >
               <Form.Label>Alamat :</Form.Label>
-              <Select options={options} />
+              <Form.Control
+                controlId="formAlamat"
+                as="textArea"
+                rows={3}
+                placeholder="Masukan Alamat Lengkap Tujuan"
+              />
             </Form.Group>
+            <Row>
+              <Col>
+                <Form.Group
+                  controlId="formProvinsi"
+                  style={{
+                    marginTop: "1.5rem",
+                  }}
+                >
+                  <Form.Label>Provinsi :</Form.Label>
+                  <Select>
+                    <Option>1</Option>
+                  </Select>
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group
+                  controlId="formKota"
+                  style={{
+                    marginTop: "1.5rem",
+                  }}
+                >
+                  <Form.Label>Kota/kabupaten :</Form.Label>
+                  <Select options={options} />
+                </Form.Group>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Form.Group
+                  controlId="formKecamatan"
+                  style={{
+                    marginTop: "1.5rem",
+                  }}
+                >
+                  <Form.Label>Kecamatan :</Form.Label>
+                  <Select options={options} />
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group
+                  controlId="formProvinsi"
+                  style={{
+                    marginTop: "1.5rem",
+                  }}
+                >
+                  <Form.Label>Kodepos :</Form.Label>
+                  <Select options={options} />
+                </Form.Group>
+              </Col>
+            </Row>
           </Form>
         </Container>
       </body>
@@ -200,7 +252,7 @@ const MasukanDetailPenerima = () => {
                 marginRight: "-10rem",
               }}
             >
-              Next
+              Lanjut
               <FaArrowRight style={{ marginLeft: "3rem" }} />
             </Button>
           </Col>
