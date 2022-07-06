@@ -4,17 +4,14 @@ import "../screens/style.css";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "react-phone-number-input/style.css";
+import ButtonBack from "../comp/ButtonBack";
+import ButtonLanjut from "../comp/ButtonLanjut";
+import NavbarMenu from "../comp/NavbarMenu";
 
 const DetailPengiriman = () => {
   return (
     <div className="">
-      <Navbar class="navbar navbar-light">
-        <Container>
-          <Navbar.Brand className="logo">
-            <p className="text">Sibox</p>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
+      <NavbarMenu />
 
       <body>
         <h3
@@ -26,9 +23,16 @@ const DetailPengiriman = () => {
           Detail Pengiriman
         </h3>
         <Container style={{ marginTop: "5rem" }}>
-          <form style={{ fontSize: "25px" }}>
+          <form
+            style={{
+              fontSize: "30px",
+              // backgroundColor: "blue",
+              justifyContent: "center",
+              marginLeft: "20rem",
+            }}
+          >
             <div class="form-group row">
-              <label for="Pengirim" class="col-sm-3 col-form-label">
+              <label for="Pengirim" class="col-sm-5 col-form-label">
                 Pengirim :
               </label>
               <div class="col-sm-7">
@@ -42,7 +46,7 @@ const DetailPengiriman = () => {
               </div>
             </div>
             <div class="form-group row">
-              <label for="NoPengirim" class="col-sm-3 col-form-label">
+              <label for="NoPengirim" class="col-sm-5 col-form-label">
                 Nomer Pengirim :
               </label>
               <div class="col-sm-7">
@@ -56,7 +60,7 @@ const DetailPengiriman = () => {
               </div>
             </div>
             <div class="form-group row">
-              <label for="Penerima" class="col-sm-3 col-form-label">
+              <label for="Penerima" class="col-sm-5 col-form-label">
                 Penerima :
               </label>
               <div class="col-sm-7">
@@ -70,7 +74,7 @@ const DetailPengiriman = () => {
               </div>
             </div>
             <div class="form-group row">
-              <label for="NoPenerima" class="col-sm-3 col-form-label">
+              <label for="NoPenerima" class="col-sm-5 col-form-label">
                 Nomer Penerima :
               </label>
               <div class="col-sm-5">
@@ -84,7 +88,7 @@ const DetailPengiriman = () => {
               </div>
             </div>
             <div class="form-group row">
-              <label for="Penerima" class="col-sm-3 col-form-label">
+              <label for="Penerima" class="col-sm-5 col-form-label">
                 Alamat Tujuan :
               </label>
               <div class="col-sm-7">
@@ -123,23 +127,7 @@ const DetailPengiriman = () => {
             }}
           >
             <Link to="/MasukanDimensi">
-              <Button
-                variant="primary"
-                size="lg"
-                style={{
-                  width: "5rem",
-                  borderRadius: "50px",
-                  backgroundColor: "#CD2028",
-                  borderColor: "#CD2028",
-                  marginLeft: "-10rem",
-                }}
-              >
-                <FaArrowLeft
-                  style={{
-                    marginBottom: "5px",
-                  }}
-                />
-              </Button>
+              <ButtonBack />
             </Link>
           </Col>
 
@@ -164,23 +152,9 @@ const DetailPengiriman = () => {
               textAlign: "center",
             }}
           >
-            <Button
-              href="/ScanBarcode"
-              variant="primary"
-              size="lg"
-              style={{
-                width: "10rem",
-                // marginLeft: "30rem",
-                // // marginRight: "-50rem",
-                borderRadius: "50px",
-                backgroundColor: "#CD2028",
-                borderColor: "#CD2028",
-                marginRight: "-10rem",
-              }}
-            >
-              Lanjut
-              <FaArrowRight style={{ marginLeft: "3rem" }} />
-            </Button>
+            <Link to="/ScanBarcode">
+              <ButtonLanjut />
+            </Link>
           </Col>
         </Row>
       </Container>

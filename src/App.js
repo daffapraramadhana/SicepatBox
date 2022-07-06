@@ -18,7 +18,7 @@ import LokerTerbukaBarcode from "./components/screens/LokerTerbukaBarcode";
 import LokerTerbukaAmbil from "./components/screens/LokerTerbukaAmbil";
 import LoginKurir from "./components/screens/LoginKurir";
 import DashboardKurir from "./components/screens/DashboardKurir";
-import InputPinKurir from "./components/screens/InputPinKurir";
+import InputKodeKurir from "./components/screens/InputKodeKurir";
 import DetailPengirimanKurir from "./components/screens/DetailPengirimanKurir";
 import LokerTerbukaKurir from "./components/screens/LokerTerbukaKurir";
 import TestJson from "./components/screens/TestJson";
@@ -57,7 +57,7 @@ function App() {
         <Route path="/LokerTerbukaAmbil" element={<LokerTerbukaAmbil />} />
         <Route path="/LoginKurir" element={<LoginKurir />} />
         <Route path="/DashboardKurir" element={<DashboardKurir />} />
-        <Route path="/InputPinKurir" element={<InputPinKurir />} />
+        <Route path="/InputKodeKurir" element={<InputKodeKurir />} />
         <Route
           path="/DetailPengirimanKurir"
           element={<DetailPengirimanKurir />}

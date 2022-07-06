@@ -1,14 +1,51 @@
-import React from "react";
-import { Container, Row, Button, Col } from "react-bootstrap";
+import React, { useState, useRef } from "react";
+import { Navbar, Container, Row, Button, Col } from "react-bootstrap";
 import "../screens/style.css";
 import { FaHome, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Navbar from "../comp/Navbar";
+import NavbarMenu from "../comp/NavbarMenu";
+import ButtonHome from "../comp/ButtonHome";
+import ButtonBelumPesan from "../comp/ButtonBelumPesan";
+import ButtonLanjut from "../comp/ButtonLanjut";
+import Keyboard from "react-simple-keyboard";
+import "react-simple-keyboard/build/css/index.css";
 
 const PelangganKirimScanInput = () => {
+  // setTimeout(function () {
+  //   window.location.href = "/";
+  // }, 5000);
+  const [input, setInput] = useState("");
+  const [layout, setLayout] = useState("default");
+  const keyboard = useRef();
+
+  const onChange = (input) => {
+    setInput(input);
+    console.log("Input changed", input);
+  };
+
+  const handleShift = () => {
+    const newLayoutName = layout === "default" ? "shift" : "default";
+    setLayout(newLayoutName);
+  };
+
+  const onKeyPress = (button) => {
+    console.log("Button pressed", button);
+
+    /**
+     * If you want to handle the shift and caps lock buttons
+     */
+    if (button === "{shift}" || button === "{lock}") handleShift();
+  };
+
+  const onChangeInput = (event) => {
+    const input = event.target.value;
+    setInput(input);
+    keyboard.current.setInput(input);
+  };
+
   return (
     <div className="">
-      <Navbar />
+      <NavbarMenu />
 
       <body>
         <h3
@@ -42,10 +79,14 @@ const PelangganKirimScanInput = () => {
         <div
           style={{
             textAlign: "center",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <input
             type="text"
+            value={input}
+            onChange={onChangeInput}
             style={{
               width: "50rem",
               height: "6rem",
@@ -56,6 +97,12 @@ const PelangganKirimScanInput = () => {
               backgroundColor: "#CED4D3CC",
             }}
             placeholder="Masukan kode Pemesanan"
+          />
+          <Keyboard
+            keyboardRef={(r) => (keyboard.current = r)}
+            layoutName={layout}
+            onChange={onChange}
+            onKeyPress={onKeyPress}
           />
         </div>
       </body>
@@ -82,23 +129,7 @@ const PelangganKirimScanInput = () => {
             }}
           >
             <Link to="/">
-              <Button
-                variant="primary"
-                size="lg"
-                style={{
-                  width: "5rem",
-                  borderRadius: "50px",
-                  backgroundColor: "#CD2028",
-                  borderColor: "#CD2028",
-                  marginLeft: "-10rem",
-                }}
-              >
-                <FaHome
-                  style={{
-                    marginBottom: "5px",
-                  }}
-                />
-              </Button>
+              <ButtonHome />
             </Link>
           </Col>
 
@@ -109,27 +140,15 @@ const PelangganKirimScanInput = () => {
               textAlign: "center",
             }}
           >
-            <Container
+            <Link
+              to="/MasukanDetailPengiriman"
               style={{
                 backgroundColor: "none",
                 height: "3rem",
               }}
             >
-              {" "}
-              <Button
-                href="/MasukanDetailPengiriman"
-                variant="primary"
-                size="lg"
-                style={{
-                  width: "30rem",
-                  borderRadius: "50px",
-                  backgroundColor: "#CD2028",
-                  borderColor: "#CD2028",
-                }}
-              >
-                Belum Melakukan Pemesanan
-              </Button>
-            </Container>
+              <ButtonBelumPesan />
+            </Link>
           </Col>
           <Col
             style={{
@@ -138,24 +157,9 @@ const PelangganKirimScanInput = () => {
               textAlign: "center",
             }}
           >
-            {" "}
-            <Button
-              href="/DetailPengirimanBarcode"
-              variant="primary"
-              size="lg"
-              style={{
-                width: "10rem",
-                // marginLeft: "30rem",
-                // // marginRight: "-50rem",
-                borderRadius: "50px",
-                backgroundColor: "#CD2028",
-                borderColor: "#CD2028",
-                marginRight: "-10rem",
-              }}
-            >
-              Lanjut
-              <FaArrowRight style={{ marginLeft: "3rem" }} />
-            </Button>
+            <Link to="/DetailPengirimanBarcode">
+              <ButtonLanjut />
+            </Link>
           </Col>
         </Row>
       </Container>

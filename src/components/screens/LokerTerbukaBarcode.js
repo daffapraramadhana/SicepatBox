@@ -9,17 +9,14 @@ import box from "../image/box.svg";
 import { ImEnter } from "react-icons/im";
 import checkbox from "../image/checkbox.svg";
 import ModalTerimaKasih from "../comp/ModalTerimaKasih";
+import ButtonLanjutSwal from "../comp/ButtonLanjutSwal";
+import ButtonBukaLokerKembali from "../comp/ButtonBukaLokerKembali";
+import NavbarMenu from "../comp/NavbarMenu";
 
 const LokerTerbukaBarcode = () => {
   return (
     <div className="">
-      <Navbar class="navbar navbar-light">
-        <Container>
-          <Navbar.Brand className="logo">
-            <p className="text">Sibox</p>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
+      <NavbarMenu />
 
       <body>
         <Container style={{ marginTop: "7rem" }}>
@@ -151,28 +148,8 @@ const LokerTerbukaBarcode = () => {
                 height: "3rem",
               }}
             >
-              {" "}
               <Link to="">
-                <Button
-                  variant="primary"
-                  size="lg"
-                  style={{
-                    width: "20rem",
-                    borderRadius: "50px",
-                    backgroundColor: "#ffff",
-                    borderColor: "#CD2028",
-                    color: "#CD2028",
-
-                    //   marginLeft: "-10rem",
-                  }}
-                >
-                  Buka Loker Kembali
-                  <ImEnter
-                    style={{
-                      marginLeft: "3rem",
-                    }}
-                  />
-                </Button>
+                <ButtonBukaLokerKembali />
               </Link>
             </Container>
           </Col>
@@ -183,24 +160,7 @@ const LokerTerbukaBarcode = () => {
               textAlign: "center",
             }}
           >
-            {/* <Button
-              href="/TerimaKasih"
-              variant="primary"
-              size="lg"
-              style={{
-                width: "10rem",
-                // marginLeft: "30rem",
-                // // marginRight: "-50rem",
-                borderRadius: "50px",
-                backgroundColor: "#CD2028",
-                borderColor: "#CD2028",
-                marginRight: "-10rem",
-              }}
-            >
-              Next
-              <FaArrowRight style={{ marginLeft: "3rem" }} />
-            </Button> */}
-            <ModalTerimaKasih />
+            <ButtonLanjutSwal />
           </Col>
         </Row>
       </Container>

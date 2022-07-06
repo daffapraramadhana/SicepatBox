@@ -5,19 +5,17 @@ import "../screens/style.css";
 import PinField from "react-pin-field";
 import { FaHome, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import ButtonBack from "../comp/ButtonBack";
+import ButtonLanjut from "../comp/ButtonLanjut";
+import NavbarMenu from "../comp/NavbarMenu";
+import ButtonHome from "../comp/ButtonHome";
 
 const InputPinAmbil = () => {
   const [code, setCode] = useState("");
   const [completed, setCompleted] = useState(false);
   return (
     <div className="">
-      <Navbar class="navbar navbar-light">
-        <Container>
-          <Navbar.Brand className="logo">
-            <p className="text">Sibox</p>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
+      <NavbarMenu />
 
       <body>
         <h3
@@ -73,23 +71,7 @@ const InputPinAmbil = () => {
             }}
           >
             <Link to="/">
-              <Button
-                variant="primary"
-                size="lg"
-                style={{
-                  width: "5rem",
-                  borderRadius: "50px",
-                  backgroundColor: "#CD2028",
-                  borderColor: "#CD2028",
-                  marginLeft: "-10rem",
-                }}
-              >
-                <FaHome
-                  style={{
-                    marginBottom: "5px",
-                  }}
-                />
-              </Button>
+              <ButtonHome />
             </Link>
           </Col>
 
@@ -114,23 +96,9 @@ const InputPinAmbil = () => {
               textAlign: "center",
             }}
           >
-            <Button
-              href="/LokerTerbukaAmbil"
-              variant="primary"
-              size="lg"
-              style={{
-                width: "10rem",
-                // marginLeft: "30rem",
-                // // marginRight: "-50rem",
-                borderRadius: "50px",
-                backgroundColor: "#CD2028",
-                borderColor: "#CD2028",
-                marginRight: "-10rem",
-              }}
-            >
-              Lanjut
-              <FaArrowRight style={{ marginLeft: "3rem" }} />
-            </Button>
+            <Link to="/LokerTerbukaAmbil">
+              <ButtonLanjut />
+            </Link>
           </Col>
         </Row>
       </Container>

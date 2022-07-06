@@ -13,21 +13,14 @@ import { FaArrowRight, FaArrowLeft, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "react-phone-number-input/style.css";
 import kurirdrop from "../image/kurirdrop.svg";
+import ButtonBack from "../comp/ButtonBack";
+import ButtonLanjut from "../comp/ButtonLanjut";
+import NavbarMenu from "../comp/NavbarMenu";
 
 const DashboardKurir = () => {
   return (
     <div className="">
-      <Navbar class="navbar navbar-light">
-        <Container
-          style={{
-            paddingBottom: "10px",
-          }}
-        >
-          <Navbar.Brand className="logo">
-            <p className="text">Sibox</p>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
+      <NavbarMenu />
 
       <body>
         <Container
@@ -48,6 +41,7 @@ const DashboardKurir = () => {
             style={{
               height: "100vh",
               width: "45%",
+              marginTop: "-10rem",
             }}
           >
             <Container
@@ -103,7 +97,7 @@ const DashboardKurir = () => {
               </Col>
             </Container>
             <Button
-              href="/InputPinKurir"
+              href="/InputKodeKurir"
               style={{
                 backgroundColor: "white",
                 height: "40vh",
@@ -153,7 +147,7 @@ const DashboardKurir = () => {
               style={{
                 height: "75vh",
                 width: "90%",
-                marginTop: "15vh",
+                marginTop: "7vh",
                 border: "1px solid #CD2028",
                 display: "flex",
                 flexDirection: "column",

@@ -5,17 +5,14 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "react-phone-number-input/style.css";
 import qris from "../image/qris.svg";
+import ButtonBack from "../comp/ButtonBack";
+import ButtonLanjut from "../comp/ButtonLanjut";
+import NavbarMenu from "../comp/NavbarMenu";
 
 const ScanBarcode = () => {
   return (
     <div className="">
-      <Navbar class="navbar navbar-light">
-        <Container>
-          <Navbar.Brand className="logo">
-            <p className="text">Sibox</p>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
+      <NavbarMenu />
 
       <body>
         <h3
@@ -64,23 +61,7 @@ const ScanBarcode = () => {
             }}
           >
             <Link to="/DetailPengiriman">
-              <Button
-                variant="primary"
-                size="lg"
-                style={{
-                  width: "5rem",
-                  borderRadius: "50px",
-                  backgroundColor: "#CD2028",
-                  borderColor: "#CD2028",
-                  marginLeft: "-10rem",
-                }}
-              >
-                <FaArrowLeft
-                  style={{
-                    marginBottom: "5px",
-                  }}
-                />
-              </Button>
+              <ButtonBack />
             </Link>
           </Col>
 
@@ -105,23 +86,9 @@ const ScanBarcode = () => {
               textAlign: "center",
             }}
           >
-            <Button
-              href="/LabelPrint"
-              variant="primary"
-              size="lg"
-              style={{
-                width: "10rem",
-                // marginLeft: "30rem",
-                // // marginRight: "-50rem",
-                borderRadius: "50px",
-                backgroundColor: "#CD2028",
-                borderColor: "#CD2028",
-                marginRight: "-10rem",
-              }}
-            >
-              Lanjut
-              <FaArrowRight style={{ marginLeft: "3rem" }} />
-            </Button>
+            <Link to="/LabelPrint">
+              <ButtonLanjut />
+            </Link>
           </Col>
         </Row>
       </Container>

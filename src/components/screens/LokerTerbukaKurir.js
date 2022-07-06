@@ -17,6 +17,8 @@ import box from "../image/box.svg";
 import { ImEnter } from "react-icons/im";
 import checkbox from "../image/checkbox.svg";
 import ModalTerimaKasih from "../comp/ModalTerimaKasih";
+import ButtonBukaLokerKembali from "../comp/ButtonBukaLokerKembali";
+import ButtonLanjutSwal from "../comp/ButtonLanjutSwal";
 
 const LokerTerbukaKurir = () => {
   return (
@@ -159,28 +161,8 @@ const LokerTerbukaKurir = () => {
                 height: "3rem",
               }}
             >
-              {" "}
               <Link to="">
-                <Button
-                  variant="primary"
-                  size="lg"
-                  style={{
-                    width: "20rem",
-                    borderRadius: "50px",
-                    backgroundColor: "#ffff",
-                    borderColor: "#CD2028",
-                    color: "#CD2028",
-
-                    //   marginLeft: "-10rem",
-                  }}
-                >
-                  Buka Loker Kembali
-                  <ImEnter
-                    style={{
-                      marginLeft: "3rem",
-                    }}
-                  />
-                </Button>
+                <ButtonBukaLokerKembali />
               </Link>
             </Container>
           </Col>
@@ -191,24 +173,7 @@ const LokerTerbukaKurir = () => {
               textAlign: "center",
             }}
           >
-            {/* <Button
-              href="/TerimaKasih"
-              variant="primary"
-              size="lg"
-              style={{
-                width: "10rem",
-                // marginLeft: "30rem",
-                // // marginRight: "-50rem",
-                borderRadius: "50px",
-                backgroundColor: "#CD2028",
-                borderColor: "#CD2028",
-                marginRight: "-10rem",
-              }}
-            >
-              Next
-              <FaArrowRight style={{ marginLeft: "3rem" }} />
-            </Button> */}
-            <ModalTerimaKasih />
+            <ButtonLanjutSwal />
           </Col>
         </Row>
       </Container>

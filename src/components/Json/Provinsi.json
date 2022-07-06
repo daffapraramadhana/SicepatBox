@@ -1,5 +1,5 @@
 {
-  "provinsi" : [
+  "namaprovinsi" : [
   { "id": 11, "nama": "Aceh" },
   { "id": 12, "nama": "Sumatera Utara" },
   { "id": 13, "nama": "Sumatera Barat" },

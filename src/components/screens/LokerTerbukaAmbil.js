@@ -10,17 +10,15 @@ import { ImEnter } from "react-icons/im";
 import checkbox from "../image/checkbox.svg";
 import ambil from "../image/ambil.svg";
 import ModalTerimaKasih from "../comp/ModalTerimaKasih";
+import SwalTerimaKasih from "../comp/SwalTerimaKasih";
+import SweetAlertThank from "../comp/SweetAlertThank";
+import ButtonLanjutSwal from "../comp/ButtonLanjutSwal";
+import NavbarMenu from "../comp/NavbarMenu";
 
 const LokerTerbukaAmbil = () => {
   return (
     <div className="">
-      <Navbar class="navbar navbar-light">
-        <Container>
-          <Navbar.Brand className="logo">
-            <p className="text">Sibox</p>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
+      <NavbarMenu />
 
       <body>
         <Container style={{ marginTop: "7rem" }}>
@@ -184,8 +182,9 @@ const LokerTerbukaAmbil = () => {
               textAlign: "center",
             }}
           >
+            <ButtonLanjutSwal />
             {/* <Button
-              href="/TerimaKasih"
+              onClick={SwalTerimaKasih}
               variant="primary"
               size="lg"
               style={{
@@ -201,7 +200,7 @@ const LokerTerbukaAmbil = () => {
               Next
               <FaArrowRight style={{ marginLeft: "3rem" }} />
             </Button> */}
-            <ModalTerimaKasih />
+            {/* <ModalTerimaKasih /> */}
           </Col>
         </Row>
       </Container>

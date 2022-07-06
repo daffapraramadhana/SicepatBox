@@ -4,17 +4,14 @@ import "../screens/style.css";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "react-phone-number-input/style.css";
+import ButtonBack from "../comp/ButtonBack";
+import ButtonLanjut from "../comp/ButtonLanjut";
+import NavbarMenu from "../comp/NavbarMenu";
 
 const DetailPengirimanKurir = () => {
   return (
     <div className="">
-      <Navbar class="navbar navbar-light">
-        <Container>
-          <Navbar.Brand className="logo">
-            <p className="text">Sibox</p>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
+      <NavbarMenu />
 
       <body>
         <h3
@@ -164,23 +161,9 @@ const DetailPengirimanKurir = () => {
               textAlign: "center",
             }}
           >
-            <Button
-              href="/LokerTerbukakurir"
-              variant="primary"
-              size="lg"
-              style={{
-                width: "10rem",
-                // marginLeft: "30rem",
-                // // marginRight: "-50rem",
-                borderRadius: "50px",
-                backgroundColor: "#CD2028",
-                borderColor: "#CD2028",
-                marginRight: "-10rem",
-              }}
-            >
-              Next
-              <FaArrowRight style={{ marginLeft: "3rem" }} />
-            </Button>
+            <Link to="/LokerTerbukaKurir">
+              <ButtonLanjut />
+            </Link>
           </Col>
         </Row>
       </Container>

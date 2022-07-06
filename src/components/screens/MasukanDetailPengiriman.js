@@ -5,19 +5,15 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import NavbarMenu from "../comp/NavbarMenu";
+import ButtonBack from "../comp/ButtonBack";
+import ButtonLanjut from "../comp/ButtonLanjut";
 
 const MasukanDetailPengiriman = () => {
   const [value, setValue] = useState();
   return (
     <div className="">
-      <Navbar class="navbar navbar-light">
-        <Container>
-          <Navbar.Brand className="logo">
-            <p className="text">Sibox</p>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
-
+      <NavbarMenu />
       <body>
         <h3
           style={{
@@ -29,7 +25,7 @@ const MasukanDetailPengiriman = () => {
         </h3>
 
         <Container>
-          <Form style={{ fontSize: "20px" }}>
+          <Form style={{ fontSize: "25px" }}>
             <Form.Group controlId="formName">
               <Form.Label>Penerima :</Form.Label>
               <Form.Control type="text" placeholder="Masukan Nama Pengirim " />
@@ -66,55 +62,6 @@ const MasukanDetailPengiriman = () => {
           </Form>
         </Container>
       </body>
-
-      {/* <Container
-        style={{
-          position: "absolute",
-          bottom: "0",
-          marginBottom: "3rem",
-        }}
-      >
-        <Row>
-          <Col>
-            <Link to="/PelangganKirimScanInput">
-              <Button
-                variant="primary"
-                size="lg"
-                style={{
-                  width: "5rem",
-                  borderRadius: "50px",
-                  backgroundColor: "#CD2028",
-                  borderColor: "#CD2028",
-                }}
-              >
-                <FaArrowLeft
-                  style={{
-                    marginBottom: "5px",
-                  }}
-                />
-              </Button>
-            </Link>
-          </Col>
-          <Col>
-            <Button
-              href="/MasukanDetailPenerima"
-              variant="primary"
-              size="lg"
-              style={{
-                width: "10rem",
-                // marginLeft: "30rem",
-                // // marginRight: "-50rem",
-                borderRadius: "50px",
-                backgroundColor: "#CD2028",
-                borderColor: "#CD2028",
-              }}
-            >
-              Next
-              <FaArrowRight style={{ marginLeft: "3rem" }} />
-            </Button>
-          </Col>
-        </Row>
-      </Container> */}
       <Container
         fluid
         style={{
@@ -137,23 +84,7 @@ const MasukanDetailPengiriman = () => {
             }}
           >
             <Link to="/PelangganKirimScanInput">
-              <Button
-                variant="primary"
-                size="lg"
-                style={{
-                  width: "5rem",
-                  borderRadius: "50px",
-                  backgroundColor: "#CD2028",
-                  borderColor: "#CD2028",
-                  marginLeft: "-10rem",
-                }}
-              >
-                <FaArrowLeft
-                  style={{
-                    marginBottom: "5px",
-                  }}
-                />
-              </Button>
+              <ButtonBack />
             </Link>
           </Col>
 
@@ -178,23 +109,9 @@ const MasukanDetailPengiriman = () => {
               textAlign: "center",
             }}
           >
-            <Button
-              href="/MasukanDetailPenerima"
-              variant="primary"
-              size="lg"
-              style={{
-                width: "10rem",
-                // marginLeft: "30rem",
-                // // marginRight: "-50rem",
-                borderRadius: "50px",
-                backgroundColor: "#CD2028",
-                borderColor: "#CD2028",
-                marginRight: "-10rem",
-              }}
-            >
-              Lanjut
-              <FaArrowRight style={{ marginLeft: "3rem" }} />
-            </Button>
+            <Link to="/MasukanDetailPenerima">
+              <ButtonLanjut />
+            </Link>
           </Col>
         </Row>
       </Container>

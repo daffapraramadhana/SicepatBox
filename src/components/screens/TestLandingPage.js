@@ -125,7 +125,7 @@ const TestLandingPage = () => {
                     color: "white",
                   }}
                 >
-                  Sibox - Suppermall Karawaci
+                  #SSK | Sibox - Suppermall Karawaci
                 </Col>
                 <Col></Col>
                 <Col></Col>

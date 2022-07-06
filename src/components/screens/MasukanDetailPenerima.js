@@ -7,6 +7,10 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import Select from "react-select";
 import provinsi from "../Json/Provinsi";
+import ButtonBack from "../comp/ButtonBack";
+import ButtonLanjut from "../comp/ButtonLanjut";
+import NavbarMenu from "../comp/NavbarMenu";
+import FormProvinsi from "../comp/FormProvinsi";
 
 const options = [
   { value: "kuningan", label: "Sibox-Kuningan City" },
@@ -18,13 +22,7 @@ const MasukanDetailPenerima = () => {
   const [value, setValue] = useState();
   return (
     <div className="">
-      <Navbar class="navbar navbar-light">
-        <Container>
-          <Navbar.Brand className="logo">
-            <p className="text">Sibox</p>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
+      <NavbarMenu />
 
       <body>
         <h3
@@ -73,54 +71,23 @@ const MasukanDetailPenerima = () => {
               />
             </Form.Group>
             <Row>
-              <Col>
-                <Form.Group
+              {/* <Form.Group
                   controlId="formProvinsi"
                   style={{
                     marginTop: "1.5rem",
                   }}
                 >
                   <Form.Label>Provinsi :</Form.Label>
-                  <Select>
-                    <Option>1</Option>
-                  </Select>
-                </Form.Group>
-              </Col>
-              <Col>
-                <Form.Group
-                  controlId="formKota"
-                  style={{
-                    marginTop: "1.5rem",
-                  }}
-                >
-                  <Form.Label>Kota/kabupaten :</Form.Label>
-                  <Select options={options} />
-                </Form.Group>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Form.Group
-                  controlId="formKecamatan"
-                  style={{
-                    marginTop: "1.5rem",
-                  }}
-                >
-                  <Form.Label>Kecamatan :</Form.Label>
-                  <Select options={options} />
-                </Form.Group>
-              </Col>
-              <Col>
-                <Form.Group
-                  controlId="formProvinsi"
-                  style={{
-                    marginTop: "1.5rem",
-                  }}
-                >
-                  <Form.Label>Kodepos :</Form.Label>
-                  <Select options={options} />
-                </Form.Group>
-              </Col>
+                  <select>
+                    <option selected disabled="true">
+                      Pilih Provinsi
+                    </option>
+                    {provinsi.namaprovinsi.map((result) => (
+                      <option value={result.id}>{result.nama}</option>
+                    ))}
+                  </select> 
+                </Form.Group> */}
+              <FormProvinsi />
             </Row>
           </Form>
         </Container>
@@ -197,23 +164,7 @@ const MasukanDetailPenerima = () => {
             }}
           >
             <Link to="/MasukanDetailPengiriman">
-              <Button
-                variant="primary"
-                size="lg"
-                style={{
-                  width: "5rem",
-                  borderRadius: "50px",
-                  backgroundColor: "#CD2028",
-                  borderColor: "#CD2028",
-                  marginLeft: "-10rem",
-                }}
-              >
-                <FaArrowLeft
-                  style={{
-                    marginBottom: "5px",
-                  }}
-                />
-              </Button>
+              <ButtonBack />
             </Link>
           </Col>
 
@@ -238,23 +189,9 @@ const MasukanDetailPenerima = () => {
               textAlign: "center",
             }}
           >
-            <Button
-              href="/MasukanDimensi"
-              variant="primary"
-              size="lg"
-              style={{
-                width: "10rem",
-                // marginLeft: "30rem",
-                // // marginRight: "-50rem",
-                borderRadius: "50px",
-                backgroundColor: "#CD2028",
-                borderColor: "#CD2028",
-                marginRight: "-10rem",
-              }}
-            >
-              Lanjut
-              <FaArrowRight style={{ marginLeft: "3rem" }} />
-            </Button>
+            <Link to="/MasukanDimensi">
+              <ButtonLanjut />
+            </Link>
           </Col>
         </Row>
       </Container>

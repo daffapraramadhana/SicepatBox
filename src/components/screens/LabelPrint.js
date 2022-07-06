@@ -9,24 +9,22 @@ import box from "../image/box.svg";
 import { ImEnter } from "react-icons/im";
 import checkbox from "../image/checkbox.svg";
 import ModalTerimaKasih from "../comp/ModalTerimaKasih";
+import ButtonBack from "../comp/ButtonBack";
+import ButtonLanjut from "../comp/ButtonLanjut";
+import NavbarMenu from "../comp/NavbarMenu";
+import ButtonBukaLokerKembali from "../comp/ButtonBukaLokerKembali";
+import ButtonLanjutSwal from "../comp/ButtonLanjutSwal";
 
 const LabelPrint = () => {
   return (
     <div className="">
-      <Navbar class="navbar navbar-light">
-        <Container>
-          <Navbar.Brand className="logo">
-            <p className="text">Sibox</p>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
+      <NavbarMenu />
 
       <body>
-        <Container>
+        <Container style={{ marginTop: "5rem" }}>
           <Row>
             <Col>
               <Container>
-                {" "}
                 <h3
                   style={{
                     textAlign: "center",
@@ -93,9 +91,8 @@ const LabelPrint = () => {
                 </h3>
               </Container>
             </Col>
-          </Row>
-          <Row>
             <Col>
+              {" "}
               <Container>
                 {" "}
                 <h3
@@ -189,26 +186,7 @@ const LabelPrint = () => {
               }}
             >
               <Link to="">
-                <Button
-                  variant="primary"
-                  size="lg"
-                  style={{
-                    width: "20rem",
-                    borderRadius: "50px",
-                    backgroundColor: "#ffff",
-                    borderColor: "#CD2028",
-                    color: "#CD2028",
-
-                    //   marginLeft: "-10rem",
-                  }}
-                >
-                  Buka Loker Kembali
-                  <ImEnter
-                    style={{
-                      marginLeft: "3rem",
-                    }}
-                  />
-                </Button>
+                <ButtonBukaLokerKembali />
               </Link>
             </Container>
           </Col>
@@ -219,23 +197,7 @@ const LabelPrint = () => {
               textAlign: "center",
             }}
           >
-            {/* <Button
-              variant="primary"
-              size="lg"
-              style={{
-                width: "10rem",
-                // marginLeft: "30rem",
-                // // marginRight: "-50rem",
-                borderRadius: "50px",
-                backgroundColor: "#CD2028",
-                borderColor: "#CD2028",
-                marginRight: "-10rem",
-              }}
-            >
-              Next
-              <FaArrowRight style={{ marginLeft: "3rem" }} />
-            </Button> */}
-            <ModalTerimaKasih />
+            <ButtonLanjutSwal />
           </Col>
         </Row>
       </Container>
