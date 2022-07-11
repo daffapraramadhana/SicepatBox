@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   Container,
@@ -14,8 +14,45 @@ import "react-phone-number-input/style.css";
 import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
 import NavbarMenu from "../comp/NavbarMenu";
+import axios from "axios";
+import Swal from "sweetalert2";
+import Cookies from "js-cookie";
 
 const LoginKurir = () => {
+  const url = "http://localhost:3005/service/courier-login";
+  const [data, setData] = useState({
+    username: "",
+    password: "",
+  });
+
+  function handle(e) {
+    const newdata = { ...data };
+    newdata[e.target.id] = e.target.value;
+    setData(newdata);
+    console.log(newdata);
+  }
+
+  function kirim() {
+    // preventDefault();
+    console.log(data);
+    axios
+      .post(url, {
+        username: data.username,
+        password: data.password,
+      })
+      .then((res) => {
+        console.log(res.data.response.code);
+        if (res.data.response.code == 200) {
+          // simpen Cookies
+          window.location.href = "/DashboardKurir";
+        } else {
+          Swal.fire({
+            text: res.data.response.message,
+            icon: "error",
+          });
+        }
+      });
+  }
   return (
     <div className="">
       <NavbarMenu />
@@ -38,29 +75,59 @@ const LoginKurir = () => {
             display: "flex",
           }}
         >
-          <Row>
+          <Row style={{ marginLeft: "5rem" }}>
             <Col>
-              <FormControl
+              <input
+                id="username"
+                value={data.username}
+                placeholder="Username"
+                onChange={(e) => handle(e)}
                 style={{
                   width: "30rem",
                   height: "5rem",
                   borderRadius: "50px",
                   fontSize: "20px",
+                  textAlign: "center",
                 }}
-                placeholder="Username"
               />
             </Col>
             <Col>
-              <FormControl
+              <input
+                id="password"
+                value={data.password}
+                placeholder="password"
+                type="password"
+                onChange={(e) => handle(e)}
                 style={{
                   width: "30rem",
                   height: "5rem",
                   borderRadius: "50px",
                   fontSize: "20px",
+                  textAlign: "center",
                 }}
-                placeholder="Password"
-                type="password"
               />
+            </Col>
+            <Col>
+              <button
+                onClick={kirim}
+                style={{
+                  width: "5rem",
+                  height: "5rem",
+                  borderRadius: "50px",
+                  // fontSize: "20px",
+                  backgroundColor: "#CD2028",
+                  borderColor: "#CD2028",
+                }}
+              >
+                <FaArrowRight
+                  style={{
+                    margin: "auto",
+                    height: "2rem",
+                    width: "3rem",
+                    color: "white",
+                  }}
+                />
+              </button>
             </Col>
           </Row>
         </Container>
@@ -113,9 +180,9 @@ const LoginKurir = () => {
               textAlign: "center",
             }}
           >
-            <Link to="/DashboardKurir">
+            {/* <Link to="/DashboardKurir">
               <ButtonLanjut />
-            </Link>
+            </Link> */}
           </Col>
         </Row>
       </Container>

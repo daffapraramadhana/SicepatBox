@@ -9,10 +9,57 @@ import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
 import NavbarMenu from "../comp/NavbarMenu";
 import ButtonHome from "../comp/ButtonHome";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const InputPinAmbil = () => {
+  const url = "http://localhost:3005/service/take-package";
   const [code, setCode] = useState("");
   const [completed, setCompleted] = useState(false);
+
+  if (completed) {
+    axios
+      .post(url, {
+        validate_code: code,
+      })
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.response.code == 200) {
+          window.location.href = "/LokerTerbukaAmbil";
+        } else {
+          Swal.fire({
+            text: "Kode Yang Anda Masukan Salah",
+            icon: "error",
+            timer: 1000,
+          });
+          setTimeout(function () {
+            window.location.href = "/InputPinAmbil"; //will redirect to your blog page (an ex: blog.html)
+          }, 2000);
+        }
+      });
+  }
+
+  function kirim() {
+    console.log(code);
+    // preventDefault();
+    // console.log(input);
+    // axios
+    //   .post(url, {
+    //     validate_code: code,
+    //   })
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     if (res.data.response.code == 200) {
+    //       window.location.href = "/LokerTerbukaKurir";
+    //     } else {
+    //       Swal.fire({
+    //         text: "Kode Yang Anda Masukan Salah",
+    //         icon: "error",
+    //       });
+    //     }
+    //   });
+  }
+
   return (
     <div className="">
       <NavbarMenu />
@@ -47,6 +94,7 @@ const InputPinAmbil = () => {
             }}
           />
         </div>
+        <div>{code}</div>
       </body>
 
       <Container

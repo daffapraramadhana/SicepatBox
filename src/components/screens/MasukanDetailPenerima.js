@@ -11,6 +11,8 @@ import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
 import NavbarMenu from "../comp/NavbarMenu";
 import FormProvinsi from "../comp/FormProvinsi";
+import Keyboard from "react-simple-keyboard";
+import "react-simple-keyboard/build/css/index.css";
 
 const options = [
   { value: "kuningan", label: "Sibox-Kuningan City" },
@@ -34,7 +36,7 @@ const MasukanDetailPenerima = () => {
           Masukan Detail Penerima
         </h3>
 
-        <Container>
+        <Container className="scrollable-div">
           <Form style={{ fontSize: "20px" }}>
             <Form.Group controlId="formName">
               <Form.Label>Penerima :</Form.Label>
@@ -91,6 +93,7 @@ const MasukanDetailPenerima = () => {
             </Row>
           </Form>
         </Container>
+        <Keyboard />
       </body>
 
       {/* <Container

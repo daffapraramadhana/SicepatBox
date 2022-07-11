@@ -22,6 +22,7 @@ import InputKodeKurir from "./components/screens/InputKodeKurir";
 import DetailPengirimanKurir from "./components/screens/DetailPengirimanKurir";
 import LokerTerbukaKurir from "./components/screens/LokerTerbukaKurir";
 import TestJson from "./components/screens/TestJson";
+import MasukanDimensiKurir from "./components/screens/MasukanDimensiKurir";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
         />
         <Route path="/LokerTerbukaKurir" element={<LokerTerbukaKurir />} />
         <Route path="/TestJson" element={<TestJson />} />
+        <Route path="/MasukanDimensiKurir" element={<MasukanDimensiKurir />} />
       </Routes>
     </Router>
   );

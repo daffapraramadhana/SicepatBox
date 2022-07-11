@@ -28,7 +28,11 @@ const MasukanDetailPengiriman = () => {
           <Form style={{ fontSize: "25px" }}>
             <Form.Group controlId="formName">
               <Form.Label>Penerima :</Form.Label>
-              <Form.Control type="text" placeholder="Masukan Nama Pengirim " />
+              <Form.Control
+                type="text"
+                placeholder="Masukan Nama Pengirim "
+                style={{ fontSize: "30px" }}
+              />
             </Form.Group>
             <Form.Group
               controlId="form.TelpPengirim"
@@ -57,6 +61,7 @@ const MasukanDetailPengiriman = () => {
                 type="text"
                 value="Sibox - Suppermall Karawaci"
                 readOnly
+                style={{ fontSize: "30px" }}
               />
             </Form.Group>
           </Form>

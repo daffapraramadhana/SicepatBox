@@ -1,10 +1,11 @@
+import Cookies from "js-cookie";
 import React, { useState } from "react";
 import styled from "styled-components";
 
 const Button = styled.button`
-  background-color: #d9d9d9;
-  bordercolor: red;
-  color: black;
+  background-color: #cd2028;
+  bordercolor: black;
+  color: white;
   font-size: 20px;
   padding: 50px 70px;
   border-radius: 50px;
@@ -17,10 +18,11 @@ const Button = styled.button`
   }
   &:active {
     color: red;
+    backgroundcolor: red;
   }
 `;
 const ButtonToggle = styled(Button)`
-  opacity: 0.6;
+  opacity: 0.2;
   ${({ active }) =>
     active &&
     `
@@ -39,6 +41,8 @@ const lokers = [
 
 function ButtonDimensi() {
   const [active, setActive] = useState();
+  Cookies.set("dimensi", active);
+  console.log(Cookies.get("dimensi"));
   return (
     <ButtonGroup>
       {lokers.map((loker, index) => (
@@ -60,5 +64,4 @@ function ButtonDimensi() {
     </ButtonGroup>
   );
 }
-
 export default ButtonDimensi;

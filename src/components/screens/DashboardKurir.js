@@ -16,12 +16,12 @@ import kurirdrop from "../image/kurirdrop.svg";
 import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
 import NavbarMenu from "../comp/NavbarMenu";
+import Cookies from "js-cookie";
 
 const DashboardKurir = () => {
   return (
     <div className="">
       <NavbarMenu />
-
       <body>
         <Container
           fluid
@@ -204,7 +204,6 @@ const DashboardKurir = () => {
           </div>
         </Container>
       </body>
-
       {/* <Container
         fluid
         style={{

@@ -50,7 +50,7 @@ const TestLandingPage = () => {
               justifyContent: "center",
               display: "flex",
               fontWeight: "500",
-              fontSize: "30px",
+              fontSize: "25px",
             }}
           >
             <Clock />

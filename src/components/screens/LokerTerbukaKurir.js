@@ -18,7 +18,7 @@ import { ImEnter } from "react-icons/im";
 import checkbox from "../image/checkbox.svg";
 import ModalTerimaKasih from "../comp/ModalTerimaKasih";
 import ButtonBukaLokerKembali from "../comp/ButtonBukaLokerKembali";
-import ButtonLanjutSwal from "../comp/ButtonLanjutSwal";
+import ButtonLanjutSwalKurirDrop from "../comp/ButtonLanjutSwalKurirDrop";
 
 const LokerTerbukaKurir = () => {
   return (
@@ -173,7 +173,7 @@ const LokerTerbukaKurir = () => {
               textAlign: "center",
             }}
           >
-            <ButtonLanjutSwal />
+            <ButtonLanjutSwalKurirDrop />
           </Col>
         </Row>
       </Container>
