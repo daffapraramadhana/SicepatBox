@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "react-phone-number-input/style.css";
 import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
-import NavbarMenu from "../comp/NavbarMenu";
+import NavbarMenu2 from "../comp/NavbarMenu2";
 import axios from "axios";
 import Cookies from "js-cookie";
 
@@ -18,7 +18,7 @@ const DetailPengirimanKurir = () => {
   Cookies.get("alamattujuan");
   return (
     <div className="">
-      <NavbarMenu />
+      <NavbarMenu2 />
       <body>
         <h3
           style={{

@@ -15,13 +15,13 @@ import "react-phone-number-input/style.css";
 import kurirdrop from "../image/kurirdrop.svg";
 import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
-import NavbarMenu from "../comp/NavbarMenu";
+import NavbarMenu2 from "../comp/NavbarMenu2";
 import Cookies from "js-cookie";
 
 const DashboardKurir = () => {
   return (
     <div className="">
-      <NavbarMenu />
+      <NavbarMenu2 />
       <body>
         <Container
           fluid

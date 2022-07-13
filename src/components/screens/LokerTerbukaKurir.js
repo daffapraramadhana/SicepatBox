@@ -19,17 +19,12 @@ import checkbox from "../image/checkbox.svg";
 import ModalTerimaKasih from "../comp/ModalTerimaKasih";
 import ButtonBukaLokerKembali from "../comp/ButtonBukaLokerKembali";
 import ButtonLanjutSwalKurirDrop from "../comp/ButtonLanjutSwalKurirDrop";
+import NavbarMenu from "../comp/NavbarMenu2";
 
 const LokerTerbukaKurir = () => {
   return (
     <div className="">
-      <Navbar class="navbar navbar-light">
-        <Container>
-          <Navbar.Brand className="logo">
-            <p className="text">Sibox</p>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
+      <NavbarMenu />
 
       <body>
         <Container style={{ marginTop: "7rem" }}>
@@ -146,15 +141,6 @@ const LokerTerbukaKurir = () => {
                 />
               </Button>
             </Link> */}
-          </Col>
-
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
             <Container
               style={{
                 backgroundColor: "none",
@@ -166,6 +152,14 @@ const LokerTerbukaKurir = () => {
               </Link>
             </Container>
           </Col>
+
+          <Col
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          ></Col>
           <Col
             style={{
               alignItems: "center",

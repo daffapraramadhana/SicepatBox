@@ -5,7 +5,7 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import NavbarMenu from "../comp/NavbarMenu";
+import NavbarMenu2 from "../comp/NavbarMenu2";
 import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
 
@@ -13,7 +13,7 @@ const MasukanDetailPengiriman = () => {
   const [value, setValue] = useState();
   return (
     <div className="">
-      <NavbarMenu />
+      <NavbarMenu2 />
       <body>
         <h3
           style={{

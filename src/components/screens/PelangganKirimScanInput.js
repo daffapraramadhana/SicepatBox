@@ -3,7 +3,7 @@ import { Navbar, Container, Row, Button, Col } from "react-bootstrap";
 import "../screens/style.css";
 import { FaHome, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import NavbarMenu from "../comp/NavbarMenu";
+import NavbarMenu2 from "../comp/NavbarMenu2";
 import ButtonHome from "../comp/ButtonHome";
 import ButtonBelumPesan from "../comp/ButtonBelumPesan";
 import ButtonLanjut from "../comp/ButtonLanjut";
@@ -45,7 +45,7 @@ const PelangganKirimScanInput = () => {
 
   return (
     <div className="">
-      <NavbarMenu />
+      <NavbarMenu2 />
 
       <body>
         <h3

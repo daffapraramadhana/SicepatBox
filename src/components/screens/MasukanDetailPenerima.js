@@ -9,22 +9,16 @@ import Select from "react-select";
 import provinsi from "../Json/Provinsi";
 import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
-import NavbarMenu from "../comp/NavbarMenu";
+import NavbarMenu2 from "../comp/NavbarMenu2";
 import FormProvinsi from "../comp/FormProvinsi";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
-
-const options = [
-  { value: "kuningan", label: "Sibox-Kuningan City" },
-  { value: "karawaci", label: "Sibox-Lippo Karawaci" },
-  { value: "depok", label: "Sibox-Margocity" },
-];
 
 const MasukanDetailPenerima = () => {
   const [value, setValue] = useState();
   return (
     <div className="">
-      <NavbarMenu />
+      <NavbarMenu2 />
 
       <body>
         <h3

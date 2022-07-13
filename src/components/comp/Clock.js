@@ -3,14 +3,6 @@ import { Row, Col } from "react-bootstrap";
 import { FaCalendar, FaClock } from "react-icons/fa";
 
 function Clock() {
-  // const [clockState, setClockState] = useState();
-
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     const date = new Date();
-  //     setClockState(date.toLocaleTimeString());
-  //   }, 1000);
-  // }, []);
   const [dateState, setDateState] = useState(new Date());
   useEffect(() => {
     setInterval(() => setDateState(new Date()), 1000);
@@ -23,9 +15,9 @@ function Clock() {
         textAlign: "center",
         display: "flex",
         flexDirection: "column",
-        margin: "10px",
+        margin: "auto",
         alignItems: "center",
-        marginTop: "10px",
+        // marginTop: "10px",
       }}
     >
       <Row>

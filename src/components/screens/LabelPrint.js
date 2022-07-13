@@ -11,14 +11,14 @@ import checkbox from "../image/checkbox.svg";
 import ModalTerimaKasih from "../comp/ModalTerimaKasih";
 import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
-import NavbarMenu from "../comp/NavbarMenu";
+import NavbarMenu2 from "../comp/NavbarMenu2";
 import ButtonBukaLokerKembali from "../comp/ButtonBukaLokerKembali";
 import ButtonLanjutSwal from "../comp/ButtonLanjutSwal";
 
 const LabelPrint = () => {
   return (
     <div className="">
-      <NavbarMenu />
+      <NavbarMenu2 />
 
       <body>
         <Container style={{ marginTop: "5rem" }}>

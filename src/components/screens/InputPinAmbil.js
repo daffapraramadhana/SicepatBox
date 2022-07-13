@@ -7,7 +7,7 @@ import { FaHome, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
-import NavbarMenu from "../comp/NavbarMenu";
+import NavbarMenu2 from "../comp/NavbarMenu2";
 import ButtonHome from "../comp/ButtonHome";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -62,7 +62,7 @@ const InputPinAmbil = () => {
 
   return (
     <div className="">
-      <NavbarMenu />
+      <NavbarMenu2 />
 
       <body>
         <h3
@@ -79,8 +79,9 @@ const InputPinAmbil = () => {
             className="field-a"
             length={6}
             onChange={setCode}
-            validate={/^[0-9]$/}
+            validate={/^[a-zA-Z0-9]$/}
             onComplete={() => setCompleted(true)}
+            format={(k) => k.toUpperCase()}
             style={{
               backgroundColor: "#ebeffc",
               borderRadius: "50px",
@@ -94,7 +95,6 @@ const InputPinAmbil = () => {
             }}
           />
         </div>
-        <div>{code}</div>
       </body>
 
       <Container

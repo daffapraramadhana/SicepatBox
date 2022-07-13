@@ -13,12 +13,12 @@ import ModalTerimaKasih from "../comp/ModalTerimaKasih";
 import SwalTerimaKasih from "../comp/SwalTerimaKasih";
 import SweetAlertThank from "../comp/SweetAlertThank";
 import ButtonLanjutSwal from "../comp/ButtonLanjutSwal";
-import NavbarMenu from "../comp/NavbarMenu";
+import NavbarMenu2 from "../comp/NavbarMenu2";
 
 const LokerTerbukaAmbil = () => {
   return (
     <div className="">
-      <NavbarMenu />
+      <NavbarMenu2 />
 
       <body>
         <Container style={{ marginTop: "7rem" }}>

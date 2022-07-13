@@ -7,7 +7,7 @@ import { FaHome, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { Link, Navigate } from "react-router-dom";
 import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
-import NavbarMenu from "../comp/NavbarMenu";
+import NavbarMenu2 from "../comp/NavbarMenu2";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
@@ -62,7 +62,7 @@ const InputKodeKurir = () => {
 
   return (
     <div className="">
-      <NavbarMenu />
+      <NavbarMenu2 />
 
       <body>
         <h3

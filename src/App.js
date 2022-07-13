@@ -23,12 +23,13 @@ import DetailPengirimanKurir from "./components/screens/DetailPengirimanKurir";
 import LokerTerbukaKurir from "./components/screens/LokerTerbukaKurir";
 import TestJson from "./components/screens/TestJson";
 import MasukanDimensiKurir from "./components/screens/MasukanDimensiKurir";
+import ReworkLandingPage from "./components/screens/ReworkLandingPage";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<TestLandingPage />} />
+        <Route path="/" element={<ReworkLandingPage />} />
         <Route
           path="/PelangganKirimScanInput"
           element={<PelangganKirimScanInput />}

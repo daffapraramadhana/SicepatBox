@@ -3,30 +3,35 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Button = styled.button`
-  background-color: #cd2028;
+  ${"" /* background-color: #ffff; */}
   bordercolor: black;
-  color: white;
+  color: red;
   font-size: 20px;
   padding: 50px 70px;
   border-radius: 50px;
   margin: 10px 10px;
   cursor: pointer;
   &:disabled {
-    color: black;
+    color: red;
+    background-color: white;
     opacity: 1;
     cursor: default;
   }
   &:active {
-    color: red;
-    backgroundcolor: red;
+    color: white;
+    background-color: red;
   }
 `;
 const ButtonToggle = styled(Button)`
-  opacity: 0.2;
+  opacity: 0.3;
+  color: red;
+  background-color: white;
   ${({ active }) =>
     active &&
     `
     opacity: 1;
+    color: white;
+    background-color: red;
   `}
 `;
 const ButtonGroup = styled.div`

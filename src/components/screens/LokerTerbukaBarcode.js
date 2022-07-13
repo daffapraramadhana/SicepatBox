@@ -11,12 +11,12 @@ import checkbox from "../image/checkbox.svg";
 import ModalTerimaKasih from "../comp/ModalTerimaKasih";
 import ButtonLanjutSwal from "../comp/ButtonLanjutSwal";
 import ButtonBukaLokerKembali from "../comp/ButtonBukaLokerKembali";
-import NavbarMenu from "../comp/NavbarMenu";
+import NavbarMenu2 from "../comp/NavbarMenu2";
 
 const LokerTerbukaBarcode = () => {
   return (
     <div className="">
-      <NavbarMenu />
+      <NavbarMenu2 />
 
       <body>
         <Container style={{ marginTop: "7rem" }}>

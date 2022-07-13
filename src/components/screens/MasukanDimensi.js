@@ -7,12 +7,12 @@ import "react-phone-number-input/style.css";
 import ButtonDimensi from "../comp/ButtonDimensi";
 import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
-import NavbarMenu from "../comp/NavbarMenu";
+import NavbarMenu2 from "../comp/NavbarMenu2";
 
 const MasukanDimensi = () => {
   return (
     <div className="">
-      <NavbarMenu />
+      <NavbarMenu2 />
 
       <Container fluid>
         <h3

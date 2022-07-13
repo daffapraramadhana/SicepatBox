@@ -44,23 +44,10 @@ export default class FormProvinsi extends Component {
   handleChange(selectedOption) {
     this.setState({ selectedOption });
 
-    // console.log(selectedOption);
-    // console.log(this.state.Kabupatens[0]);
-    // let optionsKabupaten = this.state.Kabupatens.map(function (val, key) {
-    //   console.log(val.nama, val.id.substring(0, 2), selectedOption.value);
-    //   if (val.id.substring(0, 2) === selectedOption.value) {
-    //     // console.log(val.nama);
-    //     return { value: val.id, label: val.nama };
-    //   }
-    //   // kabupaten.map(function (kabupaten_1) {
-    //   // return { value: kabupaten_1.id, label: kabupaten_1.nama };
-    //   // });
-    // });
-
     let optionsKabupaten = [];
+    console.log(selectedOption.label);
     this.state.Kabupatens.forEach(function (value) {
       if (value.id.substring(0, 2) == selectedOption.value) {
-        console.log("masuk");
         optionsKabupaten.push({ value: value.id, label: value.nama });
       }
     });
@@ -78,13 +65,17 @@ export default class FormProvinsi extends Component {
 
   handleChange2(selectedOptionKabupaten) {
     let optionsKecamatan = [];
+    console.log(selectedOptionKabupaten.label);
     kecamatan.forEach(function (value) {
       if (value.id.substring(0, 4) == selectedOptionKabupaten.value) {
-        console.log("masuk");
         optionsKecamatan.push({ value: value.id, label: value.nama });
       }
     });
     this.setState({ listkecamatan: optionsKecamatan });
+  }
+
+  handleChange3(selectedOptionKecamatan) {
+    console.log(selectedOptionKecamatan.label);
   }
 
   render() {
@@ -163,7 +154,7 @@ export default class FormProvinsi extends Component {
               <Select
                 name="form-field-name"
                 value={this.state.selectedOptionKecamatan}
-                onChange={this.handleChange2}
+                onChange={this.handleChange3}
                 clearable={this.state.clearable}
                 searchable={this.state.searchable}
                 // labelKey="nama"
