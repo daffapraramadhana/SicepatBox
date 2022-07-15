@@ -199,6 +199,7 @@ const LoginKurir = () => {
             layoutName={layoutName}
             onChangeAll={onChangeAll}
             onKeyPress={onKeyPress}
+            theme={"hg-theme-default myTheme1"}
           />
         </div>
       </body>
