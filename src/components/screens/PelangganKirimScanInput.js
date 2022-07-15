@@ -98,12 +98,26 @@ const PelangganKirimScanInput = () => {
             }}
             placeholder="Masukan kode Pemesanan"
           />
-          <Keyboard
-            keyboardRef={(r) => (keyboard.current = r)}
-            layoutName={layout}
-            onChange={onChange}
-            onKeyPress={onKeyPress}
-          />
+          <div
+            style={{
+              display: "flex",
+              // backgroundColor: "rgba(0, 0, 0, 0.1)",
+              justifyContent: "center",
+              width: "1000px",
+              // height: "1000px",
+              margin: "0 auto",
+              borderRadius: "100px",
+              marginTop: "5rem",
+            }}
+          >
+            <Keyboard
+              keyboardRef={(r) => (keyboard.current = r)}
+              layoutName={layout}
+              onChange={onChange}
+              onKeyPress={onKeyPress}
+              theme={"hg-theme-default myTheme1"}
+            />
+          </div>
         </div>
       </body>
 

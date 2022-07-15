@@ -80,11 +80,11 @@ function ReworkLandingPage() {
                     href="/Loginkurir"
                     style={{
                       backgroundColor: "white",
-                      width: "100%",
+                      width: "90%",
                       height: "30%",
                       display: "flex",
                       alignItems: "center",
-                      borderRadius: "50px",
+                      borderRadius: "50px 50px 0px 0px",
                       justifyContent: "space-evenly",
                       top: "0",
                       color: "black",
@@ -104,7 +104,7 @@ function ReworkLandingPage() {
                       flexDirection: "column",
                       alignItems: "center",
                       justifyContent: "center",
-                      borderRadius: "0px 0px 20px 20px",
+                      borderRadius: "0px 0px 50px 50px",
                       boxShadow: "5px 10px 10px 5px #000000cc",
                     }}
                   >
@@ -230,7 +230,7 @@ function ReworkLandingPage() {
                 height: "400px",
                 width: "400px",
                 boxShadow: "10px 10px 10px #000000cc",
-                borderRadius: "0px 100% 100% 100%",
+                borderRadius: "50px 50px 50px 50px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -255,8 +255,8 @@ function ReworkLandingPage() {
                 backgroundColor: "#ffff",
                 height: "400px",
                 width: "400px",
-                boxShadow: "-10px -10px 10px  #000000cc",
-                borderRadius: "100% 100% 0 100%",
+                boxShadow: "10px 10px 10px  #000000cc",
+                borderRadius: "50px 50px 50px 50px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Navbar, Container, Row, Button, Col, Form } from "react-bootstrap";
 import "../screens/style.css";
 // import PinField from "../comp/PinFields.js";
@@ -11,11 +11,40 @@ import NavbarMenu2 from "../comp/NavbarMenu2";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
+import Keyboard from "react-simple-keyboard";
 
 const InputKodeKurir = () => {
   const url = "http://localhost:3005/service/courier-check-package";
   const [input, setInput] = useState("");
   console.log(input);
+
+  const [layout, setLayout] = useState("default");
+  const keyboard = useRef();
+
+  const onChange = (input) => {
+    setInput(input);
+    console.log("Input changed", input);
+  };
+
+  const handleShift = () => {
+    const newLayoutName = layout === "default" ? "shift" : "default";
+    setLayout(newLayoutName);
+  };
+
+  const onKeyPress = (button) => {
+    console.log("Button pressed", button);
+
+    /**
+     * If you want to handle the shift and caps lock buttons
+     */
+    if (button === "{shift}" || button === "{lock}") handleShift();
+  };
+
+  const onChangeInput = (event) => {
+    const input = event.target.value;
+    setInput(input);
+    keyboard.current.setInput(input);
+  };
 
   function kirim() {
     // preventDefault();
@@ -127,6 +156,26 @@ const InputKodeKurir = () => {
             </Col>
           </Row>
         </Container>
+        <div
+          style={{
+            display: "flex",
+            // backgroundColor: "rgba(0, 0, 0, 0.1)",
+            justifyContent: "center",
+            width: "1000px",
+            // height: "1000px",
+            margin: "0 auto",
+            borderRadius: "100px",
+            marginTop: "5rem",
+          }}
+        >
+          <Keyboard
+            keyboardRef={(r) => (keyboard.current = r)}
+            layoutName={layout}
+            onChange={onChange}
+            onKeyPress={onKeyPress}
+            theme={"hg-theme-default myTheme1"}
+          />
+        </div>
       </body>
 
       <Container
