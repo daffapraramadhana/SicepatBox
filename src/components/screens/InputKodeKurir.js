@@ -116,6 +116,7 @@ const InputKodeKurir = () => {
             <Col>
               <form>
                 <input
+                  autoFocus
                   type="text"
                   onChange={(e) => setInput(e.target.value)}
                   value={input}

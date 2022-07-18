@@ -126,6 +126,7 @@ const LoginKurir = () => {
           <Row style={{ marginLeft: "5rem" }}>
             <Col>
               <input
+                autoFocus
                 id="username"
                 value={getInputValue("username")}
                 onFocus={() => setInputName("username")}

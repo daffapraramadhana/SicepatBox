@@ -24,12 +24,13 @@ import LokerTerbukaKurir from "./components/screens/LokerTerbukaKurir";
 import TestJson from "./components/screens/TestJson";
 import MasukanDimensiKurir from "./components/screens/MasukanDimensiKurir";
 import ReworkLandingPage from "./components/screens/ReworkLandingPage";
+import ReworkLandingPage2 from "./components/screens/ReworkLandingPage2";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ReworkLandingPage />} />
+        <Route path="/" element={<ReworkLandingPage2 />} />
         <Route
           path="/PelangganKirimScanInput"
           element={<PelangganKirimScanInput />}
@@ -67,6 +68,8 @@ function App() {
         <Route path="/LokerTerbukaKurir" element={<LokerTerbukaKurir />} />
         <Route path="/TestJson" element={<TestJson />} />
         <Route path="/MasukanDimensiKurir" element={<MasukanDimensiKurir />} />
+        <Route path="/ReworkLandingPage" element={<ReworkLandingPage />} />
+        <Route path="/TestLandingPage" element={<TestLandingPage />} />
       </Routes>
     </Router>
   );

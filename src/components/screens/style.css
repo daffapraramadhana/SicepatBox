@@ -140,6 +140,7 @@ code {
     border-radius: 0;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    font-size: 25px;
 }
 
 .simple-keyboard.myTheme1 .hg-button {

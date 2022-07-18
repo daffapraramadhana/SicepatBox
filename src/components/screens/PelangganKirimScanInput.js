@@ -84,6 +84,7 @@ const PelangganKirimScanInput = () => {
           }}
         >
           <input
+            autoFocus
             type="text"
             value={input}
             onChange={onChangeInput}
