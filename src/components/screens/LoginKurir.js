@@ -112,7 +112,7 @@ const LoginKurir = () => {
             marginTop: "5rem",
           }}
         >
-          Login Kurir
+          LOGIN KURIR
         </h3>
         <Container
           style={{

@@ -108,7 +108,7 @@ const PelangganKirimScanInput = () => {
               // height: "1000px",
               margin: "0 auto",
               borderRadius: "100px",
-              marginTop: "5rem",
+              marginTop: "2rem",
             }}
           >
             <Keyboard

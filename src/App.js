@@ -25,6 +25,7 @@ import TestJson from "./components/screens/TestJson";
 import MasukanDimensiKurir from "./components/screens/MasukanDimensiKurir";
 import ReworkLandingPage from "./components/screens/ReworkLandingPage";
 import ReworkLandingPage2 from "./components/screens/ReworkLandingPage2";
+import ReworkLandingPage3 from "./components/screens/ReworkLandingPage3";
 
 function App() {
   return (
@@ -70,6 +71,7 @@ function App() {
         <Route path="/MasukanDimensiKurir" element={<MasukanDimensiKurir />} />
         <Route path="/ReworkLandingPage" element={<ReworkLandingPage />} />
         <Route path="/TestLandingPage" element={<TestLandingPage />} />
+        <Route path="/ReworkLandingPage3" element={<ReworkLandingPage3 />} />
       </Routes>
     </Router>
   );

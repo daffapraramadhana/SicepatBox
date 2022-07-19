@@ -21,10 +21,10 @@ function Clock() {
       }}
     >
       <Row>
-        <Col xs lg="3">
+        <Col sm={2}>
           <FaCalendar style={{ marginBottom: "5px" }} />
         </Col>
-        <Col md="auto">
+        <Col sm={10}>
           <p>
             {dateState.toLocaleDateString("en-GB", {
               day: "numeric",
@@ -35,10 +35,10 @@ function Clock() {
         </Col>
       </Row>
       <Row>
-        <Col xs lg="3">
+        <Col sm={2}>
           <FaClock style={{ marginBottom: "5px", marginRight: "20px" }} />
         </Col>
-        <Col md="auto">
+        <Col sm={10}>
           <p>
             {dateState.toLocaleString("en-US", {
               hour: "numeric",

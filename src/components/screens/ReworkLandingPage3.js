@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Image, Button, Col, Row } from "react-bootstrap";
+import { Image, Button, Col, Row, Navbar, Container } from "react-bootstrap";
 import ambil from "../image/ambil.svg";
 import kirim from "../image/kirim.svg";
 import sicepatbg from "../image/sicepatbg.jpg";
@@ -8,8 +8,10 @@ import { FaUser } from "react-icons/fa";
 import video from "../video/iklan.mp4";
 import NavbarMenuHome from "../comp/NavbarMenuHome";
 import axios from "axios";
+import Marquee from "react-fast-marquee";
+import Clock from "../comp/Clock";
 
-function ReworkLandingPage2() {
+function ReworkLandingPage3() {
   const url = "http://localhost:3005/service/empty-box";
   const [data, setData] = useState({});
 
@@ -107,7 +109,49 @@ function ReworkLandingPage2() {
                 backgroundColor: "rgba(0,0,0,0.4)",
               }}
             >
-              <NavbarMenuHome />
+              <Navbar
+                style={{
+                  backgroundColor: "transparent",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Container>
+                  <Navbar.Text
+                    style={{
+                      color: "white",
+                      fontSize: "50px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Sibox
+                  </Navbar.Text>
+
+                  {/* <div
+                    style={{
+                      backgroundColor: "white",
+                      borderRadius: "20px",
+                      textAlign: "center",
+                      color: "black",
+                      height: "50px",
+                      textAlign: "center",
+                      alignItems: "center",
+                      display: "flex",
+                      fontSize: "18px",
+                      padding: "10px 10px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    <BsBuilding style={{ marginRight: "20px" }} />
+                    #SSK | Sibox - Suppermall Karawaci
+                  </div> */}
+                  <Navbar.Text
+                    style={{ color: "white", fontSize: "20px", padding: "0" }}
+                  >
+                    <Clock />
+                  </Navbar.Text>
+                </Container>
+              </Navbar>
               <div
                 style={{
                   textAlign: "center",
@@ -115,12 +159,12 @@ function ReworkLandingPage2() {
                   // color: "white",
                 }}
               >
-                <h1 style={{ color: "white" }}>
+                {/* <h1 style={{ color: "white" }}>
                   Hallo !!! Kirim dan Ambil Paket Anda Disini
                 </h1>
                 <h2 style={{ color: "white" }}>
                   Selamat Datang di Sibox - Suppermall Karawaci
-                </h2>
+                </h2> */}
 
                 <div
                   style={{
@@ -291,6 +335,25 @@ function ReworkLandingPage2() {
                     Selamat Datang di Sibox - Suppermall Karawaci
                   </h2> */}
                 </div>
+                <div
+                  style={{
+                    display: "flex",
+                    bottom: "0",
+                    backgroundColor: "#AF2322AA",
+                    position: "absolute",
+                    width: "100%",
+                    height: "3rem",
+                  }}
+                >
+                  <Marquee
+                    speed={100}
+                    loop={0}
+                    gradientColor="false"
+                    style={{ color: "white", fontSize: "30px" }}
+                  >
+                    Hallo !!! Kirim dan Ambil Paket Anda Disini&nbsp;&nbsp;
+                  </Marquee>
+                </div>
               </div>
             </div>
           </div>
@@ -307,7 +370,7 @@ function ReworkLandingPage2() {
               justifyContent: "space-evenly",
             }}
           >
-            {/* <div
+            <div
               style={{
                 backgroundColor: "transparent",
                 display: "flex",
@@ -327,7 +390,7 @@ function ReworkLandingPage2() {
                 <BsBuilding style={{ marginRight: "20px" }} />
                 #SSK | Sibox - Suppermall Karawaci
               </div>
-            </div> */}
+            </div>
             <div
               style={{
                 right: "0",
@@ -517,4 +580,4 @@ function ReworkLandingPage2() {
   );
 }
 
-export default ReworkLandingPage2;
+export default ReworkLandingPage3;
