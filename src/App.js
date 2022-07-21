@@ -26,12 +26,13 @@ import MasukanDimensiKurir from "./components/screens/MasukanDimensiKurir";
 import ReworkLandingPage from "./components/screens/ReworkLandingPage";
 import ReworkLandingPage2 from "./components/screens/ReworkLandingPage2";
 import ReworkLandingPage3 from "./components/screens/ReworkLandingPage3";
+import MasukanDetailPenerimaLanjut from "./components/screens/MasukanDetailPenerimaLanjut";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ReworkLandingPage2 />} />
+        <Route path="/" element={<ReworkLandingPage3 />} />
         <Route
           path="/PelangganKirimScanInput"
           element={<PelangganKirimScanInput />}
@@ -71,7 +72,11 @@ function App() {
         <Route path="/MasukanDimensiKurir" element={<MasukanDimensiKurir />} />
         <Route path="/ReworkLandingPage" element={<ReworkLandingPage />} />
         <Route path="/TestLandingPage" element={<TestLandingPage />} />
-        <Route path="/ReworkLandingPage3" element={<ReworkLandingPage3 />} />
+        <Route path="/ReworkLandingPage2" element={<ReworkLandingPage2 />} />
+        <Route
+          path="/MasukanDetailPenerimaLanjut"
+          element={<MasukanDetailPenerimaLanjut />}
+        />
       </Routes>
     </Router>
   );

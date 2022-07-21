@@ -8,6 +8,30 @@ import "react-phone-number-input/style.css";
 import NavbarMenu2 from "../comp/NavbarMenu2";
 import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
+import InputPengirimKeyboard from "../comp/InputPengirimKeyboard";
+import Cookies from "js-cookie";
+import Swal from "sweetalert2";
+
+function lanjut() {
+  if (
+    Cookies.get("pengirim") == "undefined" ||
+    "" ||
+    Cookies.get("notelppengirim") == "undefined" ||
+    ""
+  ) {
+    Swal.fire({
+      position: "center",
+      icon: "warning",
+      title: "Silahkan Mengisi Data Terlebih Dahulu",
+      showConfirmButton: false,
+      // timer: 1500,
+      // confirmButtonText: "close",
+    });
+  } else {
+    window.location.href = "/MasukanDetailPenerima";
+    // console.log(Cookies.get("penerima"));
+  }
+}
 
 const MasukanDetailPengiriman = () => {
   const [value, setValue] = useState();
@@ -18,14 +42,16 @@ const MasukanDetailPengiriman = () => {
         <h3
           style={{
             textAlign: "center",
-            marginTop: "5rem",
+            marginTop: "3rem",
+            marginBottom: "3rem",
           }}
         >
           Masukan Detail Pengirim
         </h3>
 
         <Container>
-          <Form style={{ fontSize: "25px" }}>
+          <InputPengirimKeyboard />
+          {/* <Form style={{ fontSize: "25px" }}>
             <Form.Group controlId="formName">
               <Form.Label>Penerima :</Form.Label>
               <Form.Control
@@ -42,12 +68,10 @@ const MasukanDetailPengiriman = () => {
             >
               <Form.Label>No Telpon Pengirim :</Form.Label>
 
-              <PhoneInput
-                placeholder="Masukan Nomer Telepon"
-                countryCallingCodeEditable={false}
-                defaultCountry="ID"
-                value={value}
-                onChange={setValue}
+              <Form.Control
+                type="text"
+                placeholder="Masukan Nomer Telpon Pengirim "
+                style={{ fontSize: "30px" }}
               />
             </Form.Group>
             <Form.Group
@@ -64,7 +88,7 @@ const MasukanDetailPengiriman = () => {
                 style={{ fontSize: "30px" }}
               />
             </Form.Group>
-          </Form>
+          </Form> */}
         </Container>
       </body>
       <Container
@@ -114,9 +138,9 @@ const MasukanDetailPengiriman = () => {
               textAlign: "center",
             }}
           >
-            <Link to="/MasukanDetailPenerima">
+            <div onClick={lanjut}>
               <ButtonLanjut />
-            </Link>
+            </div>
           </Col>
         </Row>
       </Container>

@@ -6,7 +6,6 @@ function ButtonLanjut() {
   return (
     <div>
       <Button
-        href="/DetailPengirimanBarcode"
         variant="primary"
         size="lg"
         style={{
@@ -30,7 +29,7 @@ function ButtonLanjut() {
             // backgroundColor: "black",
             margin: "auto",
             textAlign: "center",
-            marginTop: "1rem",
+            // marginTop: "1rem",
           }}
         >
           <h3 style={{ margin: "auto" }}>Lanjut</h3>

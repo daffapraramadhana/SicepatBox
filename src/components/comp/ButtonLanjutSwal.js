@@ -2,12 +2,39 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import SwalTerimaKasih from "../comp/SwalTerimaKasih";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import Cookies from "js-cookie";
+import Swal from "sweetalert2";
+
+function kirim() {
+  Swal.fire({
+    position: "center",
+    icon: "success",
+    title: "TerimaKasih",
+    showConfirmButton: false,
+    timer: 1500,
+    // confirmButtonText: "close",
+  })
+    .then(function () {
+      Cookies.remove("pengirim");
+      Cookies.remove("notelppengirim");
+      Cookies.remove("penerima");
+      Cookies.remove("notelppenerima");
+      Cookies.remove("alamatpenerima");
+      Cookies.remove("provinsi");
+      Cookies.remove("kabupaten");
+      Cookies.remove("kecamatan");
+      Cookies.remove("dimensi");
+    })
+    .then(function () {
+      window.location.href = "/";
+    });
+}
 
 function ButtonLanjutSwal() {
   return (
     <div>
       <Button
-        onClick={SwalTerimaKasih}
+        onClick={kirim}
         variant="primary"
         size="lg"
         style={{

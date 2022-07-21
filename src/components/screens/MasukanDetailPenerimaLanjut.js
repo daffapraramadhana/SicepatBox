@@ -14,14 +14,19 @@ import FormProvinsi from "../comp/FormProvinsi";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import InputPenerimaKeyboard from "../comp/InputPenerimaKeyboard";
+import InputPenerimaKeyboardLanjut from "../comp/InputPenerimaKeyboardLanjut";
 import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 
 function lanjut() {
   if (
-    Cookies.get("penerima") == "undefined" ||
+    Cookies.get("alamatpenerima") == "undefined" ||
     "" ||
-    Cookies.get("notelppenerima") == "undefined" ||
+    Cookies.get("provinsi") == "undefined" ||
+    "" ||
+    Cookies.get("kabupaten") == "undefined" ||
+    "" ||
+    Cookies.get("kecamatan") == "undefined" ||
     ""
   ) {
     Swal.fire({
@@ -33,12 +38,15 @@ function lanjut() {
       // confirmButtonText: "close",
     });
   } else {
-    window.location.href = "/MasukanDetailPenerimaLanjut";
+    window.location.href = "/MasukanDimensi";
     // console.log(Cookies.get("penerima"));
   }
 }
 
-const MasukanDetailPenerima = () => {
+const MasukanDetailPenerimaLanjut = () => {
+  Cookies.set("provinsi");
+  Cookies.set("kabupaten");
+  Cookies.set("kecamatan");
   return (
     <div className="">
       <NavbarMenu2 />
@@ -54,7 +62,7 @@ const MasukanDetailPenerima = () => {
           Masukan Detail Penerima
         </h3>
         <Container>
-          <InputPenerimaKeyboard />
+          <InputPenerimaKeyboardLanjut />
         </Container>
       </body>
       {/* <Form style={{ fontSize: "25px" }}>
@@ -168,7 +176,7 @@ const MasukanDetailPenerima = () => {
               textAlign: "center",
             }}
           >
-            <Link to="/MasukanDetailPengiriman">
+            <Link to="/MasukanDetailPenerima">
               <ButtonBack />
             </Link>
           </Col>
@@ -204,4 +212,4 @@ const MasukanDetailPenerima = () => {
   );
 };
 
-export default MasukanDetailPenerima;
+export default MasukanDetailPenerimaLanjut;

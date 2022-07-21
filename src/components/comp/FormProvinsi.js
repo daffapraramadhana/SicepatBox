@@ -4,6 +4,8 @@ import Select from "react-select";
 import provinsi from "../Json/Provinsi.json";
 import kabupaten from "../Json/KabupatenTest.json";
 import kecamatan from "../Json/Kecamatan.json";
+import "../screens/style.css";
+import Cookies from "js-cookie";
 
 export default class FormProvinsi extends Component {
   constructor(props) {
@@ -46,6 +48,7 @@ export default class FormProvinsi extends Component {
 
     let optionsKabupaten = [];
     console.log(selectedOption.label);
+    Cookies.set("provinsi", selectedOption.label);
     this.state.Kabupatens.forEach(function (value) {
       if (value.id.substring(0, 2) == selectedOption.value) {
         optionsKabupaten.push({ value: value.id, label: value.nama });
@@ -66,6 +69,7 @@ export default class FormProvinsi extends Component {
   handleChange2(selectedOptionKabupaten) {
     let optionsKecamatan = [];
     console.log(selectedOptionKabupaten.label);
+    Cookies.set("kabupaten", selectedOptionKabupaten.label);
     kecamatan.forEach(function (value) {
       if (value.id.substring(0, 4) == selectedOptionKabupaten.value) {
         optionsKecamatan.push({ value: value.id, label: value.nama });
@@ -76,6 +80,7 @@ export default class FormProvinsi extends Component {
 
   handleChange3(selectedOptionKecamatan) {
     console.log(selectedOptionKecamatan.label);
+    Cookies.set("kecamatan", selectedOptionKecamatan.label);
   }
 
   render() {
@@ -98,6 +103,10 @@ export default class FormProvinsi extends Component {
     //   }
     // );
 
+    // Cookies.set("provinsi", selectedOption.label);
+    // Cookies.set("kabupaten", selectedOptionKabupaten.label);
+    // Cookies.set("kecamatan", selectedOptionKecamatan.label);
+
     return (
       <div>
         <Row>
@@ -110,7 +119,7 @@ export default class FormProvinsi extends Component {
             >
               <Form.Label>Provinsi :</Form.Label>
               <Select
-                name="form-field-name"
+                className="selectprovinsi"
                 value={this.state.selectedOption}
                 onChange={this.handleChange}
                 clearable={this.state.clearable}
@@ -128,9 +137,9 @@ export default class FormProvinsi extends Component {
                 marginTop: "1.5rem",
               }}
             >
-              <Form.Label>kabupaten :</Form.Label>
+              <Form.Label>Kabupaten :</Form.Label>
               <Select
-                name="form-field-name"
+                className="selectkabupaten"
                 value={this.state.selectedOptionKabupaten}
                 onChange={this.handleChange2}
                 clearable={this.state.clearable}
@@ -152,7 +161,7 @@ export default class FormProvinsi extends Component {
             >
               <Form.Label>Kecamatan :</Form.Label>
               <Select
-                name="form-field-name"
+                className="selectkecamatan"
                 value={this.state.selectedOptionKecamatan}
                 onChange={this.handleChange3}
                 clearable={this.state.clearable}

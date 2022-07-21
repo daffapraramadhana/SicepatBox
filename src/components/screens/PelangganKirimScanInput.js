@@ -51,7 +51,7 @@ const PelangganKirimScanInput = () => {
         <h3
           style={{
             textAlign: "center",
-            marginTop: "5rem",
+            marginTop: "3rem",
           }}
         >
           SCAN BARCODE ATAU INPUT KODE PEMESANAN
@@ -92,7 +92,7 @@ const PelangganKirimScanInput = () => {
               width: "50rem",
               height: "6rem",
               borderRadius: "50px",
-              marginTop: "5rem",
+              marginTop: "3rem",
               textAlign: "center",
               fontSize: "30px",
               backgroundColor: "#CED4D3CC",
@@ -108,7 +108,7 @@ const PelangganKirimScanInput = () => {
               // height: "1000px",
               margin: "0 auto",
               borderRadius: "100px",
-              marginTop: "2rem",
+              marginTop: "3rem",
             }}
           >
             <Keyboard
