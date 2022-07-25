@@ -19,30 +19,47 @@ import NavbarMenu2 from "../comp/NavbarMenu2";
 import Cookies from "js-cookie";
 
 const DashboardKurir = () => {
+  function logout() {
+    window.location.href = "/";
+  }
+
   return (
     <div className="">
       <NavbarMenu2 />
-      <body>
-        <Container
-          fluid
+      <body
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          display: "flex",
+          margin: "auto",
+          marginTop: "3rem",
+        }}
+      >
+        <div
           style={{
             display: "flex",
+            // position: "position",
             alignItems: "center",
-            bottom: 0,
-            marginLeft: "10rem",
-            marginRight: "10rem",
-            width: "auto",
-            height: "91vh",
+            // bottom: 0,
+            // marginLeft: "10rem",
+            // marginRight: "10rem",
+            width: "100%",
+            height: "100%",
+            // height: "91vh",
             flexDirection: "row",
-            justifyContent: "Space-between",
-            marginTop: "2rem",
+            justifyContent: "Space-around",
+            marginTop: "1rem",
+            // marginTop: "2rem",
+            // padding: "50px",
           }}
         >
           <div
             style={{
-              height: "100vh",
+              // height: "100vh",
               width: "45%",
-              marginTop: "-10rem",
+              // marginTop: "-10rem",
+              // padding: "30px",
+              marginLeft: "7rem",
             }}
           >
             <Container
@@ -50,7 +67,6 @@ const DashboardKurir = () => {
                 backgroundColor: "#D9D9D9",
                 height: "30vh",
                 width: "90%",
-                marginTop: "15vh",
                 display: "flex",
                 alignItems: "center",
                 textAlign: "center",
@@ -66,33 +82,55 @@ const DashboardKurir = () => {
                   }}
                 />
                 <form style={{ fontSize: "20px" }}>
-                  <div class="form-group row">
-                    <label for="Pengirim" class="col-sm-3 col-form-label">
-                      Nama :
-                    </label>
-                    <div class="col-sm-7">
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      marginTop: "20px",
+                    }}
+                  >
+                    <label class="col-sm-3 col-form-label">Nama :</label>
+                    <div class="col-sm-5">
                       <input
                         type="text"
-                        readonly
+                        disabled
+                        value="Akmal Fauzan"
                         class="form-control-plaintext"
-                        id="namakurir"
-                        value="Akmal"
                       />
                     </div>
                   </div>
-                  <div class="form-group row">
-                    <label for="NoPengirim" class="col-sm-3 col-form-label">
-                      Logistik :
-                    </label>
-                    <div class="col-sm-7">
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <label class="col-sm-3 col-form-label">Logistik :</label>
+                    <div class="col-sm-5">
                       <input
                         type="text"
-                        readonly
-                        class="form-control-plaintext"
-                        id="logistik"
+                        disabled
                         value="Sicepat"
+                        class="form-control-plaintext"
                       />
                     </div>
+                  </div>
+                  <div>
+                    <Button
+                      onClick={logout}
+                      style={{
+                        width: "100px",
+                        height: "50px",
+                        borderRadius: "25px",
+                      }}
+                    >
+                      Logout
+                    </Button>
                   </div>
                 </form>
               </Col>
@@ -110,7 +148,7 @@ const DashboardKurir = () => {
                 borderRadius: "50px",
               }}
             >
-              <Container style={{}}>
+              <Container>
                 <Container
                   style={{
                     textAlign: "center",
@@ -137,74 +175,70 @@ const DashboardKurir = () => {
               </Container>
             </Button>
           </div>
-          <div
+          <Container
             style={{
-              backgroundColor: "white",
-              height: "100vh",
-              width: "45%",
+              // height: "100vh",
+              width: "30%",
+              height: "75vh",
+              // marginTop: "7vh",
+              border: "1px solid #CD2028",
+              display: "flex",
+              flexDirection: "column",
+              textAlign: "center",
             }}
           >
-            <Container
-              style={{
-                height: "75vh",
-                width: "90%",
-                marginTop: "7vh",
-                border: "1px solid #CD2028",
-                display: "flex",
-                flexDirection: "column",
-                textAlign: "center",
-              }}
-            >
-              <h3 style={{ marginTop: "5vh" }}>Paket Tersedia</h3>
-              <div style={{ marginTop: "3vh" }}>
-                <button
-                  fluid
-                  style={{
-                    height: "10vh",
-                    width: "100%",
-                    top: 0,
-                    border: "1px solid #CD2028",
-                    borderRadius: "20px",
-                  }}
-                ></button>
-                <button
-                  fluid
-                  style={{
-                    height: "10vh",
-                    width: "100%",
-                    top: 0,
-                    border: "1px solid #CD2028",
-                    marginTop: "20px",
-                    borderRadius: "20px",
-                  }}
-                ></button>
-                <button
-                  fluid
-                  style={{
-                    height: "10vh",
-                    width: "100%",
-                    top: 0,
-                    border: "1px solid #CD2028",
-                    marginTop: "20px",
-                    borderRadius: "20px",
-                  }}
-                ></button>
-                <button
-                  fluid
-                  style={{
-                    height: "10vh",
-                    width: "100%",
-                    top: 0,
-                    border: "1px solid #CD2028",
-                    marginTop: "20px",
-                    borderRadius: "20px",
-                  }}
-                ></button>
-              </div>
-            </Container>
-          </div>
-        </Container>
+            <h3 style={{ marginTop: "5vh" }}>Paket Tersedia</h3>
+            <div style={{ marginTop: "3vh" }}>
+              <button
+                fluid
+                style={{
+                  height: "10vh",
+                  width: "100%",
+                  top: 0,
+                  border: "1px solid #CD2028",
+                  borderRadius: "20px",
+                }}
+              ></button>
+              <button
+                fluid
+                style={{
+                  height: "10vh",
+                  width: "100%",
+                  top: 0,
+                  border: "1px solid #CD2028",
+                  marginTop: "20px",
+                  borderRadius: "20px",
+                }}
+              ></button>
+              <button
+                fluid
+                style={{
+                  height: "10vh",
+                  width: "100%",
+                  top: 0,
+                  border: "1px solid #CD2028",
+                  marginTop: "20px",
+                  borderRadius: "20px",
+                }}
+              ></button>
+              <button
+                fluid
+                style={{
+                  height: "10vh",
+                  width: "100%",
+                  top: 0,
+                  border: "1px solid #CD2028",
+                  marginTop: "20px",
+                  borderRadius: "20px",
+                }}
+              ></button>
+            </div>
+          </Container>
+        </div>
       </body>
+
+      {/*  */}
+      {/* </Container> */}
       {/* <Container
         fluid
         style={{

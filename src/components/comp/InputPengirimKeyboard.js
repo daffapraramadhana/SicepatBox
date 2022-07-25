@@ -42,7 +42,7 @@ class InputPengirimKeyboard extends Component {
     let layoutName = this.state.layoutName;
 
     this.setState({
-      layoutName: layoutName === "default" ? "shift" : "default",
+      layoutName: layoutName === "key" ? "shift" : "key",
     });
   };
 
@@ -187,56 +187,70 @@ class InputPengirimKeyboard extends Component {
               style={{ fontSize: "30px" }}
             />
           </Form.Group>
+          <div className={`keyboardContainer ${!keyboardOpen ? "hidden" : ""}`}>
+            <Keyboard
+              keyboardRef={(r) => (this.keyboard = r)}
+              inputName={this.state.inputName}
+              layoutName={this.state.layoutName}
+              onChangeAll={(inputObj) => this.onChangeAll(inputObj)}
+              onKeyPress={(button) => this.onKeyPress(button)}
+              theme={"hg-theme-default myTheme1"}
+              layout={{
+                ip: [
+                  "1 2 3",
+                  "4 5 6",
+                  "7 8 9",
+                  ". 0 {clear}",
+                  "{bksp} {close}",
+                ],
+                key: [
+                  "` 1 2 3 4 5 6 7 8 9 0 - = {bksp}",
+                  "{clear} q w e r t y u i o p [ ] \\",
+                  "{lock} a s d f g h j k l ; ' ",
+                  "{shift} z x c v b n m , . / {shift}",
+                  "{space} {close}",
+                ],
+                shift: [
+                  "~ ! @ # $ % ^ &amp; * ( ) _ + {bksp}",
+                  "{clear} Q W E R T Y U I O P { } |",
+                  '{lock} A S D F G H J K L : "',
+                  "{shift} Z X C V B N M &lt; &gt; ? {shift}",
+                  "{space} {close}",
+                  // "{close}",
+                ],
+              }}
+              display={{
+                "{clear}": "C",
+                "{bksp}": "&#129044",
+                "{close}": "close keyboard",
+                "{lock}": "CapsLock",
+                "{shift}": "shift",
+                "{space}": "   space   ",
+              }}
+              buttonTheme={[
+                {
+                  class: "hg-red",
+                  buttons: "{close}",
+                },
+                {
+                  class: "hg-green",
+                  buttons: "{clear}",
+                },
+              ]}
+            />
+            {/* <button className="submitBtn" onClick={this.submit}>
+                Submit
+              </button>
+              <button className="closeBtn" onClick={this.closeKeyboard}>
+                Close Keyboard
+              </button> */}
+          </div>
           <Form.Group
             controlId="formAlamat"
             style={{
               marginTop: "1.5rem",
             }}
           >
-            <div
-              className={`keyboardContainer ${!keyboardOpen ? "hidden" : ""}`}
-            >
-              <Keyboard
-                keyboardRef={(r) => (this.keyboard = r)}
-                inputName={this.state.inputName}
-                layoutName={this.state.layoutName}
-                onChangeAll={(inputObj) => this.onChangeAll(inputObj)}
-                onKeyPress={(button) => this.onKeyPress(button)}
-                theme={"hg-theme-default myTheme1"}
-                layout={{
-                  ip: [
-                    "1 2 3",
-                    "4 5 6",
-                    "7 8 9",
-                    ". 0 {clear}",
-                    "{bksp} {close}",
-                  ],
-                  key: [
-                    "q w e r t y u i o p {bksp}",
-                    "a s d f g h j k l",
-                    "z x c v b n m",
-                    "{clear} {close}",
-                  ],
-                }}
-                display={{
-                  "{clear}": "C",
-                  "{bksp}": "&#129044",
-                  "{close}": "close keyboard",
-                }}
-                buttonTheme={[
-                  {
-                    class: "hg-red",
-                    buttons: "{close}",
-                  },
-                ]}
-              />
-              {/* <button className="submitBtn" onClick={this.submit}>
-                Submit
-              </button>
-              <button className="closeBtn" onClick={this.closeKeyboard}>
-                Close Keyboard
-              </button> */}
-            </div>
             {/* {submittedData && (
               <div className={"submittedData"}>
                 <h4>Submitted Data:</h4>

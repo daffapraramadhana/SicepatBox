@@ -194,6 +194,11 @@ code {
     color: white;
 }
 
+.simple-keyboard.myTheme1 .hg-button.hg-green {
+    background: green;
+    color: white;
+}
+
 .keyboardContainerPenerima {  
     width: 800px;
     height: 400px;

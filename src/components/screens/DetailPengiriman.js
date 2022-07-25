@@ -45,12 +45,12 @@ const DetailPengiriman = () => {
         >
           <div
             style={{
-              fontSize: "30px",
+              fontSize: "25px",
               justifyContent: "center",
               alignItems: "center",
               // backgroundColor: "grey",
               // display: "flex",
-              marginTop: "20rem",
+              marginTop: "10rem",
               width: "100vw",
               marginLeft: "15rem",
             }}
@@ -58,16 +58,13 @@ const DetailPengiriman = () => {
             <Row>
               <Col>
                 <div class="form-group row ">
-                  <label for="Pengirim" class="col-sm-7 col-form-label">
+                  <label for="Pengirim" class="col-sm-3 col-form-label">
                     Pengirim
                   </label>
-                  <label
-                    for="Pengirim"
-                    class="col-sm-3 col-form-label border-end border-dark border-dark"
-                  >
+                  <label for="Pengirim" class="col-sm-1 col-form-label">
                     :
                   </label>
-                  <div class="col-sm-10 border-end border-dark">
+                  <div class="col-sm-3 ">
                     <input
                       type="text"
                       disabled
@@ -82,15 +79,15 @@ const DetailPengiriman = () => {
                 <div class="form-group row">
                   <label
                     for="Penerima"
-                    class="col-sm-7 col-form-label"
+                    class="col-sm-3 col-form-label"
                     color="#CD2028"
                   >
                     Penerima
                   </label>
-                  <label for="Pengirim" class="col-sm-3 col-form-label">
+                  <label for="Pengirim" class="col-sm-1 col-form-label">
                     :
                   </label>
-                  <div class="col-sm-7">
+                  <div class="col-sm-3">
                     <input
                       type="text"
                       disabled
@@ -106,16 +103,13 @@ const DetailPengiriman = () => {
             <Row>
               <Col>
                 <div class="form-group row">
-                  <label for="NoPengirim" class="col-sm-7 col-form-label">
+                  <label for="NoPengirim" class="col-sm-3 col-form-label">
                     Nomer Pengirim
                   </label>
-                  <label
-                    for="Pengirim"
-                    class="col-sm-3 col-form-label border-end border-dark"
-                  >
+                  <label for="Pengirim" class="col-sm-1 col-form-label ">
                     :
                   </label>
-                  <div class="col-sm-10 border-end border-dark">
+                  <div class="col-sm-5 ">
                     <input
                       type="tel"
                       disabled
@@ -128,10 +122,10 @@ const DetailPengiriman = () => {
               </Col>
               <Col>
                 <div class="form-group row">
-                  <label for="NoPenerima" class="col-sm-7 col-form-label">
+                  <label for="NoPenerima" class="col-sm-3 col-form-label">
                     Nomer Penerima
                   </label>
-                  <label for="Pengirim" class="col-sm-3 col-form-label">
+                  <label for="Pengirim" class="col-sm-1 col-form-label">
                     :
                   </label>
                   <div class="col-sm-5">
@@ -149,13 +143,11 @@ const DetailPengiriman = () => {
             <Row>
               <Col>
                 <div class="form-group row">
-                  <label for="NoPengirim" class="col-sm-7 col-form-label">
+                  <label for="NoPengirim" class="col-sm-3 col-form-label">
                     Berat Paket
                   </label>
-                  <label class="col-sm-3 col-form-label border-end border-dark">
-                    :
-                  </label>
-                  <div class="col-sm-10 border-end border-dark">
+                  <label class="col-sm-1 col-form-label ">:</label>
+                  <div class="col-sm-3 ">
                     <input
                       type="text"
                       disabled
@@ -168,11 +160,11 @@ const DetailPengiriman = () => {
               </Col>
               <Col>
                 <div class="form-group row">
-                  <label for="NoPengirim" class="col-sm-7 col-form-label">
+                  <label for="NoPengirim" class="col-sm-3 col-form-label">
                     Harga
                   </label>
-                  <label class="col-sm-3 col-form-label">:</label>
-                  <div class="col-sm-6">
+                  <label class="col-sm-1 col-form-label">:</label>
+                  <div class="col-sm-4">
                     <input
                       type="text"
                       disabled
@@ -187,29 +179,35 @@ const DetailPengiriman = () => {
 
             <Row>
               <Col>
-                <label class="col-sm-7 col-form-label">Alamat Tujuan</label>
-                <label
-                  class="col-sm-4 col-form-label "
-                  style={{ marginLeft: "-2rem" }}
-                >
-                  :
-                </label>
-              </Col>
-              <Col>
-                <textarea
-                  style={{
-                    height: "8rem",
-                    width: "30rem",
-                    textAlign: "justify",
-                  }}
-                  cols={10}
-                  disabled
-                  class="form-control-plaintext"
-                  id="AlamatTujuan"
-                  value={`${Cookies.get("alamatpenerima")},${Cookies.get(
-                    "kecamatan"
-                  )},${Cookies.get("kabupaten")},${Cookies.get("provinsi")}`}
-                />
+                <div class="form-group row">
+                  <label for="NoPengirim" class="col-sm-2 col-form-label">
+                    Alamat Tujuan
+                  </label>
+                  <label
+                    class="col-sm-1 col-form-label"
+                    style={{
+                      marginLeft: "-45px",
+                      width: "45px",
+                    }}
+                  >
+                    :
+                  </label>
+                  <textarea
+                    style={{
+                      height: "8rem",
+                      width: "30rem",
+                      textAlign: "justify",
+                    }}
+                    cols={10}
+                    disabled
+                    class="form-control-plaintext"
+                    id="AlamatTujuan"
+                    value={`${Cookies.get("alamatpenerima")},${Cookies.get(
+                      "kecamatan"
+                    )},${Cookies.get("kabupaten")},${Cookies.get("provinsi")}`}
+                  />
+                </div>
+                <div class="col-sm-5" style={{ backgroundColor: "blue" }}></div>
               </Col>
             </Row>
 

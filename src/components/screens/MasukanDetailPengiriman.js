@@ -11,6 +11,7 @@ import ButtonLanjut from "../comp/ButtonLanjut";
 import InputPengirimKeyboard from "../comp/InputPengirimKeyboard";
 import Cookies from "js-cookie";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 function lanjut() {
   if (
@@ -34,7 +35,23 @@ function lanjut() {
 }
 
 const MasukanDetailPengiriman = () => {
-  const [value, setValue] = useState();
+  const url = "http://localhost:3005/service/courier-check-package";
+  axios
+    .post(url, {
+      parcel_weight: Cookies.get("beratpaket"),
+      recipient_name: Cookies.get("penerima"),
+      recipient_phone: Cookies.get("notelppenerima"),
+      recipient_address: "Si-Box Suppermall Karawaci",
+      recipient_province: Cookies.get("provinsi"),
+      recipient_city: Cookies.get("kabupaten"),
+      recipient_district: Cookies.get("kecamatan"),
+      tarif: "25000",
+      shipper_name: Cookies.get("pengirim"),
+      insurance: "5000",
+      notes: "jangan di banting",
+    })
+    .then((res) => {});
+
   return (
     <div className="">
       <NavbarMenu2 />
