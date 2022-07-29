@@ -11,25 +11,15 @@ import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
 import NavbarMenu2 from "../comp/NavbarMenu2";
 import FormProvinsi from "../comp/FormProvinsi";
-import FormProvinsi2 from "../comp/FormProvinsi2";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import InputPenerimaKeyboard from "../comp/InputPenerimaKeyboard";
-import InputPenerimaKeyboardLanjut from "../comp/InputPenerimaKeyboardLanjut";
 import Cookies from "js-cookie";
 import Swal from "sweetalert2";
+import InputPaketkeyboard from "../comp/InputPaketKeyboard";
 
 function lanjut() {
-  if (
-    Cookies.get("alamatpenerima") == "undefined" ||
-    "" ||
-    Cookies.get("provinsi") == "undefined" ||
-    "" ||
-    Cookies.get("kabupaten") == "undefined" ||
-    "" ||
-    Cookies.get("kecamatan") == "undefined" ||
-    ""
-  ) {
+  if (Cookies.get("packagecontent") == "undefined" || "") {
     Swal.fire({
       position: "center",
       icon: "warning",
@@ -39,15 +29,12 @@ function lanjut() {
       // confirmButtonText: "close",
     });
   } else {
-    window.location.href = "/MasukanDetailPaket";
+    window.location.href = "/MasukanDimensi";
     // console.log(Cookies.get("penerima"));
   }
 }
 
-const MasukanDetailPenerimaLanjut = () => {
-  Cookies.set("provinsi");
-  Cookies.set("kabupaten");
-  Cookies.set("kecamatan");
+const MasukanDetailPaket = () => {
   return (
     <div className="">
       <NavbarMenu2 />
@@ -60,10 +47,10 @@ const MasukanDetailPenerimaLanjut = () => {
             marginBottom: "3rem",
           }}
         >
-          Masukan Detail Penerima
+          Masukan Detail Paket
         </h3>
         <Container>
-          <InputPenerimaKeyboardLanjut />
+          <InputPaketkeyboard />
         </Container>
       </body>
       {/* <Form style={{ fontSize: "25px" }}>
@@ -177,7 +164,7 @@ const MasukanDetailPenerimaLanjut = () => {
               textAlign: "center",
             }}
           >
-            <Link to="/MasukanDetailPenerima">
+            <Link to="/MasukanDetailPenerimaLanjut">
               <ButtonBack />
             </Link>
           </Col>
@@ -213,4 +200,4 @@ const MasukanDetailPenerimaLanjut = () => {
   );
 };
 
-export default MasukanDetailPenerimaLanjut;
+export default MasukanDetailPaket;

@@ -1,18 +1,18 @@
 import Cookies from "js-cookie";
 import React, { Component, useState } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { render } from "react-dom";
 import { BsArrowLeft } from "react-icons/bs";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import "../screens/style.css";
+import Swal from "sweetalert2";
 
 class InputBeratPaket extends Component {
   state = {
     layoutName: "key",
     inputName: "inputBeratPaket",
     input: {},
-    // Just for demo purposes
     submittedData: "",
     keyboardOpen: "",
   };
@@ -111,22 +111,56 @@ class InputBeratPaket extends Component {
     Cookies.set("beratpaket", input.inputBeratPaket);
     console.log(Cookies.get("beratpaket"));
 
+    function alert() {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title:
+          "Paket Anda Akan Di Lakukan Pengecekan Berat Kembali Oleh Pihak Logistik",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+
     return (
       <div style={{ display: "flex", flexDirection: "row" }}>
         <Form style={{ fontSize: "25px" }}>
           <Form.Group controlId="formName">
             <Form.Label>Berat Paket :</Form.Label>
-            <Form.Control
-              onFocus={() => {
-                this.setActiveInput("inputBeratPaket");
-                this.setState({ layoutName: "ip" });
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
               }}
-              value={`${input["inputBeratPaket"] || ""} ${"kg"}`}
-              onChange={(e) => this.onChangeInput(e)}
-              type="text"
-              placeholder="Estimasi Berat Paket "
-              style={{ fontSize: "30px", textAlign: "center" }}
-            />
+            >
+              <Form.Control
+                onFocus={() => {
+                  this.setActiveInput("inputBeratPaket");
+                  this.setState({ layoutName: "ip" });
+                }}
+                value={`${input["inputBeratPaket"] || ""} ${"kg"}`}
+                onChange={(e) => this.onChangeInput(e)}
+                type="text"
+                placeholder="Estimasi Berat Paket "
+                style={{ fontSize: "30px", textAlign: "center" }}
+              />
+              <Button
+                onClick={alert}
+                style={{
+                  marginLeft: "20px",
+                  width: "50px",
+                  height: "50px",
+                  borderRadius: "50%",
+                  backgroundColor: "#CD2028",
+                  borderColor: "#CD2028",
+                  fontSize: "25px",
+                }}
+              >
+                i
+              </Button>
+            </div>
           </Form.Group>
 
           <div

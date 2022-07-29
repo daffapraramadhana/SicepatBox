@@ -24,6 +24,9 @@ function kirim() {
       Cookies.remove("kabupaten");
       Cookies.remove("kecamatan");
       Cookies.remove("dimensi");
+      Cookies.remove("packagecontent");
+      Cookies.remove("beratpaket");
+      Cookies.remove("packagevalue");
     })
     .then(function () {
       window.location.href = "/";

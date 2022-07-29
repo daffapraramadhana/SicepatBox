@@ -211,6 +211,7 @@ code {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
+    z-index: 5;
 
 }
 
@@ -263,4 +264,16 @@ code {
     margin-left: auto;
     margin-right: auto;
 
+}
+
+.radio {
+    font-family: sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+[aria-hidden="true"] {
+    display: none;
+    margin-top: 20px;
 }

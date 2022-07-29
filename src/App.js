@@ -27,6 +27,7 @@ import ReworkLandingPage from "./components/screens/ReworkLandingPage";
 import ReworkLandingPage2 from "./components/screens/ReworkLandingPage2";
 import ReworkLandingPage3 from "./components/screens/ReworkLandingPage3";
 import MasukanDetailPenerimaLanjut from "./components/screens/MasukanDetailPenerimaLanjut";
+import MasukanDetailPaket from "./components/screens/MasukanDetailPaket";
 
 function App() {
   return (
@@ -77,6 +78,7 @@ function App() {
           path="/MasukanDetailPenerimaLanjut"
           element={<MasukanDetailPenerimaLanjut />}
         />
+        <Route path="/MasukanDetailPaket" element={<MasukanDetailPaket />} />
       </Routes>
     </Router>
   );

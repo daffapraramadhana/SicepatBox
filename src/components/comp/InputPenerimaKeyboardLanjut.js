@@ -6,6 +6,7 @@ import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import "../screens/style.css";
 import FormProvinsi from "./FormProvinsi";
+import FormProvinsi2 from "./FormProvinsi2";
 import Cookies from "js-cookie";
 
 class InputPengirimKeyboard extends Component {
@@ -13,7 +14,6 @@ class InputPengirimKeyboard extends Component {
     layoutName: "key",
     inputName: "inputAlamatPenerima",
     input: {},
-    // Just for demo purposes
     submittedData: "",
     keyboardOpen: "",
   };
@@ -113,46 +113,8 @@ class InputPengirimKeyboard extends Component {
 
     return (
       <div>
-        {/* <Form style={{ fontSize: "25px" }}>
-            <Form.Group controlId="formName">
-              <Form.Label>Penerima :</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Masukan Nama Pengirim "
-                style={{ fontSize: "30px" }}
-              />
-            </Form.Group>
-            <Form.Group
-              controlId="form.TelpPengirim"
-              style={{
-                marginTop: "1.5rem",
-              }}
-            >
-              <Form.Label>No Telpon Pengirim :</Form.Label>
-
-              <Form.Control
-                type="text"
-                placeholder="Masukan Nomer Telpon Pengirim "
-                style={{ fontSize: "30px" }}
-              />
-            </Form.Group>
-            <Form.Group
-              controlId="formAlamat"
-              style={{
-                marginTop: "1.5rem",
-              }}
-            >
-              <Form.Label>Alamat :</Form.Label>
-              <Form.Control
-                type="text"
-                value="Sibox - Suppermall Karawaci"
-                readOnly
-                style={{ fontSize: "30px" }}
-              />
-            </Form.Group>
-          </Form> */}
         <Form style={{ fontSize: "25px" }}>
-          <Form.Group controlId="formName">
+          <Form.Group controlId="formAlamatPenerima">
             <Form.Label>Alamat Penerima :</Form.Label>
             <Form.Control
               onFocus={() => {
@@ -220,7 +182,7 @@ class InputPengirimKeyboard extends Component {
             </div>
           </Form.Group>
 
-          <FormProvinsi />
+          <FormProvinsi2 />
         </Form>
       </div>
     );

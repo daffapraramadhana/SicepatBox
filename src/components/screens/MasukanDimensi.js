@@ -112,7 +112,7 @@ const MasukanDimensi = () => {
               textAlign: "center",
             }}
           >
-            <Link to="/MasukanDetailPenerimaLanjut">
+            <Link to="/MasukanDetailPaket">
               <ButtonBack />
             </Link>
           </Col>

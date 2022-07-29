@@ -12,7 +12,6 @@ class InputPenerimaKeyboard extends Component {
     layoutName: "key",
     inputName: "inputPenerima",
     input: {},
-    // Just for demo purposes
     submittedData: "",
     keyboardOpen: "",
   };
@@ -42,7 +41,7 @@ class InputPenerimaKeyboard extends Component {
     let layoutName = this.state.layoutName;
 
     this.setState({
-      layoutName: layoutName === "default" ? "shift" : "default",
+      layoutName: layoutName === "key" ? "shift" : "key",
     });
   };
 
@@ -113,46 +112,8 @@ class InputPenerimaKeyboard extends Component {
 
     return (
       <div>
-        {/* <Form style={{ fontSize: "25px" }}>
-            <Form.Group controlId="formName">
-              <Form.Label>Penerima :</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Masukan Nama Pengirim "
-                style={{ fontSize: "30px" }}
-              />
-            </Form.Group>
-            <Form.Group
-              controlId="form.TelpPengirim"
-              style={{
-                marginTop: "1.5rem",
-              }}
-            >
-              <Form.Label>No Telpon Pengirim :</Form.Label>
-
-              <Form.Control
-                type="text"
-                placeholder="Masukan Nomer Telpon Pengirim "
-                style={{ fontSize: "30px" }}
-              />
-            </Form.Group>
-            <Form.Group
-              controlId="formAlamat"
-              style={{
-                marginTop: "1.5rem",
-              }}
-            >
-              <Form.Label>Alamat :</Form.Label>
-              <Form.Control
-                type="text"
-                value="Sibox - Suppermall Karawaci"
-                readOnly
-                style={{ fontSize: "30px" }}
-              />
-            </Form.Group>
-          </Form> */}
         <Form style={{ fontSize: "25px" }}>
-          <Form.Group controlId="formName">
+          <Form.Group controlId="formPenerima">
             <Form.Label>Penerima :</Form.Label>
             <Form.Control
               onFocus={() => {
@@ -208,37 +169,41 @@ class InputPenerimaKeyboard extends Component {
                   "{bksp} {close}",
                 ],
                 key: [
-                  "q w e r t y u i o p {bksp}",
-                  "a s d f g h j k l",
-                  "z x c v b n m",
-                  "{clear} {close}",
+                  "` 1 2 3 4 5 6 7 8 9 0 - = {bksp}",
+                  "{clear} q w e r t y u i o p [ ] \\",
+                  "{lock} a s d f g h j k l ; ' ",
+                  "{shift} z x c v b n m , . / {shift}",
+                  "{space} {close}",
+                ],
+                shift: [
+                  "~ ! @ # $ % ^ &amp; * ( ) _ + {bksp}",
+                  "{clear} Q W E R T Y U I O P { } |",
+                  '{lock} A S D F G H J K L : "',
+                  "{shift} Z X C V B N M &lt; &gt; ? {shift}",
+                  "{space} {close}",
+                  // "{close}",
                 ],
               }}
               display={{
                 "{clear}": "C",
                 "{bksp}": "&#129044",
                 "{close}": "close keyboard",
+                "{lock}": "CapsLock",
+                "{shift}": "shift",
+                "{space}": "   space   ",
               }}
               buttonTheme={[
                 {
                   class: "hg-red",
                   buttons: "{close}",
                 },
+                {
+                  class: "hg-green",
+                  buttons: "{clear}",
+                },
               ]}
             />
-            {/* <button className="submitBtn" onClick={this.submit}>
-                Submit
-              </button>
-              <button className="closeBtn" onClick={this.closeKeyboard}>
-                Close Keyboard
-              </button> */}
           </div>
-          {/* {submittedData && (
-              <div className={"submittedData"}>
-                <h4>Submitted Data:</h4>
-                <div className="data">{submittedData}</div>
-              </div>
-            )} */}
         </Form>
       </div>
     );

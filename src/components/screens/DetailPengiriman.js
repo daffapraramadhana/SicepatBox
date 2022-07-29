@@ -50,7 +50,7 @@ const DetailPengiriman = () => {
               alignItems: "center",
               // backgroundColor: "grey",
               // display: "flex",
-              marginTop: "10rem",
+              marginTop: "15rem",
               width: "100vw",
               marginLeft: "15rem",
             }}
@@ -64,7 +64,7 @@ const DetailPengiriman = () => {
                   <label for="Pengirim" class="col-sm-1 col-form-label">
                     :
                   </label>
-                  <div class="col-sm-3 ">
+                  <div class="col-sm-5 ">
                     <input
                       type="text"
                       disabled
@@ -87,7 +87,7 @@ const DetailPengiriman = () => {
                   <label for="Pengirim" class="col-sm-1 col-form-label">
                     :
                   </label>
-                  <div class="col-sm-3">
+                  <div class="col-sm-7">
                     <input
                       type="text"
                       disabled
@@ -140,6 +140,47 @@ const DetailPengiriman = () => {
                 </div>
               </Col>
             </Row>
+            <Row>
+              <Col>
+                <div class="form-group row">
+                  <label for="NoPengirim" class="col-sm-3 col-form-label">
+                    Value Paket
+                  </label>
+                  <label for="Pengirim" class="col-sm-1 col-form-label ">
+                    :
+                  </label>
+                  <div class="col-sm-5 ">
+                    <input
+                      type="tel"
+                      disabled
+                      class="form-control-plaintext"
+                      id="NoPengirim"
+                      value={Cookies.get("packagevalue")}
+                    />
+                  </div>
+                </div>
+              </Col>
+              <Col>
+                <div class="form-group row">
+                  <label for="NoPenerima" class="col-sm-3 col-form-label">
+                    Detail Paket
+                  </label>
+                  <label for="Pengirim" class="col-sm-1 col-form-label">
+                    :
+                  </label>
+                  <div class="col-sm-5">
+                    <input
+                      type="tel"
+                      disabled
+                      class="form-control-plaintext"
+                      id="NoPengirim"
+                      value={Cookies.get("packagecontent")}
+                    />
+                  </div>
+                </div>
+              </Col>
+            </Row>
+
             <Row>
               <Col>
                 <div class="form-group row">
