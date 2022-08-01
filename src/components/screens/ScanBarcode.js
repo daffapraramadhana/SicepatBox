@@ -128,9 +128,20 @@ const ScanBarcode = () => {
             trx_type: res.data.data.trx,
             trx_id: gettrxid,
           },
+        }).then((res) => {
+          if (res.data.response.code == 200) {
+            window.location.href = "/LabelPrint";
+          } else {
+            Swal.fire({
+              position: "center",
+              icon: "warning",
+              title: res.data.response.message,
+              showConfirmButton: false,
+              timer: 1500,
+              // confirmButtonText: "close",
+            });
+          }
         });
-
-        window.location.href = "/LabelPrint";
       } else {
         Swal.fire({
           position: "center",
