@@ -234,6 +234,40 @@ code {
 
 }
 
+.keyboardContainerPenerima {
+    width: 800px;
+    height: 400px;
+    text-align: center;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    z-index: 5;
+
+}
+
+.keyboardContainerAsuransi {
+    width: 800px;
+    height: 400px;
+    /* text-align: center; */
+    position: absolute;
+    /* justify-content: center;
+    align-items: center; */
+    left: 0;
+    right: 0;
+    margin-left: 5rem;
+    margin-right: auto;
+    margin-top: 20px;
+    z-index: 5;
+
+}
+
+
+
 .selectprovinsi{
     position: relative;
     z-index: 3;

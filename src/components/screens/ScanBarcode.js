@@ -25,9 +25,9 @@ const ScanBarcode = () => {
   const ambilqr = () => {
     axios({
       method: "POST",
-      url: "http://localhost:3005/service/get-qr",
+      url: "http://192.168.7.123:3005/service/get-qr",
       data: {
-        amount: "1000",
+        amount: Number(Cookies.get("tarif")) + Number(Cookies.get("asuransi")),
       },
     }).then((res) => {
       console.log(res.data);
@@ -89,7 +89,7 @@ const ScanBarcode = () => {
 
     axios({
       method: "POST",
-      url: "http://localhost:3005/service/check-qr-status",
+      url: "http://192.168.7.123:3005/service/check-qr-status",
       data: {
         token: gettoken,
         tid: gettid,
@@ -101,6 +101,35 @@ const ScanBarcode = () => {
     }).then((res) => {
       console.log(res.data);
       if (res.data.data.status == "PAID") {
+        axios({
+          method: "POST",
+          url: "http://192.168.7.123:3005/service/pickup-request",
+          data: {
+            dimensi: Cookies.get("dimensi"),
+            weight: Cookies.get("beratpaket"),
+            store_user_name: Cookies.get("pengirim"),
+            shipper_phone: Cookies.get("notelppengirim"),
+            recipient_name: Cookies.get("penerima"),
+            recipient_phone: Cookies.get("notelppenerima"),
+            // recipient_address: Cookies.get("alamatpenerima"),
+            recipient_district: Cookies.get("kecamatan"),
+            recipient_zipcode: Cookies.get("zipcode"),
+            recipient_city: Cookies.get("kabupaten"),
+            recipient_province: Cookies.get("provinsi"),
+            tarif: Number(Cookies.get("tarif")),
+            end_address: Cookies.get("alamatpenerima"),
+            insurance: Number(Cookies.get("asuransi")),
+            notes: "Jangan di banting dan taruh di suhu ruangan",
+            delivery_type: Cookies.get("deliverytype"),
+            parcel_content: Cookies.get("packagecontent"),
+            parcel_value: Cookies.get("packagevalue"),
+            parcel_category: Cookies.get("packagecategory"),
+            destination_code: Cookies.get("destinationcode"),
+            trx_type: res.data.data.trx,
+            trx_id: gettrxid,
+          },
+        });
+
         window.location.href = "/LabelPrint";
       } else {
         Swal.fire({
@@ -115,8 +144,8 @@ const ScanBarcode = () => {
     });
   }
 
-  console.log("adadas", img);
-  console.log("token", gettoken);
+  // console.log("adadas", img);
+  // console.log("token", gettoken);
   return (
     <div className="">
       <NavbarMenu2 />

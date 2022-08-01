@@ -27,6 +27,13 @@ function kirim() {
       Cookies.remove("packagecontent");
       Cookies.remove("beratpaket");
       Cookies.remove("packagevalue");
+      Cookies.remove("kelurahan");
+      Cookies.remove("zipcode");
+      Cookies.remove("tarif");
+      Cookies.remove("destinationcode");
+      Cookies.remove("deliverytype");
+      Cookies.remove("packagecategory");
+      Cookies.remove("asuransi");
     })
     .then(function () {
       window.location.href = "/";

@@ -18,6 +18,9 @@ const DetailPengiriman = () => {
   Cookies.get("provinsi");
   Cookies.get("kabupaten");
   Cookies.get("kecamatan");
+  Cookies.get("asuransi");
+  Cookies.get("deliverytype");
+  Cookies.get("asuransi");
 
   return (
     <div className="">
@@ -144,7 +147,7 @@ const DetailPengiriman = () => {
               <Col>
                 <div class="form-group row">
                   <label for="NoPengirim" class="col-sm-3 col-form-label">
-                    Value Paket
+                    Tipe Pengiriman
                   </label>
                   <label for="Pengirim" class="col-sm-1 col-form-label ">
                     :
@@ -155,7 +158,7 @@ const DetailPengiriman = () => {
                       disabled
                       class="form-control-plaintext"
                       id="NoPengirim"
-                      value={Cookies.get("packagevalue")}
+                      value={Cookies.get("deliverytype")}
                     />
                   </div>
                 </div>
@@ -211,7 +214,10 @@ const DetailPengiriman = () => {
                       disabled
                       class="form-control-plaintext"
                       id="BeratPaket"
-                      value="Rp 25.000"
+                      value={
+                        Number(Cookies.get("tarif")) +
+                        Number(Cookies.get("asuransi"))
+                      }
                     />
                   </div>
                 </div>
@@ -301,7 +307,7 @@ const DetailPengiriman = () => {
               textAlign: "center",
             }}
           >
-            <Link to="/MasukanDimensi">
+            <Link to="/MasukanJenisPengiriman">
               <ButtonBack />
             </Link>
           </Col>

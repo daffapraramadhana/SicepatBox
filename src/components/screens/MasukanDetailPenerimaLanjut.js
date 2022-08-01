@@ -28,6 +28,8 @@ function lanjut() {
     Cookies.get("kabupaten") == "undefined" ||
     "" ||
     Cookies.get("kecamatan") == "undefined" ||
+    "" ||
+    Cookies.get("kelurahan") == "undefined" ||
     ""
   ) {
     Swal.fire({
@@ -39,7 +41,7 @@ function lanjut() {
       // confirmButtonText: "close",
     });
   } else {
-    window.location.href = "/MasukanDetailPaket";
+    window.location.href = "/MasukanDimensi";
     // console.log(Cookies.get("penerima"));
   }
 }

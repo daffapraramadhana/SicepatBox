@@ -1,63 +1,194 @@
 import React, { Component } from "react";
 import Select from "react-select";
+import { Form, Row, Col } from "react-bootstrap";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 export default class FormProvinsi2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selectOptions: [],
-      provinsi: [],
-      kabupaten: [],
-      kecamatan: [],
-      kelurahan: [],
+      selectOptionsKabupaten: [],
+      selectOptionsKecamatan: [],
+      selectOptionsKelurahan: [],
+      provinsi: " ",
+      kabupaten: " ",
+      kecamatan: " ",
+      kelurahan: " ",
     };
   }
 
   getOptions() {
     axios({
       method: "POST",
-      url: "http://localhost:3005/service/list-provinsi",
+      url: "http://192.168.7.123:3005/service/list-provinsi",
       data: {},
     }).then((res) => {
-      console.log(res);
-      const options = {
-        provinsi: res.data.data.province,
-      };
+      //   console.log("data", res.data.data);
+      const options = res.data.data.map((prov) => ({
+        value: prov,
+        label: prov,
+      }));
 
       this.setState({ selectOptions: options });
     });
-    // const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-    // const data = res.data;
-
-    // const options = data.map((d) => ({
-    //   value: d.id,
-    //   label: d.name,
-    // }));
   }
 
-  handleChange(e) {
-    console.log(e);
-    this.setState({ provinsi: e.province });
+  handleChange(a) {
+    console.log(a.value);
+    this.setState({ provinsi: a.value });
+    axios({
+      method: "POST",
+      url: "http://192.168.7.123:3005/service/list-kabupaten",
+      data: {
+        province: a.value,
+      },
+    }).then((res) => {
+      //   console.log("data", res.data.data);
+      const options = res.data.data.map((kab) => ({
+        value: kab,
+        label: kab,
+      }));
+
+      this.setState({ selectOptionsKabupaten: options });
+      Cookies.set("provinsi", this.state.provinsi);
+    });
+  }
+
+  handleChangeKabupaten(b) {
+    console.log(b.value);
+    console.log("provinsi", this.state.provinsi);
+
+    this.setState({ kabupaten: b.value });
+
+    axios({
+      method: "POST",
+      url: "http://192.168.7.123:3005/service/list-kecamatan",
+      data: {
+        province: this.state.provinsi,
+        city: b.value,
+      },
+    }).then((res) => {
+      console.log(res);
+      //   console.log("data", res.data.data);
+      const options = res.data.data.map((kec) => ({
+        value: kec.district,
+        label: kec.district,
+      }));
+
+      this.setState({ selectOptionsKecamatan: options });
+      Cookies.set("kabupaten", this.state.kabupaten);
+    });
+  }
+
+  handleChangeKecamatan(c) {
+    console.log(c.value);
+    console.log("kabupaten", this.state.kabupaten);
+    this.setState({ kecamatan: c.value });
+
+    axios({
+      method: "POST",
+      url: "http://192.168.7.123:3005/service/list-kelurahan",
+      data: {
+        province: this.state.provinsi,
+        city: this.state.kabupaten,
+        district: c.value,
+      },
+    }).then((res) => {
+      console.log(res.data.data);
+      //   console.log(this.state.kabupaten);
+      //   console.log("data", res.data.data);
+      const options = res.data.data.map((kel) => ({
+        value: kel.zipcode,
+        label: kel.subdistrict,
+      }));
+
+      this.setState({ selectOptionsKelurahan: options });
+      Cookies.set("kecamatan", this.state.kecamatan);
+    });
+  }
+
+  handleChangeKelurahan(d) {
+    // console.log(d.value);
+    // console.log("kecamatan", d.value);
+    Cookies.set("kelurahan", d.label);
+    Cookies.set("zipcode", d.value);
+    this.setState({ kelurahan: d.value });
+    console.log("kelurahan", this.state.kelurahan);
   }
 
   componentDidMount() {
     this.getOptions();
+    // this.getOptionsKabupaten();
   }
 
   render() {
-    console.log(this.state.selectOptions);
+    // console.log("ini option", this.state.selectOptions);
     return (
       <div>
-        <Select
-          options={this.state.selectOptions}
-          onChange={this.handleChange.bind(this)}
-        />
-        {/* <p>
-          You have selected <strong>{this.state.name}</strong> whose id is{" "}
-          <strong>{this.state.id}</strong>
-        </p> */}
-        {/* <Multi /> */}
+        <div>
+          <Row>
+            <Col>
+              <Form.Group
+                controlId="formKota"
+                style={{
+                  marginTop: "1.5rem",
+                }}
+              >
+                <Form.Label>Provinsi :</Form.Label>
+                <Select
+                  options={this.state.selectOptions}
+                  onChange={this.handleChange.bind(this)}
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group
+                controlId="formKota"
+                style={{
+                  marginTop: "1.5rem",
+                }}
+              >
+                <Form.Label>Kabupaten :</Form.Label>
+                <Select
+                  options={this.state.selectOptionsKabupaten}
+                  onChange={this.handleChangeKabupaten.bind(this)}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Form.Group
+                controlId="formKota"
+                style={{
+                  marginTop: "1.5rem",
+                }}
+              >
+                <Form.Label>Kecamatan :</Form.Label>
+                <Select
+                  options={this.state.selectOptionsKecamatan}
+                  onChange={this.handleChangeKecamatan.bind(this)}
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group
+                controlId="formKota"
+                style={{
+                  marginTop: "1.5rem",
+                }}
+              >
+                <Form.Label>kelurahan :</Form.Label>
+                <Select
+                  options={this.state.selectOptionsKelurahan}
+                  onChange={this.handleChangeKelurahan.bind(this)}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }
