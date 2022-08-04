@@ -14,7 +14,7 @@ import Cookies from "js-cookie";
 import disableBrowserBackButton from "disable-browser-back-navigation";
 
 function ReworkLandingPage3() {
-  const url = "http://192.168.7.118:3005/service/empty-box";
+  const url = "http://192.168.7.109:3005/service/empty-box";
   const [data, setData] = useState({});
   Cookies.remove("kirim");
   disableBrowserBackButton();
