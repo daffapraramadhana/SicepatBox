@@ -40,6 +40,7 @@ function lanjut() {
 
 const MasukanJenisPengiriman = () => {
   Cookies.set("asuransi", "0");
+
   return (
     <div className="">
       <NavbarMenu2 />
