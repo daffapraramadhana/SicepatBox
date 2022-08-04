@@ -20,7 +20,6 @@ import Swal from "sweetalert2";
 function lanjut() {
   if (
     Cookies.get("penerima") == "" ||
-    "undefined" ||
     Cookies.get("notelppenerima") == "undefined" ||
     ""
   ) {
