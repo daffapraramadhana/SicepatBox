@@ -1,5 +1,6 @@
+import axios from "axios";
 import Cookies from "js-cookie";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -40,34 +41,75 @@ const ButtonToggle = styled(Button)`
 const ButtonGroup = styled.div`
   display: flex;
 `;
-const lokers = [
-  {
-    type: "S",
-    size: "Small",
-    ready: "3",
-    ukuran: "50x40x10 cm",
-    berat: "1-3kg",
-  },
-  {
-    type: "M",
-    size: "Medium",
-    ready: "6",
-    ukuran: "50x40x20 cm",
-    berat: "3-5kg",
-  },
-  {
-    type: "L",
-    size: "Large",
-    ready: "2",
-    ukuran: "50x40x42 cm",
-    berat: "5kg",
-  },
-];
 
 function ButtonDimensi() {
   const [active, setActive] = useState();
+  const [size, setSize] = useState([]);
+  const [lokers, setLokers] = useState([
+    {
+      type: "S",
+      size: "Small",
+      ready: 0,
+      ukuran: "50x40x10 cm",
+      berat: "1-3kg",
+    },
+    {
+      type: "M",
+      size: "Medium",
+      ready: 0,
+      ukuran: "50x40x20 cm",
+      berat: "3-5kg",
+    },
+    {
+      type: "L",
+      size: "Large",
+      ready: 0,
+      ukuran: "50x40x42 cm",
+      berat: "5kg",
+    },
+  ]);
+
   Cookies.set("dimensi", active);
   console.log(Cookies.get("dimensi"));
+
+  useEffect(() => {
+    axios({
+      method: "POST",
+      url: "http://192.168.7.118:3005/service/empty-box",
+      data: {},
+    }).then((res) => {
+      console.log(res.data.data);
+      setSize(res.data.data);
+      // setLokers[0](res.data.S);
+      // setLokers[1](res.data.M);
+      // setLokers[2](res.data.L);
+    });
+  }, []);
+
+  // const lokers = [
+  //   {
+  //     type: "S",
+  //     size: "Small",
+  //     ready: 0,
+  //     ukuran: "50x40x10 cm",
+  //     berat: "1-3kg",
+  //   },
+  //   {
+  //     type: "M",
+  //     size: "Medium",
+  //     ready: 0,
+  //     ukuran: "50x40x20 cm",
+  //     berat: "3-5kg",
+  //   },
+  //   {
+  //     type: "L",
+  //     size: "Large",
+  //     ready: 0,
+  //     ukuran: "50x40x42 cm",
+  //     berat: "5kg",
+  //   },
+  // ];
+
   return (
     <ButtonGroup>
       {lokers.map((loker, index) => (
@@ -103,7 +145,7 @@ function ButtonDimensi() {
               borderRadius: "50%",
             }}
           >
-            {loker.ready}
+            {size[index]}
           </div>
         </ButtonToggle>
       ))}

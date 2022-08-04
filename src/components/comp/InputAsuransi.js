@@ -11,17 +11,47 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 class InputPaketkeyboard extends Component {
-  state = {
-    layoutName: "ip",
-    inputName: "inputValuePaket",
-    input: {},
-    submittedData: "",
-    keyboardOpen: "",
-    status: 0,
-    statusasuransi: false,
-    selecetedOptions: [],
-    kategori: "",
-    asuransi: "",
+  constructor(props) {
+    super(props);
+    this.state = {
+      layoutName: "ip",
+      inputName: "inputValuePaket",
+      input: {},
+      submittedData: "",
+      keyboardOpen: "",
+      status: 0,
+      statusasuransi: false,
+      selectOptions: [],
+      kategori: "",
+      asuransi: "",
+      selectOptionsJenis: [],
+      selectOptionsAsuransi: [],
+      labelasuransi: "",
+    };
+  }
+
+  getOptionsJenis = () => {
+    console.log("jalan");
+    axios({
+      method: "POST",
+      url: "http://192.168.7.118:3005/service/cek-tarif",
+      data: {
+        city_destination: Cookies.get("kabupaten"),
+        province_destination: Cookies.get("provinsi"),
+        weight: Cookies.get("beratpaket"),
+      },
+    }).then((res) => {
+      console.log("data", res.data.data);
+      Cookies.set("destinationcode", res.data.data.destination_code);
+      const options = res.data.data.tarif.map((jenis) => ({
+        value: jenis.delivery_type,
+        label: `${jenis.delivery_type} - etd:${jenis.etd} - Rp.${jenis.tarif} `,
+        tarif: jenis.tarif,
+      }));
+
+      this.setState({ selectOptionsJenis: options });
+    });
+    // this.setState({ selectOptions: options });
   };
 
   getOptions = () => {
@@ -33,13 +63,37 @@ class InputPaketkeyboard extends Component {
     this.setState({ selectOptions: options });
   };
 
-  handleChange(e) {
-    console.log(e.value);
-    Cookies.set("packagecategory", e.value);
+  getOptionsAsuransi = () => {
+    const options = [
+      { value: "Iya", label: "Iya" },
+      { value: "Tidak", label: "Tidak" },
+    ];
+
+    this.setState({ selectOptionsAsuransi: options });
+  };
+
+  handleChange(a) {
+    console.log(a.value);
+    Cookies.set("packagecategory", a.value);
+  }
+
+  handleChangeJenis(b) {
+    console.log(b.value);
+    Cookies.set("deliverytype", b.value);
+    Cookies.set("tarif", b.tarif);
+  }
+
+  handleChangeAsuransi(c) {
+    console.log("value", c.value);
+    this.setState({ labelasuransi: c.value });
+    // console.log(this.state.labelasuransi);
+    // Cookies.set("packagecategory", c.value);
   }
 
   componentDidMount() {
     this.getOptions();
+    this.getOptionsJenis();
+    this.getOptionsAsuransi();
   }
 
   changeStatus = () => {
@@ -149,7 +203,7 @@ class InputPaketkeyboard extends Component {
   cekasuransi = () => {
     axios({
       method: "POST",
-      url: "http://192.168.7.123:3005/service/cek-asuransi",
+      url: "http://192.168.7.118:3005/service/cek-asuransi",
       data: {
         parcel_value: Cookies.get("packagevalue"),
       },
@@ -179,7 +233,7 @@ class InputPaketkeyboard extends Component {
 
     return (
       <div>
-        <Form style={{ fontSize: "25px" }}>
+        <Form style={{ fontSize: "25px", textAlign: "left" }}>
           <Form.Group controlId="formName">
             <Form.Label>Detail Paket :</Form.Label>
             <Form.Control
@@ -194,43 +248,6 @@ class InputPaketkeyboard extends Component {
               style={{ fontSize: "30px" }}
             />
           </Form.Group>
-
-          <Form.Group controlId="formName" style={{ marginTop: "20px" }}>
-            <Form.Label>Kategori Paket :</Form.Label>
-            <Select
-              label="Single select"
-              options={this.state.selectOptions}
-              onChange={this.handleChange.bind(this)}
-
-              // styles={colourStyles}
-            />
-          </Form.Group>
-
-          <Button
-            // showResults="false"
-            onClick={this.changeStatus}
-            style={{
-              width: "300px",
-              height: "5rem",
-              marginTop: "20px",
-              fontSize: "25px",
-              backgroundColor: "#AF2322",
-              borderColor: "#AF2322",
-              borderRadius: "50px",
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-              display: "flex",
-              padding: "auto",
-            }}
-          >
-            {this.state.status == 0 && (
-              <p style={{ marginTop: "1rem" }}>Asuransikan Paket</p>
-            )}
-            {this.state.status == 1 && (
-              <p style={{ marginTop: "1rem" }}>Batalkan</p>
-            )}
-          </Button>
           <div
             className={`keyboardContainerAsuransi ${
               !keyboardOpen ? "hidden" : ""
@@ -271,28 +288,106 @@ class InputPaketkeyboard extends Component {
               ]}
             />
           </div>
-          {this.state.status == 1 && (
-            <div style={{ marginTop: "20px" }}>
-              Masukan Estimasi Value Paket Anda :
-              <div style={{ display: "flex", flexDirection: "row" }}>
-                <Form.Control
-                  onFocus={() => {
-                    this.setActiveInput("inputValuePackage");
-                    this.setState({ layoutName: "ip" });
-                  }}
-                  value={input["inputValuePackage"] || ""}
-                  onChange={(e) => this.onChangeInput(e)}
-                  type="text"
-                  placeholder="Estimasi Value Paket "
-                  style={{ fontSize: "30px" }}
-                />
-                <Button onClick={this.cekasuransi}>Cek Asuransi </Button>
-              </div>
-              {this.state.statusasuransi == true && (
-                <p>Biaya Asuransi : {this.state.asuransi} </p>
+
+          <Form.Group controlId="formName" style={{ marginTop: "20px" }}>
+            <Form.Label>Kategori Paket :</Form.Label>
+            <Select
+              label="Single select"
+              options={this.state.selectOptions}
+              onChange={this.handleChange.bind(this)}
+
+              // styles={colourStyles}
+            />
+          </Form.Group>
+          <Form.Group controlId="formName" style={{ marginTop: "20px" }}>
+            <Form.Label>Tipe Pengiriman :</Form.Label>
+            <Select
+              label="Single select"
+              options={this.state.selectOptionsJenis}
+              onChange={this.handleChangeJenis.bind(this)}
+
+              // styles={colourStyles}
+            />
+          </Form.Group>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <div>
+              <p
+                style={{
+                  left: "0",
+                  //   backgroundColor: "yellow",
+                  textAlign: "left",
+                  marginTop: "20px",
+                }}
+              >
+                Asuransikan Paket Anda :
+              </p>
+
+              <Select
+                label="Single select"
+                options={this.state.selectOptionsAsuransi}
+                onChange={this.handleChangeAsuransi.bind(this)}
+
+                // styles={colourStyles}
+              />
+
+              {/* <Button
+                // showResults="false"
+                onClick={this.changeStatus}
+                style={{
+                  width: "300px",
+                  height: "5rem",
+                  marginTop: "20px",
+                  fontSize: "25px",
+                  backgroundColor: "#AF2322",
+                  borderColor: "#AF2322",
+                  borderRadius: "50px",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  display: "flex",
+                  padding: "auto",
+                }}
+              >
+                {this.state.status == 0 && (
+                  <p style={{ marginTop: "1rem" }}>Ya</p>
+                )}
+                {this.state.status == 1 && (
+                  <p style={{ marginTop: "1rem" }}>Tidak</p>
+                )}
+              </Button> */}
+            </div>
+            <div>
+              {this.state.labelasuransi == "Iya" && (
+                <div style={{ marginTop: "20px" }}>
+                  Masukan Estimasi Value Paket Anda :
+                  <div style={{ display: "flex", flexDirection: "row" }}>
+                    <Form.Control
+                      onFocus={() => {
+                        this.setActiveInput("inputValuePackage");
+                        this.setState({ layoutName: "ip" });
+                      }}
+                      value={input["inputValuePackage"] || ""}
+                      onChange={(e) => this.onChangeInput(e)}
+                      type="text"
+                      placeholder="Estimasi Value Paket "
+                      style={{ fontSize: "30px" }}
+                    />
+                    <Button onClick={this.cekasuransi}>Cek Asuransi </Button>
+                  </div>
+                  {this.state.statusasuransi == true && (
+                    <p>Biaya Asuransi : {this.state.asuransi} </p>
+                  )}
+                </div>
               )}
             </div>
-          )}
+          </div>
 
           {/* <div
             style={{

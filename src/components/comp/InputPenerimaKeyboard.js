@@ -11,7 +11,16 @@ class InputPenerimaKeyboard extends Component {
   state = {
     layoutName: "key",
     inputName: "inputPenerima",
-    input: {},
+    input: {
+      inputPenerima:
+        (Cookies.get("penerima") == "undefined"
+          ? ""
+          : Cookies.get("penerima")) || "",
+      inputNoPenerima:
+        (Cookies.get("notelppenerima") == "undefined"
+          ? ""
+          : Cookies.get("notelppenerima")) || "",
+    },
     submittedData: "",
     keyboardOpen: "",
   };
@@ -106,7 +115,7 @@ class InputPenerimaKeyboard extends Component {
   };
 
   render() {
-    let { input, keyboardOpen, submittedData } = this.state;
+    let { input, keyboardOpen } = this.state;
     Cookies.set("penerima", input.inputPenerima);
     Cookies.set("notelppenerima", input.inputNoPenerima);
 
@@ -165,13 +174,13 @@ class InputPenerimaKeyboard extends Component {
                   "1 2 3",
                   "4 5 6",
                   "7 8 9",
-                  ". 0 {clear}",
-                  "{bksp} {close}",
+                  ". 0 {bksp}",
+                  "{clear} {close}",
                 ],
                 key: [
                   "` 1 2 3 4 5 6 7 8 9 0 - = {bksp}",
-                  "{clear} q w e r t y u i o p [ ] \\",
-                  "{lock} a s d f g h j k l ; ' ",
+                  "q w e r t y u i o p [ ] \\ {clear}",
+                  "{lock} a s d f g h j k l ; '",
                   "{shift} z x c v b n m , . / {shift}",
                   "{space} {close}",
                 ],
@@ -185,9 +194,9 @@ class InputPenerimaKeyboard extends Component {
                 ],
               }}
               display={{
-                "{clear}": "C",
+                "{clear}": "Clear",
                 "{bksp}": "&#129044",
-                "{close}": "close keyboard",
+                "{close}": "tutup",
                 "{lock}": "CapsLock",
                 "{shift}": "shift",
                 "{space}": "   space   ",

@@ -16,8 +16,7 @@ import "animate.css";
 
 function lanjut() {
   if (
-    Cookies.get("pengirim") == "undefined" ||
-    "" ||
+    Cookies.get("pengirim") == "" ||
     Cookies.get("notelppengirim") == "undefined" ||
     ""
   ) {
@@ -38,7 +37,7 @@ function lanjut() {
     });
   } else {
     window.location.href = "/MasukanDetailPenerima";
-    // console.log(Cookies.get("penerima"));
+    console.log(Cookies.get("penerima"));
   }
 }
 

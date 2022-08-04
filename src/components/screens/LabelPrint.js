@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar, Container, Row, Button, Col, Image } from "react-bootstrap";
 import "../screens/style.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -14,8 +14,15 @@ import ButtonLanjut from "../comp/ButtonLanjut";
 import NavbarMenu2 from "../comp/NavbarMenu2";
 import ButtonBukaLokerKembali from "../comp/ButtonBukaLokerKembali";
 import ButtonLanjutSwal from "../comp/ButtonLanjutSwal";
+import Cookies from "js-cookie";
 
 const LabelPrint = () => {
+  if (Cookies.get("kirim") == undefined || "") {
+    // console.log("detectvookie");
+    window.location.href = "/";
+  }
+  console.log("cookienya ", Cookies.get("kirim"));
+
   return (
     <div className="">
       <NavbarMenu2 />

@@ -34,6 +34,7 @@ function kirim() {
       Cookies.remove("deliverytype");
       Cookies.remove("packagecategory");
       Cookies.remove("asuransi");
+      Cookies.remove("kirim");
     })
     .then(function () {
       window.location.href = "/";

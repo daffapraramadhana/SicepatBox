@@ -25,7 +25,7 @@ const ScanBarcode = () => {
   const ambilqr = () => {
     axios({
       method: "POST",
-      url: "http://192.168.7.123:3005/service/get-qr",
+      url: "http://192.168.7.118:3005/service/get-qr",
       data: {
         amount: Number(Cookies.get("tarif")) + Number(Cookies.get("asuransi")),
       },
@@ -89,7 +89,7 @@ const ScanBarcode = () => {
 
     axios({
       method: "POST",
-      url: "http://192.168.7.123:3005/service/check-qr-status",
+      url: "http://192.168.7.118:3005/service/check-qr-status",
       data: {
         token: gettoken,
         tid: gettid,
@@ -101,9 +101,10 @@ const ScanBarcode = () => {
     }).then((res) => {
       console.log(res.data);
       if (res.data.data.status == "PAID") {
+        console.log("tes");
         axios({
           method: "POST",
-          url: "http://192.168.7.123:3005/service/pickup-request",
+          url: "http://192.168.7.118:3005/service/pickup-request",
           data: {
             dimensi: Cookies.get("dimensi"),
             weight: Cookies.get("beratpaket"),
@@ -161,7 +162,7 @@ const ScanBarcode = () => {
     <div className="">
       <NavbarMenu2 />
 
-      <body>
+      <div>
         <h3
           style={{
             textAlign: "center",
@@ -201,7 +202,7 @@ const ScanBarcode = () => {
             }}
           />
         </div>
-      </body>
+      </div>
 
       <Container
         fluid

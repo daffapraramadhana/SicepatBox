@@ -21,7 +21,7 @@ import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 
 const LoginKurir = () => {
-  const url = "http://localhost:3005/service/courier-login";
+  const url = "http://192.168.7.118:3005/service/courier-login";
   // const [data, setData] = useState({
   //   username: "",
   //   password: "",

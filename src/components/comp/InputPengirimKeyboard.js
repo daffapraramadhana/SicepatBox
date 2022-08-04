@@ -11,9 +11,19 @@ class InputPengirimKeyboard extends Component {
   state = {
     layoutName: "key",
     inputName: "inputPengirim",
-    input: {},
+    input: {
+      inputPengirim:
+        (Cookies.get("pengirim") == "undefined"
+          ? ""
+          : Cookies.get("pengirim")) || "",
+      inputNoPengirim:
+        (Cookies.get("notelppengirim") == "undefined"
+          ? ""
+          : Cookies.get("notelppengirim")) || "",
+    },
     submittedData: "",
     keyboardOpen: "",
+    maxLength: "14",
   };
 
   onChangeAll = (inputObj) => {
@@ -46,21 +56,23 @@ class InputPengirimKeyboard extends Component {
   };
 
   onChangeInput = (event) => {
-    let inputVal = event.target.value;
+    // let inputVal = event.target.value;
 
-    let updatedInputObj = {
-      ...this.state.input,
-      [this.state.inputName]: inputVal,
-    };
+    // let updatedInputObj = {
+    //   ...this.state.input,
+    //   [this.state.inputName]: inputVal,
 
-    this.setState(
-      {
-        input: updatedInputObj,
-      },
-      () => {
-        this.keyboard.setInput(inputVal);
-      }
-    );
+    // };
+
+    // this.setState(
+    //   {
+    //     input: updatedInputObj,
+    //   },
+    //   () => {
+    //     this.keyboard.setInput(inputVal);
+    //   }
+    // );
+    console.log("ini event", event);
   };
 
   setActiveInput = (inputName) => {
@@ -107,8 +119,18 @@ class InputPengirimKeyboard extends Component {
 
   render() {
     let { input, keyboardOpen } = this.state;
+
+    // if (sdfghjkhgfd == "undefined") {
+    //   input.inputPengirim = Cookies.get("pengirim").toString();
+    //   var sdfghjkhgfd = "wkowkowkowk";
+    // } else {
+    //   var sdfghjkhgfd = "wkowkowkowk";
+    // }
+
+    // aman
     Cookies.set("pengirim", input.inputPengirim);
     Cookies.set("notelppengirim", input.inputNoPengirim);
+
     console.log(Cookies.get("pengirim"));
 
     return (
@@ -122,7 +144,7 @@ class InputPengirimKeyboard extends Component {
                 this.setState({ layoutName: "key" });
               }}
               value={input["inputPengirim"] || ""}
-              onChange={(e) => this.onChangeInput(e)}
+              // onChange={(e) => this.onChangeInput(e)}
               type="text"
               placeholder="Masukan Nama Pengirim "
               style={{ fontSize: "30px" }}
@@ -146,6 +168,8 @@ class InputPengirimKeyboard extends Component {
               type="text"
               placeholder="Masukan No Telpon Pengirim "
               style={{ fontSize: "30px" }}
+              maxLength={14}
+              minLength={12}
             />
           </Form.Group>
           <div className={`keyboardContainer ${!keyboardOpen ? "hidden" : ""}`}>
@@ -161,13 +185,13 @@ class InputPengirimKeyboard extends Component {
                   "1 2 3",
                   "4 5 6",
                   "7 8 9",
-                  ". 0 {clear}",
-                  "{bksp} {close}",
+                  ". 0 {bksp}",
+                  "{clear} {close}",
                 ],
                 key: [
                   "` 1 2 3 4 5 6 7 8 9 0 - = {bksp}",
-                  "{clear} q w e r t y u i o p [ ] \\",
-                  "{lock} a s d f g h j k l ; ' ",
+                  "q w e r t y u i o p [ ] \\ {clear}",
+                  "{lock} a s d f g h j k l ; '",
                   "{shift} z x c v b n m , . / {shift}",
                   "{space} {close}",
                 ],
@@ -181,9 +205,9 @@ class InputPengirimKeyboard extends Component {
                 ],
               }}
               display={{
-                "{clear}": "C",
+                "{clear}": "Clear",
                 "{bksp}": "&#129044",
-                "{close}": "close keyboard",
+                "{close}": "tutup",
                 "{lock}": "CapsLock",
                 "{shift}": "shift",
                 "{space}": "   space   ",

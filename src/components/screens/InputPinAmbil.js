@@ -15,7 +15,7 @@ import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 
 const InputPinAmbil = () => {
-  const url = "http://localhost:3005/service/user-take-package";
+  const url = "http://192.168.7.118:3005/service/courier-take-package";
   const [code, setCode] = useState("");
   const [input, setInput] = useState("");
   const [layout, setLayout] = useState("default");

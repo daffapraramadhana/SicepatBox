@@ -145,13 +145,13 @@ class InputPengirimKeyboard extends Component {
                     "1 2 3",
                     "4 5 6",
                     "7 8 9",
-                    ". 0 {clear}",
-                    "{bksp} {close}",
+                    ". 0 {bksp}",
+                    "{clear} {close}",
                   ],
                   key: [
                     "` 1 2 3 4 5 6 7 8 9 0 - = {bksp}",
-                    "{clear} q w e r t y u i o p [ ] \\",
-                    "{lock} a s d f g h j k l ; ' ",
+                    "q w e r t y u i o p [ ] \\ {clear}",
+                    "{lock} a s d f g h j k l ; '",
                     "{shift} z x c v b n m , . / {shift}",
                     "{space} {close}",
                   ],
@@ -160,14 +160,14 @@ class InputPengirimKeyboard extends Component {
                     "{clear} Q W E R T Y U I O P { } |",
                     '{lock} A S D F G H J K L : "',
                     "{shift} Z X C V B N M &lt; &gt; ? {shift}",
-                    "{space}   {close}",
+                    "{space} {close}",
                     // "{close}",
                   ],
                 }}
                 display={{
                   "{clear}": "Clear",
                   "{bksp}": "&#129044",
-                  "{close}": "close keyboard",
+                  "{close}": "tutup",
                   "{lock}": "CapsLock",
                   "{shift}": "shift",
                   "{space}": "   space   ",
@@ -176,6 +176,10 @@ class InputPengirimKeyboard extends Component {
                   {
                     class: "hg-red",
                     buttons: "{close}",
+                  },
+                  {
+                    class: "hg-green",
+                    buttons: "{clear}",
                   },
                 ]}
               />

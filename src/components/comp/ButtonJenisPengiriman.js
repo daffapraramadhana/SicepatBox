@@ -6,8 +6,8 @@ import axios from "axios";
 const Button = styled.button`
   bordercolor: black;
   color: #cd2028;
-  font-size: 20px;
-  padding: 50px 100px;
+  font-size: 15px;
+  padding: 10px 30px;
   border-radius: 50px;
   margin: 10px 10px;
   cursor: pointer;
@@ -30,6 +30,7 @@ const ButtonToggle = styled(Button)`
   opacity: 1;
   color: #cd2028;
   background-color: white;
+
   ${({ active }) =>
     active &&
     `
@@ -40,6 +41,7 @@ const ButtonToggle = styled(Button)`
 `;
 const ButtonGroup = styled.div`
   display: flex;
+  flex-direction: column;
 `;
 // const lokers = [
 //   {
@@ -79,7 +81,7 @@ function ButtonJenisPengiriman() {
   useEffect(() => {
     axios({
       method: "POST",
-      url: "http://192.168.7.123:3005/service/cek-tarif",
+      url: "http://192.168.7.118:3005/service/cek-tarif",
       data: {
         city_destination: Cookies.get("kabupaten"),
         province_destination: Cookies.get("provinsi"),
@@ -96,6 +98,7 @@ function ButtonJenisPengiriman() {
 
   return (
     <ButtonGroup>
+      <h3>Pilih Jenis Pengiriman :</h3>
       {tarifs.map((tarif, index) => (
         <ButtonToggle
           key={tarif.delivery_type}
@@ -123,8 +126,8 @@ function ButtonJenisPengiriman() {
             style={{
               backgroundColor: "white",
               color: "red",
-              width: "150px",
-              height: "70px",
+              width: "100px",
+              height: "50px",
               alignItems: "center",
               textAlign: "center",
               justifyContent: "center",

@@ -17,9 +17,11 @@ import axios from "axios";
 
 function lanjut() {
   if (
-    Cookies.get("tipepengiriman") == "undefined" ||
+    Cookies.get("packagecategory") == "undefined" ||
     "" ||
-    Cookies.get("") == "undefined" ||
+    Cookies.get("deliverytype") == "undefined" ||
+    "" ||
+    Cookies.get("packagecontent") == "undefined" ||
     ""
   ) {
     Swal.fire({
@@ -51,13 +53,13 @@ const MasukanJenisPengiriman = () => {
             // marginRight: "3rem",
           }}
         >
-          Pilih Jenis Pengiriman
+          Informasi Paket
         </h3>
         <div
           style={{
             // margin: "auto",
             width: "100%",
-            marginTop: "5rem",
+            marginTop: "3rem",
             textAlign: "center",
             // backgroundColor: "yellow",
             display: "flex",
@@ -66,7 +68,7 @@ const MasukanJenisPengiriman = () => {
             justifyContent: "space-evenly",
           }}
         >
-          <ButtonJenisPengiriman />
+          {/* <ButtonJenisPengiriman /> */}
           <div style={{ width: "50%" }}>
             <InputAsuransi />
           </div>

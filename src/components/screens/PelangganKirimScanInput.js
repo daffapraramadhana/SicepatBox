@@ -9,6 +9,8 @@ import ButtonBelumPesan from "../comp/ButtonBelumPesan";
 import ButtonLanjut from "../comp/ButtonLanjut";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
+import Cookies from "js-cookie";
+// import disableBrowserBackButton from "disable-browser-back-navigation";
 
 const PelangganKirimScanInput = () => {
   // setTimeout(function () {
@@ -17,6 +19,7 @@ const PelangganKirimScanInput = () => {
   const [input, setInput] = useState("");
   const [layout, setLayout] = useState("default");
   const keyboard = useRef();
+  Cookies.set("kirim", "kirim");
 
   const onChange = (input) => {
     setInput(input);
@@ -117,6 +120,41 @@ const PelangganKirimScanInput = () => {
               onChange={onChange}
               onKeyPress={onKeyPress}
               theme={"hg-theme-default myTheme1"}
+              layout={{
+                default: [
+                  "` 1 2 3 4 5 6 7 8 9 0 - = {bksp}",
+                  "q w e r t y u i o p [ ] \\",
+                  "{lock} a s d f g h j k l ; '",
+                  "{shift} z x c v b n m , . / {shift}",
+                  "{space}",
+                ],
+                shift: [
+                  "~ ! @ # $ % ^ &amp; * ( ) _ + {bksp}",
+                  " Q W E R T Y U I O P { } |",
+                  '{lock} A S D F G H J K L : "',
+                  "{shift} Z X C V B N M &lt; &gt; ? {shift}",
+                  "{space}",
+                  // "{close}",
+                ],
+              }}
+              display={{
+                "{clear}": "Clear",
+                "{bksp}": "&#129044",
+                "{close}": "tutup",
+                "{lock}": "CapsLock",
+                "{shift}": "shift",
+                "{space}": "   space   ",
+              }}
+              buttonTheme={[
+                {
+                  class: "hg-red",
+                  buttons: "{close}",
+                },
+                {
+                  class: "hg-green",
+                  buttons: "{clear}",
+                },
+              ]}
             />
           </div>
         </div>

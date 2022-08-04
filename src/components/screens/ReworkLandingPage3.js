@@ -10,10 +10,35 @@ import NavbarMenuHome from "../comp/NavbarMenuHome";
 import axios from "axios";
 import Marquee from "react-fast-marquee";
 import Clock from "../comp/Clock";
+import Cookies from "js-cookie";
+import disableBrowserBackButton from "disable-browser-back-navigation";
 
 function ReworkLandingPage3() {
-  const url = "http://localhost:3005/service/empty-box";
+  const url = "http://192.168.7.118:3005/service/empty-box";
   const [data, setData] = useState({});
+  Cookies.remove("kirim");
+  disableBrowserBackButton();
+
+  Cookies.remove("pengirim");
+  Cookies.remove("notelppengirim");
+  Cookies.remove("penerima");
+  Cookies.remove("notelppenerima");
+  Cookies.remove("alamatpenerima");
+  Cookies.remove("provinsi");
+  Cookies.remove("kabupaten");
+  Cookies.remove("kecamatan");
+  Cookies.remove("dimensi");
+  Cookies.remove("packagecontent");
+  Cookies.remove("beratpaket");
+  Cookies.remove("packagevalue");
+  Cookies.remove("kelurahan");
+  Cookies.remove("zipcode");
+  Cookies.remove("tarif");
+  Cookies.remove("destinationcode");
+  Cookies.remove("deliverytype");
+  Cookies.remove("packagecategory");
+  Cookies.remove("asuransi");
+  Cookies.remove("kirim");
 
   //   useEffect(() => {
   //     axios.post(url).then((res) => {
