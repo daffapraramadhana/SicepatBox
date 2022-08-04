@@ -15,7 +15,11 @@ import disableBrowserBackButton from "disable-browser-back-navigation";
 
 function ReworkLandingPage3() {
   const url = "http://192.168.7.109:3005/service/empty-box";
+  const url2 = "";
   const [data, setData] = useState({});
+  const [size, setSize] = useState([]);
+  const [lockercode, setLockercode] = useState("");
+  const [lockername, setLockername] = useState("");
   Cookies.remove("kirim");
   disableBrowserBackButton();
 
@@ -40,34 +44,49 @@ function ReworkLandingPage3() {
   Cookies.remove("asuransi");
   Cookies.remove("kirim");
 
-  //   useEffect(() => {
-  //     axios.post(url).then((res) => {
-  //       setData(res.data);
-  //     });
-  //   });
-
-  //   console.log(data);
+  useEffect(() => {
+    axios({
+      method: "POST",
+      url: "http://192.168.7.109:3005/service/empty-box",
+      data: {},
+    }).then((res) => {
+      console.log(res.data.data);
+      setSize(res.data.data);
+    });
+  }, []);
 
   useEffect(() => {
-    fetchData();
-  }, {});
+    axios({
+      method: "POST",
+      url: "http://192.168.7.109:3005/service/locker-identity",
+      data: {},
+    }).then((res) => {
+      console.log(res.data.data);
+      setLockercode(res.data.data.locker_code);
+      setLockername(res.data.data.name);
+    });
+  }, []);
 
-  useEffect(
-    () => {
-      console.log("inidata", data);
-    },
-    { data }
-  );
+  // useEffect(() => {
+  //   fetchData();
+  // }, {});
 
-  const fetchData = async () => {
-    const res = await axios.post(url);
-    // console.log(res);
-    setData(res.data);
-    // axios.post(url).then((res) => {
-    //   console.log(res.data);
-    //   setData(res.data);
-    // });
-  };
+  // useEffect(
+  //   () => {
+  //     console.log("inidata", data);
+  //   },
+  //   { data }
+  // );
+
+  // const fetchData = async () => {
+  //   const res = await axios.post(url);
+  //   // console.log(res);
+  //   setData(res.data);
+  //   // axios.post(url).then((res) => {
+  //   //   console.log(res.data);
+  //   //   setData(res.data);
+  //   // });
+  // };
 
   //   const fetchData = async () => {
   //     const res = await axios.post(url);
@@ -413,7 +432,7 @@ function ReworkLandingPage3() {
                 style={{ fontSize: "20px", color: "white", fontWeight: "bold" }}
               >
                 <BsBuilding style={{ marginRight: "20px" }} />
-                #SSK | Sibox - Suppermall Karawaci
+                {lockercode} | {lockername}
               </div>
             </div>
             <div
@@ -588,13 +607,13 @@ function ReworkLandingPage3() {
                 }}
               >
                 <p style={{ fontSize: "20px", marginLeft: "30px" }}>
-                  <BsBoxSeam /> S = {data.S} | &nbsp;&nbsp;
+                  <BsBoxSeam /> S = {size[0]} | &nbsp;&nbsp;
                 </p>
                 <p style={{ fontSize: "25px" }}>
-                  <BsBoxSeam /> M = {data.M} | &nbsp;&nbsp;
+                  <BsBoxSeam /> M = {size[1]} | &nbsp;&nbsp;
                 </p>
                 <p style={{ fontSize: "30px" }}>
-                  <BsBoxSeam /> L = {data.L} | &nbsp;&nbsp;
+                  <BsBoxSeam /> L = {size[2]} | &nbsp;&nbsp;
                 </p>
               </div>
             </div>

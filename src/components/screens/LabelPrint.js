@@ -15,6 +15,7 @@ import NavbarMenu2 from "../comp/NavbarMenu2";
 import ButtonBukaLokerKembali from "../comp/ButtonBukaLokerKembali";
 import ButtonLanjutSwal from "../comp/ButtonLanjutSwal";
 import Cookies from "js-cookie";
+import disableBrowserBackButton from "disable-browser-back-navigation";
 
 const LabelPrint = () => {
   if (Cookies.get("kirim") == undefined || "") {
@@ -22,6 +23,7 @@ const LabelPrint = () => {
     window.location.href = "/";
   }
   console.log("cookienya ", Cookies.get("kirim"));
+  disableBrowserBackButton();
 
   return (
     <div className="">

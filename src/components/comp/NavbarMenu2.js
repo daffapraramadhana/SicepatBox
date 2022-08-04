@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Clock from "../comp/Clock";
 import { Navbar, Container, Col, Row, Image } from "react-bootstrap";
 import { BsBuilding } from "react-icons/bs";
 import sicepatbg from "../image/sicepatbg.jpg";
+import axios from "axios";
 
 function NavbarMenu2() {
+  const [lockercode, setLockercode] = useState("");
+  const [lockername, setLockername] = useState("");
+
+  useEffect(() => {
+    axios({
+      method: "POST",
+      url: "http://192.168.7.109:3005/service/locker-identity",
+      data: {},
+    }).then((res) => {
+      console.log(res.data.data);
+      setLockercode(res.data.data.locker_code);
+      setLockername(res.data.data.name);
+    });
+  }, []);
   return (
     <div>
       <Navbar
@@ -44,7 +59,7 @@ function NavbarMenu2() {
           }}
         >
           <BsBuilding style={{ marginRight: "20px" }} />
-          #SSK | Sibox - Suppermall Karawaci
+          {lockercode} | {lockername}
         </div>
         <Navbar.Text
           style={{

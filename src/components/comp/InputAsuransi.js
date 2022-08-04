@@ -34,7 +34,7 @@ class InputPaketkeyboard extends Component {
     console.log("jalan");
     axios({
       method: "POST",
-      url: "http://192.168.7.118:3005/service/cek-tarif",
+      url: "http://192.168.7.109:3005/service/cek-tarif",
       data: {
         city_destination: Cookies.get("kabupaten"),
         province_destination: Cookies.get("provinsi"),
@@ -203,7 +203,7 @@ class InputPaketkeyboard extends Component {
   cekasuransi = () => {
     axios({
       method: "POST",
-      url: "http://192.168.7.118:3005/service/cek-asuransi",
+      url: "http://192.168.7.109:3005/service/cek-asuransi",
       data: {
         parcel_value: Cookies.get("packagevalue"),
       },
