@@ -132,7 +132,7 @@ class InputPaketkeyboard extends Component {
     let layoutName = this.state.layoutName;
 
     this.setState({
-      layoutName: layoutName === "default" ? "shift" : "default",
+      layoutName: layoutName === "key" ? "shift" : "key",
     });
   };
 
@@ -265,25 +265,41 @@ class InputPaketkeyboard extends Component {
                   "1 2 3",
                   "4 5 6",
                   "7 8 9",
-                  ". 0 {clear}",
-                  "{bksp} {close}",
+                  ". 0 {bksp}",
+                  "{clear} {close}",
                 ],
                 key: [
-                  "q w e r t y u i o p {bksp}",
-                  "a s d f g h j k l",
-                  "z x c v b n m",
-                  "{clear} {close}",
+                  "` 1 2 3 4 5 6 7 8 9 0 - = {bksp}",
+                  "q w e r t y u i o p [ ] \\ {clear}",
+                  "{lock} a s d f g h j k l ; '",
+                  "{shift} z x c v b n m , . / {shift}",
+                  "{space} {close}",
+                ],
+                shift: [
+                  "~ ! @ # $ % ^ &amp; * ( ) _ + {bksp}",
+                  "Q W E R T Y U I O P { } | {clear}",
+                  '{lock} A S D F G H J K L : "',
+                  "{shift} Z X C V B N M &lt; &gt; ? {shift}",
+                  "{space} {close}",
+                  // "{close}",
                 ],
               }}
               display={{
-                "{clear}": "C",
+                "{clear}": "Clear",
                 "{bksp}": "&#129044",
-                "{close}": "close keyboard",
+                "{close}": "tutup",
+                "{lock}": "CapsLock",
+                "{shift}": "shift",
+                "{space}": "   space   ",
               }}
               buttonTheme={[
                 {
                   class: "hg-red",
                   buttons: "{close}",
+                },
+                {
+                  class: "hg-green",
+                  buttons: "{clear}",
                 },
               ]}
             />
@@ -365,7 +381,7 @@ class InputPaketkeyboard extends Component {
             </div>
             <div>
               {this.state.labelasuransi == "Iya" && (
-                <div style={{ marginTop: "20px" }}>
+                <div style={{ marginTop: "50px", width: "50rem" }}>
                   Masukan Estimasi Value Paket Anda :
                   <div style={{ display: "flex", flexDirection: "row" }}>
                     <Form.Control

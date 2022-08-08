@@ -7,26 +7,34 @@ import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import "../screens/style.css";
 import axios from "axios";
+import InputPhoneNumber from "../comp/InputPhoneNumber";
 
 class InputPengirimKeyboard extends Component {
-  state = {
-    layoutName: "key",
-    inputName: "inputPengirim",
-    input: {
-      inputPengirim:
-        (Cookies.get("pengirim") == "undefined"
-          ? ""
-          : Cookies.get("pengirim")) || "",
-      inputNoPengirim:
-        (Cookies.get("notelppengirim") == "undefined"
-          ? ""
-          : Cookies.get("notelppengirim")) || "",
-    },
-    submittedData: "",
-    keyboardOpen: "",
-    maxLength: "14",
-    lockername: "",
-  };
+  constructor() {
+    super();
+    this.state = {
+      layoutName: "key",
+      inputName: "inputPengirim",
+      input: {
+        inputPengirim:
+          (Cookies.get("pengirim") == "undefined"
+            ? ""
+            : Cookies.get("pengirim")) || "",
+        inputNoPengirim:
+          (Cookies.get("notelppengirim") == "undefined"
+            ? ""
+            : Cookies.get("notelppengirim")) || "",
+      },
+      submittedData: "",
+      keyboardOpen: "",
+      maxLength: "14",
+      lockername: "",
+      phone: "",
+      isvalid: false,
+      message: "",
+    };
+    this.onChangeNomer = this.onChangeNomer.bind(this);
+  }
 
   onChangeAll = (inputObj) => {
     this.setState({
@@ -58,23 +66,53 @@ class InputPengirimKeyboard extends Component {
   };
 
   onChangeInput = (event) => {
-    // let inputVal = event.target.value;
+    let inputVal = event.target.value;
 
-    // let updatedInputObj = {
-    //   ...this.state.input,
-    //   [this.state.inputName]: inputVal,
+    let updatedInputObj = {
+      ...this.state.input,
+      [this.state.inputName]: inputVal,
+    };
 
-    // };
+    this.setState(
+      {
+        input: updatedInputObj,
+      },
+      () => {
+        this.keyboard.setInput(inputVal);
+      }
+    );
+    const isPhoneValid = this.phoneValidation();
+    this.setState(
+      {
+        isvalid: isPhoneValid,
+        message: isPhoneValid
+          ? "Phone Number is Valid!"
+          : "Phone Number not valid!",
+      }
 
-    // this.setState(
-    //   {
-    //     input: updatedInputObj,
-    //   },
-    //   () => {
-    //     this.keyboard.setInput(inputVal);
-    //   }
-    // );
-    console.log("ini event", event);
+      //   () => this.props.onPhoneSubmit(this.state)
+    );
+    // console.log("ini event", event);
+  };
+
+  onChangeInputNomer = (event) => {
+    let inputVal = event.target.value;
+
+    let updatedInputObj = {
+      ...this.state.input,
+      [this.state.inputName]: inputVal,
+    };
+
+    this.setState(
+      {
+        input: updatedInputObj,
+      },
+      () => {
+        this.keyboard.setInput(inputVal);
+      }
+    );
+    // console.log("ini event", event);
+    // this.onChangeNomer();
   };
 
   setActiveInput = (inputName) => {
@@ -95,12 +133,12 @@ class InputPengirimKeyboard extends Component {
     });
   };
 
-  submit = () => {
-    this.setState({
-      submittedData: JSON.stringify(this.state.input),
-    });
-    console.log(this.state.input);
-  };
+  // submit = () => {
+  //   this.setState({
+  //     submittedData: JSON.stringify(this.state.input),
+  //   });
+  //   console.log(this.state.input);
+  // };
 
   clearScreen = () => {
     let input = { ...this.state.input };
@@ -118,6 +156,30 @@ class InputPengirimKeyboard extends Component {
       );
     });
   };
+
+  phoneValidation() {
+    const regex = /^^(\+62|62|0)8[1-9][0-9]{6,9}$/i;
+    return !(!this.state.phone || regex.test(this.state.phone) === false);
+  }
+
+  onChangeNomer(e) {
+    this.setState({
+      phone: e.target.value,
+    });
+    const isPhoneValid = this.phoneValidation();
+    this.setState(
+      {
+        isvalid: isPhoneValid,
+        message: isPhoneValid
+          ? "Phone Number is Valid!"
+          : "Phone Number not valid!",
+      }
+
+      //   () => this.props.onPhoneSubmit(this.state)
+    );
+    console.log(e.target.value);
+    Cookies.set("tes", e.target.value);
+  }
 
   render() {
     let { input, keyboardOpen } = this.state;
@@ -147,6 +209,17 @@ class InputPengirimKeyboard extends Component {
       });
     });
 
+    const messageTemplate = this.state.message ? (
+      <div
+        className={"alert alert-" + (this.state.isvalid ? "success" : "danger")}
+        role="alert"
+      >
+        {this.state.message}
+      </div>
+    ) : (
+      ""
+    );
+
     return (
       <div>
         <Form style={{ fontSize: "25px" }}>
@@ -158,7 +231,7 @@ class InputPengirimKeyboard extends Component {
                 this.setState({ layoutName: "key" });
               }}
               value={input["inputPengirim"] || ""}
-              // onChange={(e) => this.onChangeInput(e)}
+              onChange={(e) => this.onChangeInput(e)}
               type="text"
               placeholder="Masukan Nama Pengirim "
               style={{ fontSize: "30px" }}
@@ -172,6 +245,27 @@ class InputPengirimKeyboard extends Component {
             }}
           >
             <Form.Label>No Telp Pengirim :</Form.Label>
+            {/* <div className="child-component">
+              <div className="form-group mb-3">
+                <input
+                  placeholder="Masukan Nomer Telepon "
+                  type="phone"
+                  name="phone"
+                  onFocus={() => {
+                    this.setActiveInput("inputNoPengirim");
+                    this.setState({ layoutName: "ip" });
+                  }}
+                  value={input["inputNoPengirim"] || ""}
+                  // onChange={this.onChangeNomer}
+                  className="form-control"
+                  style={{ height: "4rem", fontSize: "25px" }}
+                />
+              </div>
+
+              <br />
+              {messageTemplate}
+            </div> */}
+
             <Form.Control
               onFocus={() => {
                 this.setActiveInput("inputNoPengirim");
@@ -185,6 +279,7 @@ class InputPengirimKeyboard extends Component {
               maxLength={14}
               minLength={12}
             />
+            {/* <InputPhoneNumber /> */}
           </Form.Group>
           <div className={`keyboardContainer ${!keyboardOpen ? "hidden" : ""}`}>
             <Keyboard
@@ -211,7 +306,7 @@ class InputPengirimKeyboard extends Component {
                 ],
                 shift: [
                   "~ ! @ # $ % ^ &amp; * ( ) _ + {bksp}",
-                  "{clear} Q W E R T Y U I O P { } |",
+                  "Q W E R T Y U I O P { } | {clear}",
                   '{lock} A S D F G H J K L : "',
                   "{shift} Z X C V B N M &lt; &gt; ? {shift}",
                   "{space} {close}",

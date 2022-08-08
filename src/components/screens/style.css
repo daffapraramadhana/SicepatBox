@@ -150,7 +150,7 @@ code {
 }
 
 .simple-keyboard.myTheme1 .hg-button {
-    height: 60px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,7 +171,7 @@ code {
     /* max-width: 250px;
     
     margin-top: 20px; */
-    width: 800px;
+    width: 1000px;
     height: 400px;
     text-align: center;
     position: absolute;
@@ -199,8 +199,8 @@ code {
     color: white;
 }
 
-.keyboardContainerPenerima {  
-    width: 800px;
+/* .keyboardContainerPenerima {  
+    width: 1000px;
     height: 400px;
     text-align: center;
     position: absolute;
@@ -213,13 +213,13 @@ code {
     margin-top: 20px;
     z-index: 5;
 
-}
+} */
 
 .keyboardContainerPenerimaLanjut {
     /* max-width: 250px;
     
     margin-top: 20px; */
-    width: 800px;
+    width: 1000px;
     /* height: 400px; */
     text-align: center;
     position: absolute;
@@ -235,7 +235,7 @@ code {
 }
 
 .keyboardContainerPenerima {
-    width: 800px;
+    width: 1000px;
     height: 400px;
     text-align: center;
     position: absolute;
