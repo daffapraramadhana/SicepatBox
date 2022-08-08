@@ -130,7 +130,7 @@ class InputBeratPaket extends Component {
             <div
               style={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
               }}
@@ -146,7 +146,20 @@ class InputBeratPaket extends Component {
                 placeholder="Estimasi Berat Paket "
                 style={{ fontSize: "30px", textAlign: "center" }}
               />
-              <Button
+              <div
+                style={{
+                  widht: "1px",
+                  // backgroundColor: "yellow",
+                  marginTop: "10px",
+                }}
+              >
+                <p>
+                  Berat Paket Anda Akan dilakukan Pengecekan <br /> Kembali Oleh
+                  Kami!!
+                </p>
+              </div>
+
+              {/* <Button
                 onClick={alert}
                 style={{
                   marginLeft: "20px",
@@ -159,7 +172,7 @@ class InputBeratPaket extends Component {
                 }}
               >
                 i
-              </Button>
+              </Button> */}
             </div>
           </Form.Group>
 

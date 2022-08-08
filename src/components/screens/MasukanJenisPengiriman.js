@@ -45,7 +45,7 @@ const MasukanJenisPengiriman = () => {
     <div className="">
       <NavbarMenu2 />
 
-      <Container fluid>
+      <Container>
         <h3
           style={{
             textAlign: "center",
@@ -56,7 +56,7 @@ const MasukanJenisPengiriman = () => {
         >
           Informasi Paket
         </h3>
-        <div
+        {/* <div
           style={{
             // margin: "auto",
             width: "100%",
@@ -70,10 +70,10 @@ const MasukanJenisPengiriman = () => {
           }}
         >
           {/* <ButtonJenisPengiriman /> */}
-          <div style={{ width: "50%" }}>
-            <InputAsuransi />
-          </div>
-        </div>
+        {/* <div style={{ width: "50%" }}> */}
+        <InputAsuransi />
+        {/* </div>
+        </div> */}
       </Container>
 
       <Container
