@@ -14,7 +14,7 @@ import Cookies from "js-cookie";
 import disableBrowserBackButton from "disable-browser-back-navigation";
 
 function ReworkLandingPage3() {
-  const url = "http://192.168.7.109:3005/service/empty-box";
+  const url = "http://192.168.7.196:3005/service/empty-box";
   const url2 = "";
   const [data, setData] = useState({});
   const [size, setSize] = useState([]);
@@ -47,7 +47,7 @@ function ReworkLandingPage3() {
   useEffect(() => {
     axios({
       method: "POST",
-      url: "http://192.168.7.109:3005/service/empty-box",
+      url: "http://192.168.7.196:3005/service/empty-box",
       data: {},
     }).then((res) => {
       console.log(res.data.data);
@@ -58,7 +58,7 @@ function ReworkLandingPage3() {
   useEffect(() => {
     axios({
       method: "POST",
-      url: "http://192.168.7.109:3005/service/locker-identity",
+      url: "http://192.168.7.196:3005/service/locker-identity",
       data: {},
     }).then((res) => {
       console.log(res.data.data);
