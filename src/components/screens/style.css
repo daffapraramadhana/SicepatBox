@@ -301,6 +301,16 @@ code {
 
 }
 
+.buttonconfirm {
+   width: 20rem;
+   height: 5rem; 
+   border-radius: 50px;
+   background-color: red;
+   border-color: #2db83d;
+   justify-content: center;
+   text-align: center;
+}
+
 .radio {
     font-family: sans-serif;
     text-align: center;
