@@ -29,6 +29,7 @@ import ReworkLandingPage3 from "./components/screens/ReworkLandingPage3";
 import MasukanDetailPenerimaLanjut from "./components/screens/MasukanDetailPenerimaLanjut";
 import MasukanDetailPaket from "./components/screens/MasukanDetailPaket";
 import MasukanJenisPengiriman from "./components/screens/MasukanJenisPengiriman";
+import { Helmet } from "react-helmet";
 
 function disableRightClick() {
   document.addEventListener("contextmenu", (e) => {
@@ -40,60 +41,74 @@ function App() {
   disableRightClick();
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<ReworkLandingPage3 />} />
-        <Route
-          path="/PelangganKirimScanInput"
-          element={<PelangganKirimScanInput />}
+    <div>
+      <Helmet>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-        <Route
-          path="/MasukanDetailPengiriman"
-          element={<MasukanDetailPengiriman />}
-        />
-        <Route
-          path="/MasukanDetailPenerima"
-          element={<MasukanDetailPenerima />}
-        />
-        <Route path="/MasukanDimensi" element={<MasukanDimensi />} />
-        <Route path="/DetailPengiriman" element={<DetailPengiriman />} />
-        <Route path="/ScanBarcode" element={<ScanBarcode />} />
-        <Route path="/LabelPrint" element={<LabelPrint />} />
-        <Route path="/LokerTerbuka" element={<LokerTerbuka />} />
-        <Route path="/PaketTersimpan" element={<PaketTersimpan />} />
-        <Route path="/TerimaKasih" element={<TerimaKasih />} />
-        <Route path="/LandingPage" element={<LandingPage />} />
-        <Route path="/InputPinAmbil" element={<InputPinAmbil />} />
-        <Route
-          path="/DetailPengirimanBarcode"
-          element={<DetailPengirimanBarcode />}
-        />
-        <Route path="/LokerTerbukaBarcode" element={<LokerTerbukaBarcode />} />
-        <Route path="/LokerTerbukaAmbil" element={<LokerTerbukaAmbil />} />
-        <Route path="/LoginKurir" element={<LoginKurir />} />
-        <Route path="/DashboardKurir" element={<DashboardKurir />} />
-        <Route path="/InputKodeKurir" element={<InputKodeKurir />} />
-        <Route
-          path="/DetailPengirimanKurir"
-          element={<DetailPengirimanKurir />}
-        />
-        <Route path="/LokerTerbukaKurir" element={<LokerTerbukaKurir />} />
-        <Route path="/TestJson" element={<TestJson />} />
-        <Route path="/MasukanDimensiKurir" element={<MasukanDimensiKurir />} />
-        <Route path="/ReworkLandingPage" element={<ReworkLandingPage />} />
-        <Route path="/TestLandingPage" element={<TestLandingPage />} />
-        <Route path="/ReworkLandingPage2" element={<ReworkLandingPage2 />} />
-        <Route
-          path="/MasukanDetailPenerimaLanjut"
-          element={<MasukanDetailPenerimaLanjut />}
-        />
-        <Route path="/MasukanDetailPaket" element={<MasukanDetailPaket />} />
-        <Route
-          path="/MasukanJenisPengiriman"
-          element={<MasukanJenisPengiriman />}
-        />
-      </Routes>
-    </Router>
+      </Helmet>
+      <Router>
+        <Routes>
+          <Route path="/" element={<ReworkLandingPage3 />} />
+          <Route
+            path="/PelangganKirimScanInput"
+            element={<PelangganKirimScanInput />}
+          />
+          <Route
+            path="/MasukanDetailPengiriman"
+            element={<MasukanDetailPengiriman />}
+          />
+          <Route
+            path="/MasukanDetailPenerima"
+            element={<MasukanDetailPenerima />}
+          />
+          <Route path="/MasukanDimensi" element={<MasukanDimensi />} />
+          <Route path="/DetailPengiriman" element={<DetailPengiriman />} />
+          <Route path="/ScanBarcode" element={<ScanBarcode />} />
+          <Route path="/LabelPrint" element={<LabelPrint />} />
+          <Route path="/LokerTerbuka" element={<LokerTerbuka />} />
+          <Route path="/PaketTersimpan" element={<PaketTersimpan />} />
+          <Route path="/TerimaKasih" element={<TerimaKasih />} />
+          <Route path="/LandingPage" element={<LandingPage />} />
+          <Route path="/InputPinAmbil" element={<InputPinAmbil />} />
+          <Route
+            path="/DetailPengirimanBarcode"
+            element={<DetailPengirimanBarcode />}
+          />
+          <Route
+            path="/LokerTerbukaBarcode"
+            element={<LokerTerbukaBarcode />}
+          />
+          <Route path="/LokerTerbukaAmbil" element={<LokerTerbukaAmbil />} />
+          <Route path="/LoginKurir" element={<LoginKurir />} />
+          <Route path="/DashboardKurir" element={<DashboardKurir />} />
+          <Route path="/InputKodeKurir" element={<InputKodeKurir />} />
+          <Route
+            path="/DetailPengirimanKurir"
+            element={<DetailPengirimanKurir />}
+          />
+          <Route path="/LokerTerbukaKurir" element={<LokerTerbukaKurir />} />
+          <Route path="/TestJson" element={<TestJson />} />
+          <Route
+            path="/MasukanDimensiKurir"
+            element={<MasukanDimensiKurir />}
+          />
+          <Route path="/ReworkLandingPage" element={<ReworkLandingPage />} />
+          <Route path="/TestLandingPage" element={<TestLandingPage />} />
+          <Route path="/ReworkLandingPage2" element={<ReworkLandingPage2 />} />
+          <Route
+            path="/MasukanDetailPenerimaLanjut"
+            element={<MasukanDetailPenerimaLanjut />}
+          />
+          <Route path="/MasukanDetailPaket" element={<MasukanDetailPaket />} />
+          <Route
+            path="/MasukanJenisPengiriman"
+            element={<MasukanJenisPengiriman />}
+          />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
