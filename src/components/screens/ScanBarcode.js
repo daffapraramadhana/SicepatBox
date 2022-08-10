@@ -12,6 +12,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import qriscode from "../image/qriscode.svg";
 import Swal from "sweetalert2";
+import ButtonConfirm from "../comp/ButtonConfirm";
 
 function disableRightClick() {
   document.addEventListener("contextmenu", (e) => {
@@ -259,7 +260,7 @@ const ScanBarcode = () => {
             }}
           >
             <div onClick={kirim}>
-              <ButtonLanjut />
+              <ButtonConfirm />
             </div>
           </Col>
         </Row>
