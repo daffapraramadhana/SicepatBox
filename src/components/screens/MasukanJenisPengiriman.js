@@ -15,6 +15,12 @@ import ButtonJenisPengiriman from "../comp/ButtonJenisPengiriman";
 import InputAsuransi from "../comp/InputAsuransi";
 import axios from "axios";
 
+function disableRightClick() {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+}
+
 function lanjut() {
   if (
     Cookies.get("packagecategory") == "undefined" ||
@@ -40,6 +46,7 @@ function lanjut() {
 
 const MasukanJenisPengiriman = () => {
   Cookies.set("asuransi", "0");
+  disableRightClick();
 
   return (
     <div className="">

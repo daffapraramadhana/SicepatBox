@@ -13,6 +13,18 @@ import Clock from "../comp/Clock";
 import Cookies from "js-cookie";
 import disableBrowserBackButton from "disable-browser-back-navigation";
 
+// componentDidMount() {
+//      document.addEventListener("contextmenu", (e) => {
+//       e.preventDefault();
+//     });
+//   }
+
+function disableRightClick() {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+}
+
 function ReworkLandingPage3() {
   const url = "http://192.168.7.196:3005/service/empty-box";
   const url2 = "";
@@ -22,6 +34,7 @@ function ReworkLandingPage3() {
   const [lockername, setLockername] = useState("");
   Cookies.remove("kirim");
   disableBrowserBackButton();
+  disableRightClick();
 
   Cookies.remove("pengirim");
   Cookies.remove("notelppengirim");
@@ -96,6 +109,18 @@ function ReworkLandingPage3() {
   //     //   console.log(res.data);
   //   setData(res.data);
   //   });
+
+  // componentDidMount() {
+  //    document.addEventListener("contextmenu", (e) => {
+  //     e.preventDefault();
+  //   });
+  // }
+
+  // componentDidMount(() => {
+  //   document.addEventListener("contextmenu", (e) => {
+  //     e.preventDefault();
+  //   });
+  // });
 
   return (
     <div>

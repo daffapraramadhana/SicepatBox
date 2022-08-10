@@ -17,6 +17,12 @@ import InputPenerimaKeyboard from "../comp/InputPenerimaKeyboard";
 import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 
+function disableRightClick() {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+}
+
 function lanjut() {
   if (
     Cookies.get("penerima") == "" ||
@@ -39,6 +45,7 @@ function lanjut() {
 }
 
 const MasukanDetailPenerima = () => {
+  disableRightClick();
   return (
     <div className="">
       <NavbarMenu2 />

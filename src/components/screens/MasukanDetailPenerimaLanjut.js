@@ -19,6 +19,12 @@ import InputPenerimaKeyboardLanjut from "../comp/InputPenerimaKeyboardLanjut";
 import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 
+function disableRightClick() {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+}
+
 function lanjut() {
   if (
     Cookies.get("alamatpenerima") == "undefined" ||
@@ -50,6 +56,7 @@ const MasukanDetailPenerimaLanjut = () => {
   Cookies.set("provinsi");
   Cookies.set("kabupaten");
   Cookies.set("kecamatan");
+  disableRightClick();
   return (
     <div className="">
       <NavbarMenu2 />

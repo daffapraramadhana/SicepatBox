@@ -153,10 +153,7 @@ class InputBeratPaket extends Component {
                   marginTop: "10px",
                 }}
               >
-                <p>
-                  Berat Paket Anda Akan dilakukan Pengecekan <br /> Kembali Oleh
-                  Kami!!
-                </p>
+                <p>Paket Akan dicek Kembali Oleh Kurir</p>
               </div>
 
               {/* <Button

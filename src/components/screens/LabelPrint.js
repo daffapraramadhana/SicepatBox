@@ -17,6 +17,12 @@ import ButtonLanjutSwal from "../comp/ButtonLanjutSwal";
 import Cookies from "js-cookie";
 import disableBrowserBackButton from "disable-browser-back-navigation";
 
+function disableRightClick() {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+}
+
 const LabelPrint = () => {
   if (Cookies.get("kirim") == undefined || "") {
     // console.log("detectvookie");
@@ -24,6 +30,7 @@ const LabelPrint = () => {
   }
   console.log("cookienya ", Cookies.get("kirim"));
   disableBrowserBackButton();
+  disableRightClick();
 
   return (
     <div className="">

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import SwalTerimaKasih from "../comp/SwalTerimaKasih";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaCheckCircle } from "react-icons/fa";
 import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 
@@ -54,8 +54,8 @@ function ButtonLanjutSwal() {
           // marginLeft: "30rem",
           // // marginRight: "-50rem",
           borderRadius: "50px",
-          backgroundColor: "#CD2028",
-          borderColor: "#CD2028",
+          backgroundColor: "		#2db83d",
+          borderColor: "		#2db83d",
           marginRight: "-10rem",
           alignItems: "center",
           justifyContent: "center",
@@ -71,8 +71,8 @@ function ButtonLanjutSwal() {
             textAlign: "center",
           }}
         >
-          <h3 style={{ margin: "auto" }}>Lanjut</h3>
-          <FaArrowRight
+          <h3 style={{ margin: "auto" }}>Selesai</h3>
+          <FaCheckCircle
             style={{ margin: "auto", height: "2rem", width: "3rem" }}
           />
         </div>

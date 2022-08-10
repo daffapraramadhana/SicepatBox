@@ -8,7 +8,14 @@ import NavbarMenu2 from "../comp/NavbarMenu2";
 import ButtonBack from "../comp/ButtonBack";
 import ButtonLanjut from "../comp/ButtonLanjut";
 
+function disableRightClick() {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+}
+
 const DetailPengirimanBarcode = () => {
+  disableRightClick();
   return (
     <div className="">
       <NavbarMenu2 />
