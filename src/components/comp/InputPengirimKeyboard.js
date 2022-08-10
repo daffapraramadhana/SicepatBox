@@ -212,6 +212,19 @@ class InputPengirimKeyboard extends Component {
 
     console.log(Cookies.get("pengirim"));
 
+    axios({
+      method: "POST",
+      url: "http://192.168.7.109:3005/service/locker-identity",
+      data: {},
+    }).then((res) => {
+      console.log(res.data.data);
+      // setLockercode(res.data.data.locker_code);
+      // setLockername(res.data.data.name);
+      this.setState({
+        lockername: res.data.data.name,
+      });
+    });
+
     const messageTemplate = this.state.message ? (
       <div
         className={"alert alert-" + (this.state.isvalid ? "success" : "danger")}

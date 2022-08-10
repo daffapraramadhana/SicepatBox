@@ -35,20 +35,13 @@ const ScanBarcode = () => {
   disableRightClick();
 
   const ambilqr = () => {
-    axios(
-      {
-        method: "POST",
-        url: "http://192.168.7.109:3005/service/get-qr",
-        data: {
-          amount:
-            Number(Cookies.get("tarif")) + Number(Cookies.get("asuransi")),
-        },
+    axios({
+      method: "POST",
+      url: "http://192.168.7.109:3005/service/get-qr",
+      data: {
+        amount: Number(Cookies.get("tarif")) + Number(Cookies.get("asuransi")),
       },
-      {
-        timeout: 5000,
-      }
-    ).then((res) => {
-      console.log("data qr", res.data);
+    }).then((res) => {
       if (
         Cookies.get("qrimg") == undefined ||
         Cookies.get("tid") == undefined ||
@@ -57,9 +50,8 @@ const ScanBarcode = () => {
         Cookies.get("trxid") == undefined ||
         Cookies.get("token") == undefined
       ) {
+        console.log(res.data);
         const imageQr = res.data.data.qr;
-        console.log("data qr", imageQr);
-        Cookies.set("qrimg", imageQr);
         setImg(imageQr);
 
         const tid = res.data.data.tid;
@@ -175,170 +167,66 @@ const ScanBarcode = () => {
     //   console.log(res);
     // });
 
-    // axios({
-    //   method: "POST",
-    //   url: "http://192.168.7.109:3005/service/check-qr-status",
-    //   data: {
-    //     token: gettoken,
-    //     tid: gettid,
-    //     mid: getmid,
-    //     provider: getprovider,
-    //     amount: getamount,
-    //     trx_id: gettrxid,
-    //   },
-    // }).then((res) => {
-    //   console.log(res.data);
-    //   if (res.data.data.status == "PAID") {
-    //     console.log("tes");
-
-    //     axios({
-    //       method: "POST",
-    //       url: "http://192.168.7.109:3005/service/pickup-request",
-    //       data: {
-    //         dimensi: Cookies.get("dimensi"),
-    //         weight: Cookies.get("beratpaket"),
-    //         store_user_name: Cookies.get("pengirim"),
-    //         shipper_phone: Cookies.get("notelppengirim"),
-    //         recipient_name: Cookies.get("penerima"),
-    //         recipient_phone: Cookies.get("notelppenerima"),
-    //         // recipient_address: Cookies.get("alamatpenerima"),
-    //         recipient_district: Cookies.get("kecamatan"),
-    //         recipient_zipcode: Cookies.get("zipcode"),
-    //         recipient_city: Cookies.get("kabupaten"),
-    //         recipient_province: Cookies.get("provinsi"),
-    //         tarif: Number(Cookies.get("tarif")),
-    //         end_address: Cookies.get("alamatpenerima"),
-    //         insurance: Number(Cookies.get("asuransi")),
-    //         notes: "Jangan di banting dan taruh di suhu ruangan",
-    //         delivery_type: Cookies.get("deliverytype"),
-    //         parcel_content: Cookies.get("packagecontent"),
-    //         parcel_value: Cookies.get("packagevalue"),
-    //         parcel_category: Cookies.get("packagecategory"),
-    //         destination_code: Cookies.get("destinationcode"),
-    //         trx_type: res.data.data.trx,
-    //         trx_id: gettrxid,
-    //       },
-    //     }).then((res) => {
-    //       if (res.data.response.code == 200) {
-    //         window.location.href = "/LabelPrint";
-    //       } else {
-    //         Swal.fire({
-    //           position: "center",
-    //           icon: "warning",
-    //           title: res.data.response.message,
-    //           showConfirmButton: false,
-    //           timer: 1500,
-    //           // confirmButtonText: "close",
-    //         });
-    //       }
-    //     });
-    //   } else {
-    //     Swal.fire({
-    //       position: "center",
-    //       icon: "warning",
-    //       title: "Silahkan Lakukan Pembayaran",
-    //       showConfirmButton: false,
-    //       timer: 1500,
-    //       // confirmButtonText: "close",
-    //     });
-    //   }
-    // });
-    axios(
-      {
-        method: "POST",
-        url: "http://192.168.7.109:3005/service/check-qr-status",
-        data: {
-          token: gettoken,
-          tid: gettid,
-          mid: getmid,
-          provider: getprovider,
-          amount: getamount,
-          trx_id: gettrxid,
-        },
+    axios({
+      method: "POST",
+      url: "http://192.168.7.109:3005/service/check-qr-status",
+      data: {
+        token: gettoken,
+        tid: gettid,
+        mid: getmid,
+        provider: getprovider,
+        amount: getamount,
+        trx_id: gettrxid,
       },
-      {
-        timeout: 5000,
-      }
-    ).then((res) => {
+    }).then((res) => {
       console.log(res.data);
       setLoading(true);
       if (res.data == undefined) {
-        Swal.fire({
-          position: "center",
-          icon: "warning",
-          title: "Server Bermasalah",
-          showConfirmButton: false,
-          timer: 1500,
-          // confirmButtonText: "close",
-        });
       } else {
         if (res.data.data.status == "PAID") {
           console.log("tes");
-
-          axios(
-            {
-              method: "POST",
-              url: "http://192.168.7.109:3005/service/pickup-request",
-
-              data: {
-                dimensi: Cookies.get("dimensi"),
-                weight: Cookies.get("beratpaket"),
-                store_user_name: Cookies.get("pengirim"),
-                shipper_phone: Cookies.get("notelppengirim"),
-                recipient_name: Cookies.get("penerima"),
-                recipient_phone: Cookies.get("notelppenerima"),
-                // recipient_address: Cookies.get("alamatpenerima"),
-                recipient_district: Cookies.get("kecamatan"),
-                recipient_zipcode: Cookies.get("zipcode"),
-                recipient_city: Cookies.get("kabupaten"),
-                recipient_province: Cookies.get("provinsi"),
-                tarif: Number(Cookies.get("tarif")),
-                end_address: Cookies.get("alamatpenerima"),
-                insurance: Number(Cookies.get("asuransi")),
-                notes: "Jangan di banting dan taruh di suhu ruangan",
-                delivery_type: Cookies.get("deliverytype"),
-                parcel_content: Cookies.get("packagecontent"),
-                parcel_value: Cookies.get("packagevalue"),
-                parcel_category: Cookies.get("packagecategory"),
-                destination_code: Cookies.get("destinationcode"),
-                trx_type: res.data.data.trx,
-                trx_id: gettrxid,
-              },
+          axios({
+            method: "POST",
+            url: "http://192.168.7.109:3005/service/pickup-request",
+            data: {
+              dimensi: Cookies.get("dimensi"),
+              weight: Cookies.get("beratpaket"),
+              store_user_name: Cookies.get("pengirim"),
+              shipper_phone: Cookies.get("notelppengirim"),
+              recipient_name: Cookies.get("penerima"),
+              recipient_phone: Cookies.get("notelppenerima"),
+              // recipient_address: Cookies.get("alamatpenerima"),
+              recipient_district: Cookies.get("kecamatan"),
+              recipient_zipcode: Cookies.get("zipcode"),
+              recipient_city: Cookies.get("kabupaten"),
+              recipient_province: Cookies.get("provinsi"),
+              tarif: Number(Cookies.get("tarif")),
+              end_address: Cookies.get("alamatpenerima"),
+              insurance: Number(Cookies.get("asuransi")),
+              notes: "Jangan di banting dan taruh di suhu ruangan",
+              delivery_type: Cookies.get("deliverytype"),
+              parcel_content: Cookies.get("packagecontent"),
+              parcel_value: Cookies.get("packagevalue"),
+              parcel_category: Cookies.get("packagecategory"),
+              destination_code: Cookies.get("destinationcode"),
+              trx_type: res.data.data.trx,
+              trx_id: gettrxid,
             },
-            {
-              timeout: 5000,
-            }
-          ).then((res) => {
-            console.log("server res", res);
-            if (res.data == undefined) {
+          }).then((res) => {
+            if (res.data.response.code == 200) {
+              window.location.href = "/LabelPrint";
+            } else {
               Swal.fire({
                 position: "center",
                 icon: "warning",
-                title: "server bermasalah",
+                title: res.data.response.message,
                 showConfirmButton: false,
+                timer: 1500,
                 // confirmButtonText: "close",
               });
-              window.location.href = "/LabelPrint";
-            } else {
-              if (res.data.response.code != 200) {
-                Swal.fire({
-                  position: "center",
-                  icon: "warning",
-                  title: res.data.response.message,
-                  showConfirmButton: true,
-                  timer: 4000,
-                });
-                window.location.href = "/ScanBarcode";
-              } else {
-                setTimeout(() => {
-                  setLoading(false);
-                }, 2000);
-                window.location.href = "/LabelPrint";
-              }
             }
           });
         } else {
-          setLoading(false);
           Swal.fire({
             position: "center",
             icon: "warning",
