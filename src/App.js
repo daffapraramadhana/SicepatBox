@@ -30,7 +30,15 @@ import MasukanDetailPenerimaLanjut from "./components/screens/MasukanDetailPener
 import MasukanDetailPaket from "./components/screens/MasukanDetailPaket";
 import MasukanJenisPengiriman from "./components/screens/MasukanJenisPengiriman";
 
+function disableRightClick() {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+}
+
 function App() {
+  disableRightClick();
+
   return (
     <Router>
       <Routes>
