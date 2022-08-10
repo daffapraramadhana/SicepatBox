@@ -13,6 +13,12 @@ import axios from "axios";
 import qriscode from "../image/qriscode.svg";
 import Swal from "sweetalert2";
 
+function disableRightClick() {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+}
+
 const ScanBarcode = () => {
   const [img, setImg] = useState("");
   const [getmid, setMid] = useState("");
@@ -21,6 +27,7 @@ const ScanBarcode = () => {
   const [gettrxid, setTrxid] = useState("");
   const [getamount, setAmount] = useState("");
   const [gettoken, setToken] = useState("");
+  disableRightClick();
 
   const ambilqr = () => {
     axios({

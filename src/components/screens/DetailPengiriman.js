@@ -9,6 +9,12 @@ import ButtonLanjut from "../comp/ButtonLanjut";
 import NavbarMenu2 from "../comp/NavbarMenu2";
 import Cookies from "js-cookie";
 
+function disableRightClick() {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+}
+
 const DetailPengiriman = () => {
   Cookies.get("pengirim");
   Cookies.get("notelppengirim");
@@ -21,6 +27,8 @@ const DetailPengiriman = () => {
   Cookies.get("asuransi");
   Cookies.get("deliverytype");
   Cookies.get("asuransi");
+
+  disableRightClick();
 
   return (
     <div className="">

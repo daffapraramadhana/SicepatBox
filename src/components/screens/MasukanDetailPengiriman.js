@@ -14,6 +14,12 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import "animate.css";
 
+function disableRightClick() {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+}
+
 function lanjut() {
   if (
     Cookies.get("pengirim") == "" ||
@@ -58,7 +64,7 @@ const MasukanDetailPengiriman = () => {
   //     notes: "jangan di banting",
   //   })
   //   .then((res) => {});
-
+  disableRightClick();
   return (
     <div className="">
       <NavbarMenu2 />

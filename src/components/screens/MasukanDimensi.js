@@ -12,6 +12,12 @@ import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 import InputBeratPaket from "../comp/InputBeratPaket";
 
+function disableRightClick() {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+}
+
 function lanjut() {
   if (
     Cookies.get("dimensi") == "undefined" ||
@@ -34,6 +40,7 @@ function lanjut() {
 }
 
 const MasukanDimensi = () => {
+  disableRightClick();
   return (
     <div className="">
       <NavbarMenu2 />

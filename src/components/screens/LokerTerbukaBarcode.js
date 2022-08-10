@@ -13,7 +13,14 @@ import ButtonLanjutSwal from "../comp/ButtonLanjutSwal";
 import ButtonBukaLokerKembali from "../comp/ButtonBukaLokerKembali";
 import NavbarMenu2 from "../comp/NavbarMenu2";
 
+function disableRightClick() {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+}
+
 const LokerTerbukaBarcode = () => {
+  disableRightClick();
   return (
     <div className="">
       <NavbarMenu2 />

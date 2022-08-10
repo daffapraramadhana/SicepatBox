@@ -10,41 +10,18 @@ import ButtonLanjut from "../comp/ButtonLanjut";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import Cookies from "js-cookie";
+import InputKodePemesanan from "../comp/InputKodePemesanan";
 // import disableBrowserBackButton from "disable-browser-back-navigation";
 
+function disableRightClick() {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+}
+
 const PelangganKirimScanInput = () => {
-  // setTimeout(function () {
-  //   window.location.href = "/";
-  // }, 5000);
-  const [input, setInput] = useState("");
-  const [layout, setLayout] = useState("default");
-  const keyboard = useRef();
   Cookies.set("kirim", "kirim");
-
-  const onChange = (input) => {
-    setInput(input);
-    console.log("Input changed", input);
-  };
-
-  const handleShift = () => {
-    const newLayoutName = layout === "default" ? "shift" : "default";
-    setLayout(newLayoutName);
-  };
-
-  const onKeyPress = (button) => {
-    console.log("Button pressed", button);
-
-    /**
-     * If you want to handle the shift and caps lock buttons
-     */
-    if (button === "{shift}" || button === "{lock}") handleShift();
-  };
-
-  const onChangeInput = (event) => {
-    const input = event.target.value;
-    setInput(input);
-    keyboard.current.setInput(input);
-  };
+  disableRightClick();
 
   return (
     <div className="">
@@ -84,9 +61,11 @@ const PelangganKirimScanInput = () => {
             textAlign: "center",
             alignItems: "center",
             justifyContent: "center",
+            display: "flex",
           }}
         >
-          <input
+          <InputKodePemesanan />
+          {/* <input
             autoFocus
             type="text"
             value={input}
@@ -102,6 +81,7 @@ const PelangganKirimScanInput = () => {
             }}
             placeholder="Masukan kode Pemesanan"
           />
+
           <div
             style={{
               display: "flex",
@@ -156,7 +136,7 @@ const PelangganKirimScanInput = () => {
                 },
               ]}
             />
-          </div>
+          </div> */}
         </div>
       </body>
 

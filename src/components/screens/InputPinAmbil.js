@@ -13,6 +13,13 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
+import InputPinAmbilKeyboard from "../comp/InputPinAmbilKeyboard";
+
+function disableBackButton() {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+}
 
 const InputPinAmbil = () => {
   const url = "http://192.168.7.118:3005/service/courier-take-package";
@@ -22,7 +29,8 @@ const InputPinAmbil = () => {
   const keyboard = useRef();
   const ref = useRef();
   const [completed, setCompleted] = useState(false);
-
+  disableBackButton();
+  // console.log(ref[0]);
   if (completed) {
     axios
       .post(url, {
@@ -176,6 +184,8 @@ const InputPinAmbil = () => {
           SCAN BARCODE ATAU INPUT KODE PEMESANAN
         </h3>
 
+        {/* <InputPinAmbilKeyboard /> */}
+
         <div className="pin">
           <PinField
             autoFocus
@@ -217,10 +227,10 @@ const InputPinAmbil = () => {
               keyboardRef={(r) => (keyboard.current = r)}
               layout={{
                 default: [
-                  "` 1 2 3 4 5 6 7 8 9 0 - = {bksp}",
-                  " q w e r t y u i o p [ ] \\",
-                  " a s d f g h j k l ; '",
-                  " z x c v b n m , . / ",
+                  "1 2 3 4 5 6 7 8 9 0 {bksp}",
+                  "q w e r t y u i o p",
+                  "a s d f g h j k l",
+                  "z x c v b n m",
                 ],
               }}
               layoutName={layout}
