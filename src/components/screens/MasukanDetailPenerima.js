@@ -25,8 +25,8 @@ function disableRightClick() {
 
 function lanjut() {
   if (
-    Cookies.get("penerima") == "" ||
-    "undefined" ||
+    Cookies.get("penerima") == "undefined" ||
+    "" ||
     Cookies.get("notelppenerima") == "undefined" ||
     ""
   ) {
