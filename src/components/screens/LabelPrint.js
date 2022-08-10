@@ -16,6 +16,7 @@ import ButtonBukaLokerKembali from "../comp/ButtonBukaLokerKembali";
 import ButtonLanjutSwal from "../comp/ButtonLanjutSwal";
 import Cookies from "js-cookie";
 import disableBrowserBackButton from "disable-browser-back-navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function disableRightClick() {
   document.addEventListener("contextmenu", (e) => {
@@ -69,6 +70,11 @@ const LabelPrint = () => {
                   }}
                 >
                   Label Telah diprint Silahkan Tempel Pada Paket
+                  <FontAwesomeIcon
+                    style={{ width: "100px", height: "100px", color: "black" }}
+                    icon="coffee"
+                    spin
+                  />
                 </h3>
               </Container>
             </Col>

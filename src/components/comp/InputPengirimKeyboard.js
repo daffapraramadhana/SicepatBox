@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { render } from "react-dom";
 import { BsArrowLeft } from "react-icons/bs";
@@ -181,6 +181,21 @@ class InputPengirimKeyboard extends Component {
     Cookies.set("tes", e.target.value);
   }
 
+  componentDidMount() {
+    axios({
+      method: "POST",
+      url: "http://192.168.7.109:3005/service/locker-identity",
+      data: {},
+    }).then((res) => {
+      console.log(res.data.data);
+      // setLockercode(res.data.data.locker_code);
+      // setLockername(res.data.data.name);
+      this.setState({
+        lockername: res.data.data.name,
+      });
+    });
+  }
+
   render() {
     let { input, keyboardOpen } = this.state;
 
@@ -196,18 +211,6 @@ class InputPengirimKeyboard extends Component {
     Cookies.set("notelppengirim", input.inputNoPengirim);
 
     console.log(Cookies.get("pengirim"));
-    axios({
-      method: "POST",
-      url: "http://192.168.7.109:3005/service/locker-identity",
-      data: {},
-    }).then((res) => {
-      console.log(res.data.data);
-      // setLockercode(res.data.data.locker_code);
-      // setLockername(res.data.data.name);
-      this.setState({
-        lockername: res.data.data.name,
-      });
-    });
 
     const messageTemplate = this.state.message ? (
       <div
