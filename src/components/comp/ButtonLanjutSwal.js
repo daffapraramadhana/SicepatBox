@@ -35,6 +35,12 @@ function kirim() {
       Cookies.remove("packagecategory");
       Cookies.remove("asuransi");
       Cookies.remove("kirim");
+      Cookies.remove("qrimg");
+      Cookies.remove("tid");
+      Cookies.remove("mid");
+      Cookies.remove("trxid");
+      Cookies.remove("amount");
+      Cookies.remove("token");
     })
     .then(function () {
       window.location.href = "/";
