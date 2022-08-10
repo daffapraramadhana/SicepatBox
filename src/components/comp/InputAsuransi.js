@@ -220,6 +220,10 @@ class InputPaketkeyboard extends Component {
     let { input, keyboardOpen } = this.state;
     Cookies.set("packagevalue", input.inputValuePackage);
     Cookies.set("packagecontent", input.inputDetailPaket);
+    if (this.state.labelasuransi == "Tidak") {
+      Cookies.set("asuransi", "0");
+      Cookies.set("packagevalue", "0");
+    }
 
     // const kategori = [
     //   { value: "paket", label: "Paket" },
