@@ -9,13 +9,13 @@ function ButtonConfirm() {
         variant="primary"
         size="lg"
         style={{
-          width: "15rem",
+          width: "20rem",
           height: "5rem",
           // marginLeft: "30rem",
           // // marginRight: "-50rem",
           borderRadius: "50px",
-          backgroundColor: "#CD2028",
-          borderColor: "#CD2028",
+          backgroundColor: "#2db83d",
+          borderColor: "#2db83d",
           marginRight: "-10rem",
           alignItems: "center",
           justifyContent: "center",
