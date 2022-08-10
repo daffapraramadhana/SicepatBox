@@ -13,7 +13,12 @@ class InputPengirimKeyboard extends Component {
   state = {
     layoutName: "key",
     inputName: "inputAlamatPenerima",
-    input: {},
+    input: {
+      inputAlamatPenerima:
+        (Cookies.get("alamatpenerima") == "undefined"
+          ? ""
+          : Cookies.get("alamatpenerima")) || "",
+    },
     submittedData: "",
     keyboardOpen: "",
   };

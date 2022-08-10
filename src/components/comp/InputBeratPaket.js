@@ -210,6 +210,10 @@ class InputBeratPaket extends Component {
                   class: "hg-red",
                   buttons: "{close}",
                 },
+                {
+                  class: "hg-green",
+                  buttons: "{clear}",
+                },
               ]}
             />
           </div>

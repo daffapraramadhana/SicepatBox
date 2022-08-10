@@ -16,7 +16,12 @@ class InputPaketkeyboard extends Component {
     this.state = {
       layoutName: "ip",
       inputName: "inputValuePaket",
-      input: {},
+      input: {
+        inputDetailPaket:
+          (Cookies.get("packagecontent") == "undefined"
+            ? ""
+            : Cookies.get("packagecontent")) || "",
+      },
       submittedData: "",
       keyboardOpen: "",
       status: 0,
