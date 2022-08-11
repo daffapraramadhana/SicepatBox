@@ -32,6 +32,20 @@ class InputPaketkeyboard extends Component {
       selectOptionsJenis: [],
       selectOptionsAsuransi: [],
       labelasuransi: "",
+      default: {
+        kategoriPaket: {
+          label: "Pilih Kategori Paket Anda",
+          value: "",
+        },
+        tipePengiriman: {
+          label: "Pilih Tipe Pengiriman Anda",
+          value: "",
+        },
+        labelasuransi: {
+          label: "asuransi?",
+          value: "",
+        },
+      },
     };
   }
 
@@ -80,6 +94,7 @@ class InputPaketkeyboard extends Component {
   handleChange(a) {
     console.log(a.value);
     Cookies.set("packagecategory", a.value);
+    Cookies.set("packagecategorylabel", a.label);
   }
 
   handleChangeJenis(b) {
@@ -91,6 +106,8 @@ class InputPaketkeyboard extends Component {
   handleChangeAsuransi(c) {
     console.log("value", c.value);
     this.setState({ labelasuransi: c.value });
+    Cookies.set("labelasuransi", c.value);
+    Cookies.set("valueasuransi", c.label);
     // console.log(this.state.labelasuransi);
     // Cookies.set("packagecategory", c.value);
   }
@@ -229,7 +246,19 @@ class InputPaketkeyboard extends Component {
       Cookies.set("asuransi", "0");
       Cookies.set("packagevalue", "0");
     }
-
+    if (
+      Cookies.get("packagecategory") != undefined ||
+      Cookies.get("deliverytype") != undefined ||
+      Cookies.get("packagevalue") != undefined ||
+      Cookies.get("labelasuransi") != undefined
+    ) {
+      this.state.default.kategoriPaket.value = Cookies.get("packagecategory");
+      this.state.default.kategoriPaket.label = Cookies.get(
+        "packagecategorylabel"
+      );
+      this.state.default.labelasuransi.label = Cookies.get("labelasuransi");
+      this.state.default.labelasuransi.value = Cookies.get("valueasuransi");
+    }
     // const kategori = [
     //   { value: "paket", label: "Paket" },
     //   { value: "lain-lain", label: "Lain-lain" },
@@ -320,7 +349,10 @@ class InputPaketkeyboard extends Component {
               label="Single select"
               options={this.state.selectOptions}
               onChange={this.handleChange.bind(this)}
-
+              defaultValue={{
+                label: this.state.default.kategoriPaket.label,
+                value: this.state.default.kategoriPaket.value,
+              }}
               // styles={colourStyles}
             />
           </Form.Group>
@@ -330,7 +362,10 @@ class InputPaketkeyboard extends Component {
               label="Single select"
               options={this.state.selectOptionsJenis}
               onChange={this.handleChangeJenis.bind(this)}
-
+              defaultValue={{
+                label: this.state.default.tipePengiriman.label,
+                value: this.state.default.tipePengiriman.value,
+              }}
               // styles={colourStyles}
             />
           </Form.Group>
@@ -358,7 +393,10 @@ class InputPaketkeyboard extends Component {
                 label="Single select"
                 options={this.state.selectOptionsAsuransi}
                 onChange={this.handleChangeAsuransi.bind(this)}
-
+                defaultValue={{
+                  label: this.state.default.labelasuransi.label,
+                  value: this.state.default.labelasuransi.value,
+                }}
                 // styles={colourStyles}
               />
 
@@ -389,7 +427,7 @@ class InputPaketkeyboard extends Component {
               </Button> */}
             </div>
             <div>
-              {this.state.labelasuransi == "Iya" && (
+              {this.state.default.labelasuransi.value == "Iya" && (
                 <div style={{ marginTop: "50px", width: "50rem" }}>
                   Masukan Estimasi Value Paket Anda :
                   <div style={{ display: "flex", flexDirection: "row" }}>

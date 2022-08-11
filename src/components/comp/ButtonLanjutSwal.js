@@ -41,6 +41,8 @@ function kirim() {
       Cookies.remove("trxid");
       Cookies.remove("amount");
       Cookies.remove("token");
+      Cookies.rempve("packagecategory");
+      Cookies.rempve("packagecategorylabel");
     })
     .then(function () {
       window.location.href = "/";

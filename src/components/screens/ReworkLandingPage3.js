@@ -19,6 +19,16 @@ import disableBrowserBackButton from "disable-browser-back-navigation";
 //     });
 //   }
 
+function useDisablePinchZoomEffect() {
+  document.addEventListener(
+    "touchmove",
+    function (e) {
+      e.preventDefault();
+    },
+    { passive: false }
+  );
+}
+
 function disableRightClick() {
   document.addEventListener("contextmenu", (e) => {
     e.preventDefault();
@@ -35,6 +45,7 @@ function ReworkLandingPage3() {
   Cookies.remove("kirim");
   disableBrowserBackButton();
   disableRightClick();
+  useDisablePinchZoomEffect();
 
   Cookies.remove("pengirim");
   Cookies.remove("notelppengirim");
