@@ -21,13 +21,17 @@ function disableRightClick() {
   });
 }
 
+function back() {
+  window.location.href = "/MasukanDimensi";
+}
+
 function lanjut() {
   if (
-    Cookies.get("packagecategory") == "undefined" ||
+    Cookies.get("packagecategory") == undefined ||
     "" ||
-    Cookies.get("deliverytype") == "undefined" ||
+    Cookies.get("deliverytype") == undefined ||
     "" ||
-    Cookies.get("packagecontent") == "undefined" ||
+    Cookies.get("packagecontent") == undefined ||
     ""
   ) {
     Swal.fire({
@@ -45,7 +49,7 @@ function lanjut() {
 }
 
 const MasukanJenisPengiriman = () => {
-  
+  Cookies.set("asuransi", "0");
   disableRightClick();
 
   return (
@@ -83,53 +87,30 @@ const MasukanJenisPengiriman = () => {
         </div> */}
       </Container>
 
-      <Container
-        fluid
+      <div
         style={{
+          width: "100vw",
           position: "absolute",
           bottom: "0",
-          marginBottom: "3rem",
+          // marginBottom: "3rem",
           flex: "1",
+          flexDirection: "row",
           display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "50px",
+          // backgroundColor: "yellow",
+          // marginLeft: "1rem",
         }}
       >
-        <Row
-          style={{
-            flex: "1",
-          }}
-        >
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Link to="/MasukanDimensi">
-              <ButtonBack />
-            </Link>
-          </Col>
+        <div onClick={back}>
+          <ButtonBack />
+        </div>
 
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          ></Col>
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <div onClick={lanjut}>
-              <ButtonLanjut />
-            </div>
-          </Col>
-        </Row>
-      </Container>
+        <div onClick={lanjut}>
+          <ButtonLanjut />
+        </div>
+      </div>
     </div>
   );
 };

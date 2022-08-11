@@ -14,6 +14,7 @@ function ButtonBelumPesan() {
           backgroundColor: "#CD2028",
           borderColor: "#CD2028",
           fontSize: "25px",
+          marginRight: "-5rem",
         }}
       >
         Belum Melakukan Pemesanan

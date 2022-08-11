@@ -20,10 +20,15 @@ function disableRightClick() {
   });
 }
 
+function back() {
+  window.location.href = "/PelangganKirimScanInput";
+}
+
 function lanjut() {
   if (
-    Cookies.get("pengirim") == "" ||
-    Cookies.get("notelppengirim") == "undefined" ||
+    Cookies.get("pengirim") == undefined ||
+    "" ||
+    Cookies.get("notelppengirim") == undefined ||
     ""
   ) {
     Swal.fire({
@@ -121,59 +126,31 @@ const MasukanDetailPengiriman = () => {
           </Form> */}
         </Container>
       </body>
-      <Container
-        fluid
+
+      <div
         style={{
+          width: "100vw",
           position: "absolute",
           bottom: "0",
-          marginBottom: "3rem",
+          // marginBottom: "3rem",
           flex: "1",
+          flexDirection: "row",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "50px",
+          // backgroundColor: "yellow",
+          // marginLeft: "1rem",
         }}
       >
-        <Row
-          style={{
-            flex: "1",
-          }}
-        >
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Link to="/PelangganKirimScanInput">
-              <ButtonBack />
-            </Link>
-          </Col>
+        <div onClick={back}>
+          <ButtonBack />
+        </div>
 
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Container
-              style={{
-                backgroundColor: "none",
-                height: "3rem",
-              }}
-            ></Container>
-          </Col>
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <div onClick={lanjut}>
-              <ButtonLanjut />
-            </div>
-          </Col>
-        </Row>
-      </Container>
+        <div onClick={lanjut}>
+          <ButtonLanjut />
+        </div>
+      </div>
     </div>
   );
 };

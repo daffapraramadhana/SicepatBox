@@ -23,6 +23,10 @@ function disableRightClick() {
   });
 }
 
+function back() {
+  window.location.href = "/DetailPengiriman";
+}
+
 const ScanBarcode = () => {
   const [loading, setLoading] = useState(false);
   const [img, setImg] = useState("");
@@ -288,84 +292,55 @@ const ScanBarcode = () => {
         </div>
       </div>
 
-      <Container
-        fluid
+      <div
         style={{
+          width: "100vw",
           position: "absolute",
           bottom: "0",
-          marginBottom: "3rem",
+          // marginBottom: "3rem",
           flex: "1",
+          flexDirection: "row",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "50px",
+          // backgroundColor: "yellow",
+          // marginLeft: "1rem",
         }}
       >
-        <Row
-          style={{
-            flex: "1",
-          }}
-        >
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Link to="/DetailPengiriman">
-              <ButtonBack />
-            </Link>
-          </Col>
+        <div onClick={back}>
+          <ButtonBack />
+        </div>
 
-          <Col
+        <div onClick={kirim}>
+          <Button
+            disabled={loading}
             style={{
+              width: "25rem",
+              height: "5rem",
+              // marginLeft: "30rem",
+              // // marginRight: "-50rem",
+              borderRadius: "50px",
+              backgroundColor: "#2db83d",
+              borderColor: "#2db83d",
+
               alignItems: "center",
               justifyContent: "center",
               textAlign: "center",
+              fontSize: "25px",
             }}
           >
-            <Container
-              style={{
-                backgroundColor: "none",
-                height: "3rem",
-              }}
-            ></Container>
-          </Col>
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <div onClick={kirim}>
-              <Button
-                disabled={loading}
-                style={{
-                  width: "25rem",
-                  height: "5rem",
-                  // marginLeft: "30rem",
-                  // // marginRight: "-50rem",
-                  borderRadius: "50px",
-                  backgroundColor: "#2db83d",
-                  borderColor: "#2db83d",
-                  marginRight: "-10rem",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  textAlign: "center",
-                  fontSize: "25px",
-                }}
-              >
-                {loading && (
-                  <i
-                    className="fa fa-spin fa-spinner"
-                    style={{ marginRight: "10px" }}
-                  />
-                )}
-                {loading && <span>Mengecek Pembayaran</span>}
-                {!loading && <span>Saya Sudah Bayar</span>}
-              </Button>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+            {loading && (
+              <i
+                className="fa fa-spin fa-spinner"
+                style={{ marginRight: "10px" }}
+              />
+            )}
+            {loading && <span>Mengecek Pembayaran</span>}
+            {!loading && <span>Saya Sudah Bayar</span>}
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

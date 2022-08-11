@@ -170,12 +170,12 @@ class InputPengirimKeyboard extends Component {
                   ],
                 }}
                 display={{
-                  "{clear}": "Clear",
+                  "{clear}": "hapus",
                   "{bksp}": "&#129044",
                   "{close}": "tutup",
                   "{lock}": "CapsLock",
                   "{shift}": "shift",
-                  "{space}": "   space   ",
+                  "{space}": "   spasi   ",
                 }}
                 buttonTheme={[
                   {

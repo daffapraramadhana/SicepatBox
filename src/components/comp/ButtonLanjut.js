@@ -16,7 +16,7 @@ function ButtonLanjut() {
           borderRadius: "50px",
           backgroundColor: "#CD2028",
           borderColor: "#CD2028",
-          marginRight: "-10rem",
+          // marginRight: "-10rem",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",

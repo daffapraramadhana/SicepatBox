@@ -233,6 +233,24 @@ const InputPinAmbil = () => {
                   "z x c v b n m",
                 ],
               }}
+              display={{
+                "{clear}": "Clear",
+                "{bksp}": "&#129044",
+                "{close}": "tutup",
+                "{lock}": "CapsLock",
+                "{shift}": "shift",
+                "{space}": "   space   ",
+              }}
+              buttonTheme={[
+                {
+                  class: "hg-red",
+                  buttons: "{close}",
+                },
+                {
+                  class: "hg-green",
+                  buttons: "{clear}",
+                },
+              ]}
               layoutName={layout}
               onChange={onChange}
               onKeyPress={onKeyPress}
