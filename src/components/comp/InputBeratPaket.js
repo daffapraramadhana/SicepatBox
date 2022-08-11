@@ -127,7 +127,7 @@ class InputBeratPaket extends Component {
     }
 
     return (
-      <div style={{ display: "flex", flexDirection: "row" }}>
+      <div style={{ display: "flex", flexDirection: "row", zIndex: "5" }}>
         <Form style={{ fontSize: "25px" }}>
           <Form.Group controlId="formName">
             <Form.Label>Berat Paket :</Form.Label>

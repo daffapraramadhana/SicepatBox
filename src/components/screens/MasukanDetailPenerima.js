@@ -29,10 +29,8 @@ function back() {
 
 function lanjut() {
   if (
-    Cookies.get("penerima") == "undefined" ||
-    "" ||
-    Cookies.get("notelppenerima") == "undefined" ||
-    ""
+    (Cookies.get("penerima") == "undefined" || Cookies.get("penerima") == "") ||
+    (Cookies.get("notelppenerima") == "undefined" || Cookies.get("notelppenerima") == "")
   ) {
     Swal.fire({
       position: "center",

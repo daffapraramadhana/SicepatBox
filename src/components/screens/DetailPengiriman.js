@@ -16,7 +16,7 @@ function disableRightClick() {
 }
 
 function back() {
-  window.location.href = "/PelangganKirimScanInput";
+  window.location.href = "/MasukanJenisPengiriman";
 }
 
 function lanjut() {

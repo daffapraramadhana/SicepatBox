@@ -47,7 +47,7 @@ class InputPaketkeyboard extends Component {
           value: "",
         },
         labelasuransi: {
-          label: "Tidak?",
+          label: "Tidak",
           value: "Tidak",
         },
       },
@@ -253,11 +253,7 @@ class InputPaketkeyboard extends Component {
     }
     if (
       Cookies.get("packagecategory") != undefined ||
-      Cookies.get("deliverytype") != undefined ||
-      Cookies.get("packagevalue") != undefined ||
-      Cookies.get("labelasuransi") != undefined ||
-      Cookies.get("deliverytype") != undefined
-
+      Cookies.get("deliverytype") != undefined 
     ) {
       this.state.default.kategoriPaket.value = Cookies.get("packagecategory");
       this.state.default.kategoriPaket.label = Cookies.get(
@@ -277,9 +273,10 @@ class InputPaketkeyboard extends Component {
 
     // const [showResults, setShowResults] = useState(false);
     // const onClick = () => (status = 1);
+    console.log("ini paket", this.state.default.kategoriPaket)
 
     return (
-      <div>
+      <div style={{zIndex:"5"}}>
         <Form style={{ fontSize: "25px", textAlign: "left" }}>
           <Form.Group controlId="formName">
             <Form.Label>Detail Paket :</Form.Label>
@@ -387,6 +384,7 @@ class InputPaketkeyboard extends Component {
                   //   backgroundColor: "yellow",
                   textAlign: "left",
                   marginTop: "20px",
+                  zIndex: "5",
                 }}
               >
                 Asuransikan Paket Anda :
@@ -429,7 +427,7 @@ class InputPaketkeyboard extends Component {
                 )}
               </Button> */}
             </div>
-            <div>
+            <div style={{zindex:"5"}}>
               {this.state.default.labelasuransi.value == "Iya" && (
                 <div style={{ marginTop: "50px", width: "50rem" }}>
                   Masukan Estimasi Value Paket Anda :

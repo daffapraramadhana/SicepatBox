@@ -25,11 +25,10 @@ function back() {
 }
 
 function lanjut() {
+  console.log(`ini cookie${Cookies.get("pengirim")}dan ${Cookies.get("notelppengirim")}`)
   if (
-    Cookies.get("pengirim") == undefined ||
-    "" ||
-    Cookies.get("notelppengirim") == undefined ||
-    ""
+    (Cookies.get("pengirim") == undefined || Cookies.get("pengirim") =="") ||
+    (Cookies.get("notelppengirim") == undefined || Cookies.get("notelppengirim") == "")
   ) {
     Swal.fire({
       position: "center",

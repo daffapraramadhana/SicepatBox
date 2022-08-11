@@ -27,12 +27,9 @@ function back() {
 
 function lanjut() {
   if (
-    Cookies.get("packagecategory") == undefined ||
-    "" ||
-    Cookies.get("deliverytype") == undefined ||
-    "" ||
-    Cookies.get("packagecontent") == undefined ||
-    ""
+   ( Cookies.get("packagecategory") == undefined || Cookies.get("packagecategory") == "" )||
+    (Cookies.get("deliverytype") == undefined || Cookies.get("deliverytype") ==  "") ||
+   ( Cookies.get("packagecontent") == undefined ||  Cookies.get("packagecontent") == "")
   ) {
     Swal.fire({
       position: "center",
@@ -49,7 +46,7 @@ function lanjut() {
 }
 
 const MasukanJenisPengiriman = () => {
-  Cookies.set("asuransi", "0");
+  
   disableRightClick();
 
   return (
@@ -99,6 +96,7 @@ const MasukanJenisPengiriman = () => {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "50px",
+          zIndex: "1",
           // backgroundColor: "yellow",
           // marginLeft: "1rem",
         }}

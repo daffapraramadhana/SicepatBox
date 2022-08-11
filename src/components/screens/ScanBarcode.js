@@ -228,6 +228,7 @@ const ScanBarcode = () => {
                 timer: 1500,
                 // confirmButtonText: "close",
               });
+              window.location.href = "/ScanBarcode";
             }
           });
         } else {
