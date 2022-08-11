@@ -37,7 +37,7 @@ const ScanBarcode = () => {
   const ambilqr = () => {
     axios({
       method: "POST",
-      url: "http://192.168.7.109:3005/service/get-qr",
+      url: "http://192.168.7.196:3005/service/get-qr",
       data: {
         amount: Number(Cookies.get("tarif")) + Number(Cookies.get("asuransi")),
       },
@@ -169,7 +169,7 @@ const ScanBarcode = () => {
 
     axios({
       method: "POST",
-      url: "http://192.168.7.109:3005/service/check-qr-status",
+      url: "http://192.168.7.196:3005/service/check-qr-status",
       data: {
         token: gettoken,
         tid: gettid,
@@ -182,12 +182,20 @@ const ScanBarcode = () => {
       console.log(res.data);
       setLoading(true);
       if (res.data == undefined) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Host Error",
+          showConfirmButton: false,
+          timer: 1500,
+          // confirmButtonText: "close",
+        });
       } else {
         if (res.data.data.status == "PAID") {
           console.log("tes");
           axios({
             method: "POST",
-            url: "http://192.168.7.109:3005/service/pickup-request",
+            url: "http://192.168.7.196:3005/service/pickup-request",
             data: {
               dimensi: Cookies.get("dimensi"),
               weight: Cookies.get("beratpaket"),
@@ -224,9 +232,11 @@ const ScanBarcode = () => {
                 timer: 1500,
                 // confirmButtonText: "close",
               });
+              window.location.href = "/ScanBarcode";   
             }
           });
         } else {
+          console.log("ini data gagal",res.data)
           Swal.fire({
             position: "center",
             icon: "warning",
@@ -235,6 +245,7 @@ const ScanBarcode = () => {
             timer: 1500,
             // confirmButtonText: "close",
           });
+          window.location.href = "/ScanBarcode";   
         }
       }
     });

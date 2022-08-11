@@ -20,7 +20,7 @@ class InputPaketkeyboard extends Component {
         inputDetailPaket:
           (Cookies.get("packagecontent") == "undefined"
             ? ""
-            : Cookies.get("packagecontent")) || "",
+            : Cookies.get("packagecontent")),
       },
       submittedData: "",
       keyboardOpen: "",
@@ -80,6 +80,7 @@ class InputPaketkeyboard extends Component {
   handleChange(a) {
     console.log(a.value);
     Cookies.set("packagecategory", a.value);
+    Cookies.set("packagecategorylabel", a.label);
   }
 
   handleChangeJenis(b) {
@@ -320,7 +321,7 @@ class InputPaketkeyboard extends Component {
               label="Single select"
               options={this.state.selectOptions}
               onChange={this.handleChange.bind(this)}
-
+              value = {Cookies.get("pack_category")}
               // styles={colourStyles}
             />
           </Form.Group>

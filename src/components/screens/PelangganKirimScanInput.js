@@ -13,6 +13,12 @@ import Cookies from "js-cookie";
 import InputKodePemesanan from "../comp/InputKodePemesanan";
 // import disableBrowserBackButton from "disable-browser-back-navigation";
 
+
+const home= () => {
+
+  window.location.href = "/"
+}
+
 function disableRightClick() {
   document.addEventListener("contextmenu", (e) => {
     e.preventDefault();
@@ -161,9 +167,9 @@ const PelangganKirimScanInput = () => {
               textAlign: "center",
             }}
           >
-            <Link to="/">
+            
               <ButtonHome />
-            </Link>
+          
           </Col>
 
           <Col
@@ -176,7 +182,7 @@ const PelangganKirimScanInput = () => {
             <Link
               to="/MasukanDetailPengiriman"
               style={{
-                backgroundColor: "none",
+                backgroundColor: "yellow",
                 height: "3rem",
               }}
             >
