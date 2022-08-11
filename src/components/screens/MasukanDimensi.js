@@ -20,10 +20,8 @@ function disableRightClick() {
 
 function lanjut() {
   if (
-    Cookies.get("dimensi") == "undefined" ||
-    "" ||
-    Cookies.get("beratpaket") == "undefined" ||
-    ""
+    (Cookies.get("dimensi") == undefined || Cookies.get("dimensi") == "") ||
+    (Cookies.get("beratpaket") == undefined || Cookies.get("dimensi") == "")
   ) {
     Swal.fire({
       position: "center",

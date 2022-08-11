@@ -27,15 +27,15 @@ function disableRightClick() {
 
 function lanjut() {
   if (
-    Cookies.get("alamatpenerima") == "undefined" ||
+    Cookies.get("alamatpenerima") == undefined ||
     "" ||
-    Cookies.get("provinsi") == "undefined" ||
+    Cookies.get("provinsi") == undefined ||
     "" ||
-    Cookies.get("kabupaten") == "undefined" ||
+    Cookies.get("kabupaten") == undefined ||
     "" ||
-    Cookies.get("kecamatan") == "undefined" ||
+    Cookies.get("kecamatan") == undefined ||
     "" ||
-    Cookies.get("kelurahan") == "undefined" ||
+    Cookies.get("kelurahan") == undefined ||
     ""
   ) {
     Swal.fire({
@@ -53,9 +53,9 @@ function lanjut() {
 }
 
 const MasukanDetailPenerimaLanjut = () => {
-  Cookies.set("provinsi");
-  Cookies.set("kabupaten");
-  Cookies.set("kecamatan");
+  // Cookies.set("provinsi");
+  // Cookies.set("kabupaten");
+  // Cookies.set("kecamatan");
   disableRightClick();
   return (
     <div className="">

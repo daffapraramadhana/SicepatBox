@@ -21,6 +21,11 @@ class InputPaketkeyboard extends Component {
           (Cookies.get("packagecontent") == "undefined"
             ? ""
             : Cookies.get("packagecontent")) || "",
+          
+        inputValuePackage : 
+        (Cookies.get("packagevalue") == "undefined" || 0 
+        ? ""
+        : Cookies.get("packagevalue")) || 0,
       },
       submittedData: "",
       keyboardOpen: "",
@@ -42,8 +47,8 @@ class InputPaketkeyboard extends Component {
           value: "",
         },
         labelasuransi: {
-          label: "asuransi?",
-          value: "",
+          label: "Tidak?",
+          value: "Tidak",
         },
       },
     };
@@ -53,7 +58,7 @@ class InputPaketkeyboard extends Component {
     console.log("jalan");
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/cek-tarif",
+      url: "http://192.168.7.109:3005/service/cek-tarif",
       data: {
         city_destination: Cookies.get("kabupaten"),
         province_destination: Cookies.get("provinsi"),
@@ -225,7 +230,7 @@ class InputPaketkeyboard extends Component {
   cekasuransi = () => {
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/cek-asuransi",
+      url: "http://192.168.7.109:3005/service/cek-asuransi",
       data: {
         parcel_value: Cookies.get("packagevalue"),
       },
@@ -250,7 +255,9 @@ class InputPaketkeyboard extends Component {
       Cookies.get("packagecategory") != undefined ||
       Cookies.get("deliverytype") != undefined ||
       Cookies.get("packagevalue") != undefined ||
-      Cookies.get("labelasuransi") != undefined
+      Cookies.get("labelasuransi") != undefined ||
+      Cookies.get("deliverytype") != undefined
+
     ) {
       this.state.default.kategoriPaket.value = Cookies.get("packagecategory");
       this.state.default.kategoriPaket.label = Cookies.get(
@@ -258,6 +265,8 @@ class InputPaketkeyboard extends Component {
       );
       this.state.default.labelasuransi.label = Cookies.get("labelasuransi");
       this.state.default.labelasuransi.value = Cookies.get("valueasuransi");
+      this.state.default.tipePengiriman.label = Cookies.get("deliverytype");
+      this.state.default.tipePengiriman.value = Cookies.get("tarif");
     }
     // const kategori = [
     //   { value: "paket", label: "Paket" },

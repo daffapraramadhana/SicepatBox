@@ -45,7 +45,7 @@ function lanjut() {
 }
 
 const MasukanJenisPengiriman = () => {
-  Cookies.set("asuransi", "0");
+  
   disableRightClick();
 
   return (

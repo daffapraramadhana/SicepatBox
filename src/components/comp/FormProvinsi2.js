@@ -16,13 +16,31 @@ export default class FormProvinsi2 extends Component {
       kabupaten: " ",
       kecamatan: " ",
       kelurahan: " ",
+      default:{
+        pro:{
+          label:"Masukkan Provinsi Tujuan",
+          value:""
+        },
+        kab:{
+          label:"Masukkan Kabupaten Tujuan",
+          value:""
+        },
+        kec:{
+          label:"Masukkan Kecamatan Tujuan",
+          value:""
+        },
+        kel:{
+          label:"Masukkan Kelurahan Tujuan",
+          value:""
+        }
+      }
     };
   }
 
   getOptions() {
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/list-provinsi",
+      url: "http://192.168.7.109:3005/service/list-provinsi",
       data: {},
     }).then((res) => {
       //   console.log("data", res.data.data);
@@ -40,7 +58,7 @@ export default class FormProvinsi2 extends Component {
     this.setState({ provinsi: a.value });
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/list-kabupaten",
+      url: "http://192.168.7.109:3005/service/list-kabupaten",
       data: {
         province: a.value,
       },
@@ -64,7 +82,7 @@ export default class FormProvinsi2 extends Component {
 
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/list-kecamatan",
+      url: "http://192.168.7.109:3005/service/list-kecamatan",
       data: {
         province: this.state.provinsi,
         city: b.value,
@@ -89,7 +107,7 @@ export default class FormProvinsi2 extends Component {
 
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/list-kelurahan",
+      url: "http://192.168.7.109:3005/service/list-kelurahan",
       data: {
         province: this.state.provinsi,
         city: this.state.kabupaten,
@@ -125,6 +143,17 @@ export default class FormProvinsi2 extends Component {
 
   render() {
     // console.log("ini option", this.state.selectOptions);
+    if(
+      Cookies.get("provinsi") != undefined &&
+      Cookies.get("kabupaten") != undefined &&
+      Cookies.get("kecamatan") != undefined &&
+      Cookies.get("kelurahan") != undefined
+    ){
+      this.state.default.pro.label = Cookies.get("provinsi")
+      this.state.default.kab.label = Cookies.get("kabupaten")
+      this.state.default.kec.label = Cookies.get("kecamatan")
+      this.state.default.kel.label = Cookies.get("kelurahan")
+    }
     return (
       <div>
         <div>
@@ -140,6 +169,7 @@ export default class FormProvinsi2 extends Component {
                 <Select
                   options={this.state.selectOptions}
                   onChange={this.handleChange.bind(this)}
+                  defaultValue={{value:this.state.default.pro.value, label:this.state.default.pro.label}}
                 />
               </Form.Group>
             </Col>
@@ -154,6 +184,7 @@ export default class FormProvinsi2 extends Component {
                 <Select
                   options={this.state.selectOptionsKabupaten}
                   onChange={this.handleChangeKabupaten.bind(this)}
+                  defaultValue={{value:this.state.default.kab.value, label:this.state.default.kab.label}}
                 />
               </Form.Group>
             </Col>
@@ -170,6 +201,7 @@ export default class FormProvinsi2 extends Component {
                 <Select
                   options={this.state.selectOptionsKecamatan}
                   onChange={this.handleChangeKecamatan.bind(this)}
+                  defaultValue={{value:this.state.default.kec.value, label:this.state.default.kec.label}}
                 />
               </Form.Group>
             </Col>
@@ -184,6 +216,7 @@ export default class FormProvinsi2 extends Component {
                 <Select
                   options={this.state.selectOptionsKelurahan}
                   onChange={this.handleChangeKelurahan.bind(this)}
+                  defaultValue={{value:this.state.default.kel.value, label:this.state.default.kel.label}}
                 />
               </Form.Group>
             </Col>

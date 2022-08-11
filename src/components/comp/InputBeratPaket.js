@@ -12,7 +12,11 @@ class InputBeratPaket extends Component {
   state = {
     layoutName: "key",
     inputName: "inputBeratPaket",
-    input: {},
+    input: {
+      inputBeratPaket : (Cookies.get("beratpaket") == "undefined" ? ""
+      : Cookies.get("beratpaket")
+      ) || "",
+    },
     submittedData: "",
     keyboardOpen: "",
   };
