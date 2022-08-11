@@ -41,8 +41,8 @@ function kirim() {
       Cookies.remove("trxid");
       Cookies.remove("amount");
       Cookies.remove("token");
-      Cookies.rempve("packagecategory");
-      Cookies.rempve("packagecategorylabel");
+      Cookies.remove("packagecategory");
+      Cookies.remove("packagecategorylabel");
     })
     .then(function () {
       window.location.href = "/";
@@ -64,7 +64,7 @@ function ButtonLanjutSwal() {
           borderRadius: "50px",
           backgroundColor: "		#2db83d",
           borderColor: "		#2db83d",
-          marginRight: "-10rem",
+          // marginRight: "-10rem",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",

@@ -212,19 +212,6 @@ class InputPengirimKeyboard extends Component {
 
     console.log(Cookies.get("pengirim"));
 
-    axios({
-      method: "POST",
-      url: "http://192.168.7.109:3005/service/locker-identity",
-      data: {},
-    }).then((res) => {
-      console.log(res.data.data);
-      // setLockercode(res.data.data.locker_code);
-      // setLockername(res.data.data.name);
-      this.setState({
-        lockername: res.data.data.name,
-      });
-    });
-
     const messageTemplate = this.state.message ? (
       <div
         className={"alert alert-" + (this.state.isvalid ? "success" : "danger")}
@@ -306,13 +293,7 @@ class InputPengirimKeyboard extends Component {
               onKeyPress={(button) => this.onKeyPress(button)}
               theme={"hg-theme-default myTheme1"}
               layout={{
-                ip: [
-                  "1 2 3",
-                  "4 5 6",
-                  "7 8 9",
-                  ". 0 {bksp}",
-                  "{clear} {close}",
-                ],
+                ip: ["1 2 3", "4 5 6", "7 8 9", "{clear} 0 {bksp}", "{close}"],
                 key: [
                   "` 1 2 3 4 5 6 7 8 9 0 - = {bksp}",
                   "q w e r t y u i o p [ ] \\ {clear}",
@@ -330,12 +311,12 @@ class InputPengirimKeyboard extends Component {
                 ],
               }}
               display={{
-                "{clear}": "Clear",
+                "{clear}": "hapus",
                 "{bksp}": "&#129044",
                 "{close}": "tutup",
                 "{lock}": "CapsLock",
                 "{shift}": "shift",
-                "{space}": "   space   ",
+                "{space}": "   spasi   ",
               }}
               buttonTheme={[
                 {

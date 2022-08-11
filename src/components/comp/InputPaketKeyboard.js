@@ -242,13 +242,7 @@ class InputPaketkeyboard extends Component {
               onKeyPress={(button) => this.onKeyPress(button)}
               theme={"hg-theme-default myTheme1"}
               layout={{
-                ip: [
-                  "1 2 3",
-                  "4 5 6",
-                  "7 8 9",
-                  ". 0 {clear}",
-                  "{bksp} {close}",
-                ],
+                ip: ["1 2 3", "4 5 6", "7 8 9", "{clear} 0 {bksp}", " {close}"],
                 key: [
                   "q w e r t y u i o p {bksp}",
                   "a s d f g h j k l",
@@ -257,9 +251,9 @@ class InputPaketkeyboard extends Component {
                 ],
               }}
               display={{
-                "{clear}": "C",
+                "{clear}": "hapus",
                 "{bksp}": "&#129044",
-                "{close}": "close keyboard",
+                "{close}": "tutup",
               }}
               buttonTheme={[
                 {

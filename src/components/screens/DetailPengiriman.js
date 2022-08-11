@@ -15,6 +15,14 @@ function disableRightClick() {
   });
 }
 
+function back() {
+  window.location.href = "/PelangganKirimScanInput";
+}
+
+function lanjut() {
+  window.location.href = "/ScanBarcode";
+}
+
 const DetailPengiriman = () => {
   Cookies.get("pengirim");
   Cookies.get("notelppengirim");
@@ -294,59 +302,30 @@ const DetailPengiriman = () => {
         </Container>
       </body>
 
-      <Container
-        fluid
+      <div
         style={{
+          width: "100vw",
           position: "absolute",
           bottom: "0",
-          marginBottom: "3rem",
+          // marginBottom: "3rem",
           flex: "1",
+          flexDirection: "row",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "50px",
+          // backgroundColor: "yellow",
+          // marginLeft: "1rem",
         }}
       >
-        <Row
-          style={{
-            flex: "1",
-          }}
-        >
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Link to="/MasukanJenisPengiriman">
-              <ButtonBack />
-            </Link>
-          </Col>
+        <div onClick={back}>
+          <ButtonBack />
+        </div>
 
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Container
-              style={{
-                backgroundColor: "none",
-                height: "3rem",
-              }}
-            ></Container>
-          </Col>
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Link to="/ScanBarcode">
-              <ButtonLanjut />
-            </Link>
-          </Col>
-        </Row>
-      </Container>
+        <div onClick={lanjut}>
+          <ButtonLanjut />
+        </div>
+      </div>
     </div>
   );
 };

@@ -14,7 +14,7 @@ function ButtonHome() {
           borderRadius: "50px",
           backgroundColor: "#CD2028",
           borderColor: "#CD2028",
-          marginLeft: "-10rem",
+          // marginLeft: "-10rem",
         }}
       >
         <FaHome

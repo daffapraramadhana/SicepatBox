@@ -25,12 +25,12 @@ function disableRightClick() {
 }
 
 const LabelPrint = () => {
-  if (Cookies.get("kirim") == undefined || "") {
-    // console.log("detectvookie");
-    window.location.href = "/";
-  }
+  // if (Cookies.get("kirim") == undefined || "") {
+  //   // console.log("detectvookie");
+  //   window.location.href = "/";
+  // }
   console.log("cookienya ", Cookies.get("kirim"));
-  disableBrowserBackButton();
+
   disableRightClick();
 
   return (
@@ -152,77 +152,30 @@ const LabelPrint = () => {
         </Container>
       </body>
 
-      <Container
-        fluid
+      <div
         style={{
+          width: "100vw",
           position: "absolute",
           bottom: "0",
-          marginBottom: "3rem",
+          // marginBottom: "3rem",
           flex: "1",
+          flexDirection: "row",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "50px",
+          // backgroundColor: "yellow",
+          // marginLeft: "1rem",
         }}
       >
-        <Row
-          style={{
-            flex: "1",
-          }}
-        >
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            {/* <Link to="/ScanBarcode">
-              <Button
-                variant="primary"
-                size="lg"
-                style={{
-                  width: "5rem",
-                  borderRadius: "50px",
-                  backgroundColor: "#CD2028",
-                  borderColor: "#CD2028",
-                  marginLeft: "-10rem",
-                }}
-              >
-                <FaArrowLeft
-                  style={{
-                    marginBottom: "5px",
-                  }}
-                />
-              </Button>
-            </Link> */}
-          </Col>
+        <div>
+          <ButtonBukaLokerKembali />
+        </div>
 
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Container
-              style={{
-                backgroundColor: "none",
-                height: "3rem",
-              }}
-            >
-              <Link to="">
-                <ButtonBukaLokerKembali />
-              </Link>
-            </Container>
-          </Col>
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <ButtonLanjutSwal />
-          </Col>
-        </Row>
-      </Container>
+        <div>
+          <ButtonLanjutSwal />
+        </div>
+      </div>
     </div>
   );
 };

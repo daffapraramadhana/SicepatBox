@@ -11,7 +11,16 @@ import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import Cookies from "js-cookie";
 import InputKodePemesanan from "../comp/InputKodePemesanan";
+import ButtonBukaLokerKembali from "../comp/ButtonBukaLokerKembali";
 // import disableBrowserBackButton from "disable-browser-back-navigation";
+
+function home() {
+  window.location.href = "/";
+}
+
+function belumpesan() {
+  window.location.href = "/MasukanDetailPengiriman";
+}
 
 function disableRightClick() {
   document.addEventListener("contextmenu", (e) => {
@@ -140,62 +149,32 @@ const PelangganKirimScanInput = () => {
         </div>
       </body>
 
-      <Container
-        fluid
+      <div
         style={{
+          width: "100vw",
           position: "absolute",
           bottom: "0",
-          marginBottom: "3rem",
+          // marginBottom: "3rem",
           flex: "1",
+          flexDirection: "row",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "50px",
+          // backgroundColor: "yellow",
+          // marginLeft: "1rem",
         }}
       >
-        <Row
-          style={{
-            flex: "1",
-          }}
-        >
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Link to="/">
-              <ButtonHome />
-            </Link>
-          </Col>
-
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Link
-              to="/MasukanDetailPengiriman"
-              style={{
-                backgroundColor: "none",
-                height: "3rem",
-              }}
-            >
-              <ButtonBelumPesan />
-            </Link>
-          </Col>
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Link to="/DetailPengirimanBarcode">
-              <ButtonLanjut />
-            </Link>
-          </Col>
-        </Row>
-      </Container>
+        <div onClick={home}>
+          <ButtonHome />
+        </div>
+        <div onClick={belumpesan}>
+          <ButtonBelumPesan />
+        </div>
+        <div>
+          <ButtonLanjut />
+        </div>
+      </div>
     </div>
   );
 };

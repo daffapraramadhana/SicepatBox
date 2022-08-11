@@ -198,8 +198,8 @@ code {
 }
 
 .simple-keyboard.myTheme1 .hg-button.hg-green {
-    background: green;
-    color: white;
+    background: #ffe900;
+    color: black;
 }
 
 /* .keyboardContainerPenerima {  
