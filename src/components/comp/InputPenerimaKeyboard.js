@@ -188,7 +188,7 @@ class InputPenerimaKeyboard extends Component {
                 ],
               }}
               display={{
-                "{clear}": "hapus",
+                "{clear}": "&#9003;",
                 "{bksp}": "&#129044",
                 "{close}": "tutup",
                 "{lock}": "CapsLock",

@@ -13,9 +13,10 @@ class InputBeratPaket extends Component {
     layoutName: "key",
     inputName: "inputBeratPaket",
     input: {
-      inputBeratPaket : (Cookies.get("beratpaket") == "undefined" ? ""
-      : Cookies.get("beratpaket")
-      ) || "",
+      inputBeratPaket:
+        (Cookies.get("beratpaket") == "undefined"
+          ? ""
+          : Cookies.get("beratpaket")) || "",
     },
     submittedData: "",
     keyboardOpen: "",
@@ -199,7 +200,7 @@ class InputBeratPaket extends Component {
                 ],
               }}
               display={{
-                "{clear}": "hapus",
+                "{clear}": "&#9003;",
                 "{bksp}": "&#129044",
                 "{close}": "tutup",
               }}

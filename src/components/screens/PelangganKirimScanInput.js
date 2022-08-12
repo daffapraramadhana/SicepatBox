@@ -160,7 +160,9 @@ const PelangganKirimScanInput = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "50px",
+          paddingTop: "50px",
+          paddingLeft: "50px",
+          paddingRight: "50px",
           // backgroundColor: "yellow",
           // marginLeft: "1rem",
         }}
@@ -168,7 +170,19 @@ const PelangganKirimScanInput = () => {
         <div onClick={home}>
           <ButtonHome />
         </div>
-        <div onClick={belumpesan}>
+        <div
+          onClick={belumpesan}
+          style={{
+            textAlign: "center",
+            // backgroundColor: "yellow",
+            display: "flex",
+            flexDirection: "column",
+            // width: "30rem",
+            alignItems: "center",
+            //
+          }}
+        >
+          <h3 style={{ marginLeft: "6rem" }}>Belum Pesan ?</h3>
           <ButtonBelumPesan />
         </div>
         <div>

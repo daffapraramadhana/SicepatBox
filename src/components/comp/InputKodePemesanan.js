@@ -231,7 +231,7 @@ class InputKodePemesanan extends Component {
                 ],
               }}
               display={{
-                "{clear}": "Clear",
+                "{clear}": "&#9003;",
                 "{bksp}": "&#129044",
                 "{close}": "tutup",
                 "{lock}": "CapsLock",

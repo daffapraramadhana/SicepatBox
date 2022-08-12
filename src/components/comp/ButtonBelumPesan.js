@@ -11,13 +11,14 @@ function ButtonBelumPesan() {
           width: "30rem",
           height: "5rem",
           borderRadius: "50px",
-          backgroundColor: "#CD2028",
-          borderColor: "#CD2028",
+          backgroundColor: "#2db83d",
+          borderColor: "#2db83d",
           fontSize: "25px",
           marginRight: "-5rem",
+          marginBottom: "2rem",
         }}
       >
-        Belum Melakukan Pemesanan
+        Pesan Disini
       </Button>
     </div>
   );

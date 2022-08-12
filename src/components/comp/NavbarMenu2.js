@@ -4,6 +4,7 @@ import { Navbar, Container, Col, Row, Image } from "react-bootstrap";
 import { BsBuilding } from "react-icons/bs";
 import sicepatbg from "../image/sicepatbg.jpg";
 import axios from "axios";
+import config from "../comp/config.json";
 
 function NavbarMenu2() {
   const [lockercode, setLockercode] = useState("");
@@ -12,7 +13,7 @@ function NavbarMenu2() {
   useEffect(() => {
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/locker-identity",
+      url: config.url_lockeridentity,
       data: {},
     }).then((res) => {
       console.log(res.data.data);

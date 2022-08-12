@@ -21,11 +21,11 @@ class InputPaketkeyboard extends Component {
           (Cookies.get("packagecontent") == "undefined"
             ? ""
             : Cookies.get("packagecontent")) || "",
-          
-        inputValuePackage : 
-        (Cookies.get("packagevalue") == "undefined" || 0 
-        ? ""
-        : Cookies.get("packagevalue")) || 0,
+
+        inputValuePackage:
+          (Cookies.get("packagevalue") == "undefined" || 0
+            ? ""
+            : Cookies.get("packagevalue")) || 0,
       },
       submittedData: "",
       keyboardOpen: "",
@@ -253,7 +253,7 @@ class InputPaketkeyboard extends Component {
     }
     if (
       Cookies.get("packagecategory") != undefined ||
-      Cookies.get("deliverytype") != undefined 
+      Cookies.get("deliverytype") != undefined
     ) {
       this.state.default.kategoriPaket.value = Cookies.get("packagecategory");
       this.state.default.kategoriPaket.label = Cookies.get(
@@ -273,10 +273,10 @@ class InputPaketkeyboard extends Component {
 
     // const [showResults, setShowResults] = useState(false);
     // const onClick = () => (status = 1);
-    console.log("ini paket", this.state.default.kategoriPaket)
+    console.log("ini paket", this.state.default.kategoriPaket);
 
     return (
-      <div style={{zIndex:5}}>
+      <div style={{ zIndex: 5 }}>
         <Form style={{ fontSize: "25px", textAlign: "left" }}>
           <Form.Group controlId="formName">
             <Form.Label>Detail Paket :</Form.Label>
@@ -323,7 +323,7 @@ class InputPaketkeyboard extends Component {
                 ],
               }}
               display={{
-                "{clear}": "hapus",
+                "{clear}": "&#9003;",
                 "{bksp}": "&#129044",
                 "{close}": "tutup",
                 "{lock}": "CapsLock",
@@ -427,7 +427,7 @@ class InputPaketkeyboard extends Component {
                 )}
               </Button> */}
             </div>
-            <div style={{zindex:"5"}}>
+            <div style={{ zindex: "5" }}>
               {this.state.default.labelasuransi.value == "Iya" && (
                 <div style={{ marginTop: "50px", width: "50rem" }}>
                   Masukan Estimasi Value Paket Anda :

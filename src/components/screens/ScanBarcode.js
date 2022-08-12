@@ -16,6 +16,7 @@ import ButtonConfirm from "../comp/ButtonConfirm";
 import ButtonLoading from "../comp/ButtonLoading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import config from "../comp/config.json";
 
 function disableRightClick() {
   document.addEventListener("contextmenu", (e) => {
@@ -41,7 +42,7 @@ const ScanBarcode = () => {
   const ambilqr = () => {
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/get-qr",
+      url: config.url_qr,
       data: {
         amount: Number(Cookies.get("tarif")) + Number(Cookies.get("asuransi")),
       },
@@ -173,7 +174,7 @@ const ScanBarcode = () => {
 
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/check-qr-status",
+      url: config.url_checkqr,
       data: {
         token: gettoken,
         tid: gettid,
@@ -191,7 +192,7 @@ const ScanBarcode = () => {
           console.log("tes");
           axios({
             method: "POST",
-            url: "http://192.168.7.196:3005/service/pickup-request",
+            url: config.url_pickuprequest,
             data: {
               dimensi: Cookies.get("dimensi"),
               weight: Cookies.get("beratpaket"),

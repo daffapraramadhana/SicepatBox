@@ -20,8 +20,6 @@ import Swal from "sweetalert2";
 //     });
 //   }
 
-
-
 function useDisablePinchZoomEffect() {
   document.addEventListener(
     "touchmove",
@@ -94,8 +92,8 @@ function ReworkLandingPage3() {
     });
   }, []);
 
-  const cekkirim= () =>{
-    if(size[0] == 0 && size[1] == 0 && size[2] == 0){
+  const cekkirim = () => {
+    if (size[0] == 0 && size[1] == 0 && size[2] == 0) {
       Swal.fire({
         position: "center",
         icon: "warning",
@@ -103,11 +101,20 @@ function ReworkLandingPage3() {
         showConfirmButton: false,
         timer: 1500,
         // confirmButtonText: "close",
-    })
-  } else {
-    window.location.href="/PelangganKirimScanInput"
-  }}
-
+      });
+    } else if (size.length == 0) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: "Server Error",
+        showConfirmButton: false,
+        timer: 1500,
+        // confirmButtonText: "close",
+      });
+    } else {
+      window.location.href = "/PelangganKirimScanInput";
+    }
+  };
 
   // useEffect(() => {
   //   fetchData();
@@ -528,7 +535,9 @@ function ReworkLandingPage3() {
                 <h2 style={{ color: "#CD2028cc" }}>AMBIL</h2>
               </Button>
               <Button
-              onClick={() =>{cekkirim()}}
+                onClick={() => {
+                  cekkirim();
+                }}
                 // href="/PelangganKirimScaninput"
                 style={{
                   backgroundColor: "#ffff",
