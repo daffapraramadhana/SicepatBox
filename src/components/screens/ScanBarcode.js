@@ -41,7 +41,7 @@ const ScanBarcode = () => {
   const ambilqr = () => {
     axios({
       method: "POST",
-      url: "http://192.168.7.109:3005/service/get-qr",
+      url: "http://192.168.7.196:3005/service/get-qr",
       data: {
         amount: Number(Cookies.get("tarif")) + Number(Cookies.get("asuransi")),
       },
@@ -173,7 +173,7 @@ const ScanBarcode = () => {
 
     axios({
       method: "POST",
-      url: "http://192.168.7.109:3005/service/check-qr-status",
+      url: "http://192.168.7.196:3005/service/check-qr-status",
       data: {
         token: gettoken,
         tid: gettid,
@@ -191,7 +191,7 @@ const ScanBarcode = () => {
           console.log("tes");
           axios({
             method: "POST",
-            url: "http://192.168.7.109:3005/service/pickup-request",
+            url: "http://192.168.7.196:3005/service/pickup-request",
             data: {
               dimensi: Cookies.get("dimensi"),
               weight: Cookies.get("beratpaket"),

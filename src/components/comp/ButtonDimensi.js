@@ -112,7 +112,7 @@ function ButtonDimensi() {
   useEffect(() => {
     axios({
       method: "POST",
-      url: "http://192.168.7.109:3005/service/empty-box",
+      url: "http://192.168.7.196:3005/service/empty-box",
       data: {},
     }).then((res) => {
       console.log("data loker",res.data.data);

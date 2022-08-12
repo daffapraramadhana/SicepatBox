@@ -24,7 +24,7 @@ function back() {
 
 function lanjut() {
   if (
-    (Cookies.get("dimensi") == undefined || Cookies.get("dimensi") == "") ||
+    (Cookies.get("dimensi") == "undefined" || Cookies.get("dimensi") == "") ||
     (Cookies.get("beratpaket") == undefined || Cookies.get("beratpaket") == "")
   ) {
     Swal.fire({

@@ -48,7 +48,7 @@ class InputPaketkeyboard extends Component {
         },
         labelasuransi: {
           label: "Tidak",
-          value: "Tidak",
+          value: "",
         },
       },
     };
@@ -58,7 +58,7 @@ class InputPaketkeyboard extends Component {
     console.log("jalan");
     axios({
       method: "POST",
-      url: "http://192.168.7.109:3005/service/cek-tarif",
+      url: "http://192.168.7.196:3005/service/cek-tarif",
       data: {
         city_destination: Cookies.get("kabupaten"),
         province_destination: Cookies.get("provinsi"),
@@ -230,7 +230,7 @@ class InputPaketkeyboard extends Component {
   cekasuransi = () => {
     axios({
       method: "POST",
-      url: "http://192.168.7.109:3005/service/cek-asuransi",
+      url: "http://192.168.7.196:3005/service/cek-asuransi",
       data: {
         parcel_value: Cookies.get("packagevalue"),
       },
@@ -276,7 +276,7 @@ class InputPaketkeyboard extends Component {
     console.log("ini paket", this.state.default.kategoriPaket)
 
     return (
-      <div style={{zIndex:"5"}}>
+      <div style={{zIndex:5}}>
         <Form style={{ fontSize: "25px", textAlign: "left" }}>
           <Form.Group controlId="formName">
             <Form.Label>Detail Paket :</Form.Label>

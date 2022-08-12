@@ -184,7 +184,7 @@ class InputPengirimKeyboard extends Component {
   componentDidMount() {
     axios({
       method: "POST",
-      url: "http://192.168.7.109:3005/service/locker-identity",
+      url: "http://192.168.7.196:3005/service/locker-identity",
       data: {},
     }).then((res) => {
       console.log(res.data.data);

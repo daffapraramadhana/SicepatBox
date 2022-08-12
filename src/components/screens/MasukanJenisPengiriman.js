@@ -27,9 +27,9 @@ function back() {
 
 function lanjut() {
   if (
-   ( Cookies.get("packagecategory") == undefined || Cookies.get("packagecategory") == "" )||
-    (Cookies.get("deliverytype") == undefined || Cookies.get("deliverytype") ==  "") ||
-   ( Cookies.get("packagecontent") == undefined ||  Cookies.get("packagecontent") == "")
+   ( Cookies.get("packagecategory") == "undefined" || Cookies.get("packagecategory") == "" )||
+    (Cookies.get("deliverytype") == "undefined" || Cookies.get("deliverytype") ==  "") ||
+   ( Cookies.get("packagecontent") == "undefined" ||  Cookies.get("packagecontent") == "")
   ) {
     Swal.fire({
       position: "center",
@@ -58,7 +58,7 @@ const MasukanJenisPengiriman = () => {
           style={{
             textAlign: "center",
             marginTop: "3rem",
-            marginBottom: "3rem",
+            marginBottom: "1rem",
             // marginRight: "3rem",
           }}
         >
@@ -95,8 +95,10 @@ const MasukanJenisPengiriman = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "50px",
-          zIndex: "1",
+          paddingRight: "50px",
+          paddingLeft: "50px",
+          paddingBottom: "50px",
+          zIndex: 1,
           // backgroundColor: "yellow",
           // marginLeft: "1rem",
         }}
