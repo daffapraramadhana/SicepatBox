@@ -3,6 +3,7 @@ import Select from "react-select";
 import { Form, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import Cookies from "js-cookie";
+import config from "../comp/config.json"
 
 export default class FormProvinsi2 extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ export default class FormProvinsi2 extends Component {
   getOptions() {
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/list-provinsi",
+      url: config.url_provinsi,
       data: {},
     }).then((res) => {
       //   console.log("data", res.data.data);
@@ -58,7 +59,7 @@ export default class FormProvinsi2 extends Component {
     this.setState({ provinsi: a.value });
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/list-kabupaten",
+      url: config.url_kabupaten,
       data: {
         province: a.value,
       },
@@ -82,7 +83,7 @@ export default class FormProvinsi2 extends Component {
 
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/list-kecamatan",
+      url: config.url_kecamatan,
       data: {
         province: this.state.provinsi,
         city: b.value,
@@ -107,7 +108,7 @@ export default class FormProvinsi2 extends Component {
 
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/list-kelurahan",
+      url: config.url_kelurahan,
       data: {
         province: this.state.provinsi,
         city: this.state.kabupaten,

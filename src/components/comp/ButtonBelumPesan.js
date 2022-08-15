@@ -18,7 +18,7 @@ function ButtonBelumPesan() {
           marginBottom: "2rem",
         }}
       >
-        Pesan Disini
+        Pesan Sekarang
       </Button>
     </div>
   );

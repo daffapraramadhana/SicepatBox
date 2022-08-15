@@ -191,19 +191,32 @@ class InputBeratPaket extends Component {
               onKeyPress={(button) => this.onKeyPress(button)}
               theme={"hg-theme-default myTheme1"}
               layout={{
-                ip: ["1 2 3", "4 5 6", "7 8 9", "{clear} 0 {bksp}", "{close}"],
+                ip: ["1 2 3", "4 5 6", "7 8 9", "{clear} 0 {close}"],
                 key: [
-                  "q w e r t y u i o p {bksp}",
-                  "a s d f g h j k l",
-                  "z x c v b n m",
-                  "{clear} {close}",
+                  "` 1 2 3 4 5 6 7 8 9 0 - = {bksp}",
+                  "q w e r t y u i o p [ ] \\",
+                  "{lock} a s d f g h j k l ; '",
+                  "z x c v b n m , . /",
+                  "{clear} {space} {close}",
+                ],
+                shift: [
+                  "~ ! @ # $ % ^ &amp; * ( ) _ + {bksp}",
+                  "Q W E R T Y U I O P { } |",
+                  '{lock} A S D F G H J K L : "',
+                  "Z X C V B N M &lt; &gt; ?",
+                  "{clear} {space} {close}",
+                  // "{close}",
                 ],
               }}
               display={{
                 "{clear}": "&#9003;",
                 "{bksp}": "&#129044",
-                "{close}": "tutup",
+                "{close}": "&#128473;",
+                "{lock}": "	&#8682;",
+                "{shift}": "&#8679;",
+                "{space}": "   spasi   ",
               }}
+              
               buttonTheme={[
                 {
                   class: "hg-red",

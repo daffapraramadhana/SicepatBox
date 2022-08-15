@@ -43,6 +43,8 @@ function kirim() {
       Cookies.remove("token");
       Cookies.remove("packagecategory");
       Cookies.remove("packagecategorylabel");
+      Cookies.remove("valueasuransi");
+      Cookies.remove("labelasuransi");
     })
     .then(function () {
       window.location.href = "/";

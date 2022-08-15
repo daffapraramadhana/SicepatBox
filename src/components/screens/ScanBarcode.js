@@ -224,7 +224,7 @@ const ScanBarcode = () => {
               Swal.fire({
                 position: "center",
                 icon: "warning",
-                title: res.data.response.message,
+                title: "Server Sibuk, Silahkan Coba Lagi",
                 showConfirmButton: false,
                 timer: 1500,
                 // confirmButtonText: "close",

@@ -13,6 +13,7 @@ import Clock from "../comp/Clock";
 import Cookies from "js-cookie";
 import disableBrowserBackButton from "disable-browser-back-navigation";
 import Swal from "sweetalert2";
+import config from "../comp/config.json";
 
 // componentDidMount() {
 //      document.addEventListener("contextmenu", (e) => {
@@ -72,7 +73,7 @@ function ReworkLandingPage3() {
   useEffect(() => {
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/empty-box",
+      url: config.url_emptybox,
       data: {},
     }).then((res) => {
       console.log(res.data.data);
@@ -80,10 +81,12 @@ function ReworkLandingPage3() {
     });
   }, []);
 
+
+
   useEffect(() => {
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/locker-identity",
+      url: config.url_lockeridentity,
       data: {},
     }).then((res) => {
       console.log(res.data.data);
@@ -104,13 +107,12 @@ function ReworkLandingPage3() {
       });
     } else if (size.length == 0) {
       Swal.fire({
-        position: "center",
-        icon: "warning",
-        title: "Server Error",
-        showConfirmButton: false,
-        timer: 1500,
-        // confirmButtonText: "close",
-      });
+        title: 'Please Wait !',
+        allowOutsideClick: false,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+        },
+    });
     } else {
       window.location.href = "/PelangganKirimScanInput";
     }

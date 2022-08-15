@@ -49,6 +49,11 @@ const MasukanJenisPengiriman = () => {
   
   disableRightClick();
 
+
+  if(Cookies.get("asuransi") == undefined){
+    Cookies.set("asuransi", "0")
+  }
+
   return (
     <div className="">
       <NavbarMenu2 />

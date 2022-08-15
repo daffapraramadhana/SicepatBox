@@ -37,8 +37,20 @@ function disableRightClick() {
   });
 }
 
+function useDisablePinchZoomEffect() {
+  document.addEventListener(
+    "touchmove",
+    function (e) {
+      e.preventDefault();
+    },
+    { passive: false }
+  );
+}
+
 function App() {
   disableRightClick();
+
+  useDisablePinchZoomEffect();
 
   return (
     <div>
