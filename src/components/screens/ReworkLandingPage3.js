@@ -113,6 +113,7 @@ function ReworkLandingPage3() {
             Swal.showLoading()
         },
     });
+      window.location.href = "/";
     } else {
       window.location.href = "/PelangganKirimScanInput";
     }
