@@ -12,6 +12,8 @@ import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 import InputBeratPaket from "../comp/InputBeratPaket";
 import ButtonPintu from "../comp/ButtonPintu";
+import BukaPintu from "../comp/BukaPintu";
+import ButtonPrint from "../comp/ButtonPrint";
 
 function disableRightClick() {
   document.addEventListener("contextmenu", (e) => {
@@ -20,29 +22,29 @@ function disableRightClick() {
 }
 
 function back() {
-  window.location.href = "/MasukanDetailPenerimaLanjut";
+  window.location.href = "/";
 }
 
-function lanjut() {
-  if (
-    Cookies.get("dimensi") == "undefined" ||
-    Cookies.get("dimensi") == "" ||
-    Cookies.get("beratpaket") == undefined ||
-    Cookies.get("beratpaket") == ""
-  ) {
-    Swal.fire({
-      position: "center",
-      icon: "warning",
-      title: "Silahkan Mengisi Data Terlebih Dahulu",
-      showConfirmButton: false,
-      // timer: 1500,
-      // confirmButtonText: "close",
-    });
-  } else {
-    window.location.href = "/MasukanJenisPengiriman";
-    // console.log(Cookies.get("penerima"));
-  }
-}
+// function lanjut() {
+//   if (
+//     Cookies.get("dimensi") == "undefined" ||
+//     Cookies.get("dimensi") == "" ||
+//     Cookies.get("beratpaket") == undefined ||
+//     Cookies.get("beratpaket") == ""
+//   ) {
+//     Swal.fire({
+//       position: "center",
+//       icon: "warning",
+//       title: "Silahkan Mengisi Data Terlebih Dahulu",
+//       showConfirmButton: false,
+//       // timer: 1500,
+//       // confirmButtonText: "close",
+//     });
+//   } else {
+//     window.location.href = "/MasukanJenisPengiriman";
+//     // console.log(Cookies.get("penerima"));
+//   }
+// }
 
 const ManajemenPintu = () => {
   disableRightClick();
@@ -98,7 +100,15 @@ const ManajemenPintu = () => {
           <ButtonBack />
         </div>
 
-        <div onClick={lanjut}>
+        <div>
+          <ButtonPrint />
+        </div>
+
+        <div>
+          <BukaPintu />
+        </div>
+
+        <div>
           <ButtonLanjut />
         </div>
       </div>

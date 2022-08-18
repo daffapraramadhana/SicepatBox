@@ -197,8 +197,13 @@ code {
     color: white;
 }
 
-.simple-keyboard.myTheme1 .hg-button.hg-green {
+.simple-keyboard.myTheme1 .hg-button.hg-yellow {
     background: #ffe900;
+    color: black;
+}
+
+.simple-keyboard.myTheme1 .hg-button.hg-green {
+    background: #2db83d;
     color: black;
 }
 

@@ -10,5 +10,6 @@
     "url_qr" : "http://192.168.7.109:3005/service/get-qr",
     "url_checkqr" : "http://192.168.7.109:3005/service/check-qr-status",
     "url_pickuprequest" : "http://192.168.7.109:3005/service/pickup-request",
-    "url_getboxs" : "http://192.168.7.109:3005/service/get-boxs"
+    "url_getboxs" : "http://192.168.7.109:3005/service/get-boxs",
+    "local_server"  : "http://192.168.7.109:3005"
 }
