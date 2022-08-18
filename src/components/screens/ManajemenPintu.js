@@ -108,9 +108,9 @@ const ManajemenPintu = () => {
           <BukaPintu />
         </div>
 
-        <div>
+        {/* <div>
           <ButtonLanjut />
-        </div>
+        </div> */}
       </div>
     </div>
   );

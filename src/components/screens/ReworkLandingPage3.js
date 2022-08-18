@@ -81,8 +81,6 @@ function ReworkLandingPage3() {
     });
   }, []);
 
-
-
   useEffect(() => {
     axios({
       method: "POST",
@@ -107,12 +105,12 @@ function ReworkLandingPage3() {
       });
     } else if (size.length == 0) {
       Swal.fire({
-        title: 'Please Wait !',
+        title: "Please Wait !",
         allowOutsideClick: false,
         onBeforeOpen: () => {
-            Swal.showLoading()
+          Swal.showLoading();
         },
-    });
+      });
       window.location.href = "/";
     } else {
       window.location.href = "/PelangganKirimScanInput";
@@ -570,7 +568,7 @@ function ReworkLandingPage3() {
                 <h2 style={{ color: "#CD2028cc" }}>KIRIM</h2>
               </Button>
               <Button
-                href="/LoginKurir"
+                href="/ManajemenPintu"
                 style={{
                   backgroundColor: "#ffff",
                   height: "100px",
@@ -594,7 +592,7 @@ function ReworkLandingPage3() {
                     marginTop: "5px",
                   }}
                 />
-                <h3>LOGIN KURIR</h3>
+                <h3>LOGIN </h3>
               </Button>
 
               {/* <div
