@@ -29,6 +29,7 @@ import ReworkLandingPage3 from "./components/screens/ReworkLandingPage3";
 import MasukanDetailPenerimaLanjut from "./components/screens/MasukanDetailPenerimaLanjut";
 import MasukanDetailPaket from "./components/screens/MasukanDetailPaket";
 import MasukanJenisPengiriman from "./components/screens/MasukanJenisPengiriman";
+import ManajemenPintu from "./components/screens/ManajemenPintu";
 import { Helmet } from "react-helmet";
 
 function disableRightClick() {
@@ -118,6 +119,7 @@ function App() {
             path="/MasukanJenisPengiriman"
             element={<MasukanJenisPengiriman />}
           />
+          <Route path="/ManajemenPintu" element={<ManajemenPintu />} />
         </Routes>
       </Router>
     </div>

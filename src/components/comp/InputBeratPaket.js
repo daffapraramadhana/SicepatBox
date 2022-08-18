@@ -211,19 +211,18 @@ class InputBeratPaket extends Component {
               display={{
                 "{clear}": "&#9003;",
                 "{bksp}": "&#129044",
-                "{close}": "&#128473;",
+                "{close}": "&#128505;",
                 "{lock}": "	&#8682;",
                 "{shift}": "&#8679;",
                 "{space}": "   spasi   ",
               }}
-              
               buttonTheme={[
                 {
-                  class: "hg-red",
+                  class: "hg-green",
                   buttons: "{close}",
                 },
                 {
-                  class: "hg-green",
+                  class: "hg-yellow",
                   buttons: "{clear}",
                 },
               ]}

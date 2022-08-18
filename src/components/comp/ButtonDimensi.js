@@ -2,6 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import config from "../comp/config.json";
 
 const Button = styled.button`
   bordercolor: black;
@@ -107,15 +108,15 @@ function ButtonDimensi() {
   ]);
 
   Cookies.set("dimensi", active);
-  console.log("dimensi eee",Cookies.get("dimensi"));
+  console.log("dimensi eee", Cookies.get("dimensi"));
 
   useEffect(() => {
     axios({
       method: "POST",
-      url: "http://192.168.7.196:3005/service/empty-box",
+      url: config.url_emptybox,
       data: {},
     }).then((res) => {
-      console.log("data loker",res.data.data);
+      console.log("data loker", res.data.data);
       setSizes(res.data.data);
       // setLokers[0](res.data.S);
       // setLokers[1](res.data.M);
@@ -146,19 +147,19 @@ function ButtonDimensi() {
   //     berat: "5kg",
   //   },
   // ];
-  if(
-    (Cookies.get("dimensi") != undefined || Cookies.get("dimensi") != "") ||
-    (Cookies.get("beratpaket") != undefined || Cookies.get("dimensi") != "")
-  ){
-    
+  if (
+    Cookies.get("dimensi") != undefined ||
+    Cookies.get("dimensi") != "" ||
+    Cookies.get("beratpaket") != undefined ||
+    Cookies.get("dimensi") != ""
+  ) {
   }
-  
+
   return (
     <ButtonGroup>
-      {
-        sizes.map((size, index)=>{
-          if(size !=0){
-            return(
+      {sizes.map((size, index) => {
+        if (size != 0) {
+          return (
             <ButtonToggle
               key={lokers[index].type}
               active={active === lokers[index].type}
@@ -194,10 +195,10 @@ function ButtonDimensi() {
                 {size}
               </div>
             </ButtonToggle>
-            )
-          }else{
-            return(
-              <ButtonToggle2
+          );
+        } else {
+          return (
+            <ButtonToggle2
               disabled
               // key={lokers[index].type}
               // active={active === lokers[index].type}
@@ -233,10 +234,9 @@ function ButtonDimensi() {
                 {size}
               </div>
             </ButtonToggle2>
-            )
-          }
-        })
-      }
+          );
+        }
+      })}
     </ButtonGroup>
   );
 }
