@@ -178,9 +178,9 @@ const ManajemenPintu = () => {
           <BukaPintu />
         </div>
 
-        <div onClick={openAllDoor}>
+        {/* <div onClick={openAllDoor}>
           <ButtonLanjut />
-        </div>
+        </div> */}
       </div>
       <Modal
         show={show}
