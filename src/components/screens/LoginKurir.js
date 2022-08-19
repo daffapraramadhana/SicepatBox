@@ -19,6 +19,11 @@ import Swal from "sweetalert2";
 import Cookies from "js-cookie";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
+import InputLoginOperator from "../comp/InputLoginOperator";
+
+function back() {
+  window.location.href = "/";
+}
 
 const LoginKurir = () => {
   const url = "http://192.168.7.118:3005/service/courier-login";
@@ -221,42 +226,6 @@ const LoginKurir = () => {
             onChangeAll={onChangeAll}
             onKeyPress={onKeyPress}
             theme={"hg-theme-default myTheme1"}
-            layout={{
-              ip: ["1 2 3", "4 5 6", "7 8 9", "{clear} 0 {close}"],
-              key: [
-                "` 1 2 3 4 5 6 7 8 9 0 - = {bksp}",
-                "q w e r t y u i o p [ ] \\",
-                "{lock} a s d f g h j k l ; '",
-                "z x c v b n m , . /",
-                "{clear} {space} {close}",
-              ],
-              shift: [
-                "~ ! @ # $ % ^ &amp; * ( ) _ + {bksp}",
-                "Q W E R T Y U I O P { } |",
-                '{lock} A S D F G H J K L : "',
-                "Z X C V B N M &lt; &gt; ?",
-                "{clear} {space} {close}",
-                // "{close}",
-              ],
-            }}
-            display={{
-              "{clear}": "&#9003;",
-              "{bksp}": "&#129044",
-              "{close}": "&#128505;",
-              "{lock}": "	&#8682;",
-              "{shift}": "&#8679;",
-              "{space}": "   spasi   ",
-            }}
-            buttonTheme={[
-              {
-                class: "hg-green",
-                buttons: "{close}",
-              },
-              {
-                class: "hg-yellow",
-                buttons: "{clear}",
-              },
-            ]}
           />
         </div>
       </body>
@@ -264,56 +233,28 @@ const LoginKurir = () => {
       <Container
         fluid
         style={{
+          width: "100vw",
           position: "absolute",
           bottom: "0",
-          marginBottom: "3rem",
+          // marginBottom: "3rem",
           flex: "1",
+          flexDirection: "row",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "50px",
+          // backgroundColor: "yellow",
+          // marginLeft: "1rem",
         }}
       >
-        <Row
-          style={{
-            flex: "1",
-          }}
-        >
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Link to="/">
-              <ButtonBack />
-            </Link>
-          </Col>
+        <div onClick={back}>
+          <ButtonBack />
+        </div>
 
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Container
-              style={{
-                backgroundColor: "none",
-                height: "3rem",
-              }}
-            ></Container>
-          </Col>
-          <Col
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            {/* <Link to="/DashboardKurir">
-              <ButtonLanjut />
-            </Link> */}
-          </Col>
-        </Row>
-      </Container>
+        {/* <div onClick={lanjut}>
+          <ButtonLanjut />
+        </div> */}
+      </div>
     </div>
   );
 };

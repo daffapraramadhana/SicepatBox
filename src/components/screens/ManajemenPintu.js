@@ -14,8 +14,6 @@ import InputBeratPaket from "../comp/InputBeratPaket";
 import ButtonPintu from "../comp/ButtonPintu";
 import BukaPintu from "../comp/BukaPintu";
 import ButtonPrint from "../comp/ButtonPrint";
-import config from "../comp/config.json";
-import axios from "axios";
 
 function disableRightClick() {
   document.addEventListener("contextmenu", (e) => {
@@ -70,6 +68,52 @@ const testPrint = () => {
 
 const ManajemenPintu = () => {
   disableRightClick();
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const openAllDoor = () => {
+    handleShow();
+    axios(
+      {
+        method: "POST",
+        url: `${config.local_server}/service/check-boxs`,
+        data: {},
+      },
+      {
+        timeout: 60000,
+      }
+    ).then((res) => {
+      console.log(res.data);
+      if (res.data == undefined) {
+        handleClose();
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "PREREFFERAL ERROR",
+          showConfirmButton: false,
+          timer: 1500,
+          // confirmButtonText: "close",
+        });
+      } else {
+        if (res.data.response == 200) {
+          handleClose();
+        } else {
+          handleClose();
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: res.data.response.message,
+            showConfirmButton: false,
+            timer: 1500,
+            // confirmButtonText: "close",
+          });
+        }
+      }
+    });
+  };
+
   return (
     <div className="">
       <NavbarMenu2 />
@@ -130,10 +174,47 @@ const ManajemenPintu = () => {
           <BukaPintu />
         </div>
 
-        {/* <div>
+        <div onClick={openAllDoor}>
           <ButtonLanjut />
-        </div> */}
+        </div>
       </div>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Body>
+          <Modal.Title
+            style={{
+              textAlign: "center",
+              justifyContent: "center",
+              display: "flex",
+              alignItems: "center",
+              margin: "auto",
+              marginBottom: "50px",
+            }}
+          >
+            Pintu Sedang Terbuka
+          </Modal.Title>
+          <Spinner
+            style={{
+              textAlign: "center",
+              justifyContent: "center",
+              display: "flex",
+              alignItems: "center",
+              margin: "auto",
+            }}
+            animation="border"
+            role="status"
+          >
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };
