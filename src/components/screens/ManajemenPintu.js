@@ -14,6 +14,8 @@ import InputBeratPaket from "../comp/InputBeratPaket";
 import ButtonPintu from "../comp/ButtonPintu";
 import BukaPintu from "../comp/BukaPintu";
 import ButtonPrint from "../comp/ButtonPrint";
+import config from "../comp/config.json";
+import axios from "axios";
 
 function disableRightClick() {
   document.addEventListener("contextmenu", (e) => {
@@ -24,6 +26,26 @@ function disableRightClick() {
 function back() {
   window.location.href = "/";
 }
+
+const openAllDoor = () => {
+  axios({
+    method:"POST",
+    url: `${config.local_server}/service/check-boxs`,
+    data : {}
+  }).then((res) => {
+    console.log(res.data)
+  })
+};
+
+const testPrint = () => {
+  axios({
+    method:"POST",
+    url: `${config.local_server}/service/test-printer`,
+    data : {}
+  }).then((res) => {
+    console.log(res.data)
+  })
+};
 
 // function lanjut() {
 //   if (
@@ -100,11 +122,11 @@ const ManajemenPintu = () => {
           <ButtonBack />
         </div>
 
-        <div>
+        <div onClick={testPrint}>
           <ButtonPrint />
         </div>
 
-        <div>
+        <div onClick={openAllDoor}>
           <BukaPintu />
         </div>
 

@@ -82,24 +82,44 @@ const LoginKurir = () => {
 
   function kirim() {
     // preventDefault();
-    console.log(inputs);
-    axios
-      .post(url, {
-        username: inputs.username,
-        password: inputs.password,
-      })
-      .then((res) => {
-        console.log(res.data.response.code);
-        if (res.data.response.code == 200) {
-          // simpen Cookies
-          window.location.href = "/DashboardKurir";
-        } else {
-          Swal.fire({
-            text: res.data.response.message,
-            icon: "error",
-          });
-        }
+    const auth = new Date()
+    console.log("ini input",inputs);
+    const output = inputs.username.concat(` ${inputs.password}`)
+    console.log("output", output)
+    auth.setTime(auth.getTime() + (7 *60 * 60 * 1000))
+    console.log("ini tgl", auth.toISOString())
+    const data = auth.toISOString().split("T")[0].concat(" ").concat(auth.toISOString().split("T")[1].split(".")[0].split(":")[0]).concat(":").concat(auth.toISOString().split("T")[1].split(".")[0].split(":")[1])
+    console.log("ini tgl", data)
+    if(output == data){
+      window.location.href = "/ManajemenPintu";
+    }else{
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: "USERNAME DAN PASSWORD SALAH",
+        showConfirmButton: false,
+        timer: 1500,
+        // confirmButtonText: "close",
       });
+    }
+    console.log("output ",auth)
+    // axios
+    //   .post(url, {
+    //     username: inputs.username,
+    //     password: inputs.password,
+    //   })
+    //   .then((res) => {
+    //     console.log(res.data.response.code);
+    //     if (res.data.response.code == 200) {
+    //       // simpen Cookies
+    //       window.location.href = "/DashboardKurir";
+    //     } else {
+    //       Swal.fire({
+    //         text: res.data.response.message,
+    //         icon: "error",
+    //       });
+    //     }
+    //   });
   }
   return (
     <div className="">
@@ -201,6 +221,42 @@ const LoginKurir = () => {
             onChangeAll={onChangeAll}
             onKeyPress={onKeyPress}
             theme={"hg-theme-default myTheme1"}
+            layout={{
+              ip: ["1 2 3", "4 5 6", "7 8 9", "{clear} 0 {close}"],
+              key: [
+                "` 1 2 3 4 5 6 7 8 9 0 - = {bksp}",
+                "q w e r t y u i o p [ ] \\",
+                "{lock} a s d f g h j k l ; '",
+                "z x c v b n m , . /",
+                "{clear} {space} {close}",
+              ],
+              shift: [
+                "~ ! @ # $ % ^ &amp; * ( ) _ + {bksp}",
+                "Q W E R T Y U I O P { } |",
+                '{lock} A S D F G H J K L : "',
+                "Z X C V B N M &lt; &gt; ?",
+                "{clear} {space} {close}",
+                // "{close}",
+              ],
+            }}
+            display={{
+              "{clear}": "&#9003;",
+              "{bksp}": "&#129044",
+              "{close}": "&#128505;",
+              "{lock}": "	&#8682;",
+              "{shift}": "&#8679;",
+              "{space}": "   spasi   ",
+            }}
+            buttonTheme={[
+              {
+                class: "hg-green",
+                buttons: "{close}",
+              },
+              {
+                class: "hg-yellow",
+                buttons: "{clear}",
+              },
+            ]}
           />
         </div>
       </body>

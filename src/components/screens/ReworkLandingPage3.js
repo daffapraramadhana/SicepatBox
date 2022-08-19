@@ -117,6 +117,23 @@ function ReworkLandingPage3() {
     }
   };
 
+  const tesInput = () =>{
+    var auth = false
+    const cur = new Date()
+    const inputUser = "11:18"
+    const inputpw = "2022-08-19"
+    const output = inputpw.concat(` ${inputUser}`)
+    console.log("output", output)
+    cur.setTime(cur.getTime() + (7 *60 * 60 * 1000))
+    console.log("ini tgl", cur.toISOString())
+    const data = cur.toISOString().split("T")[0].concat(" ").concat(cur.toISOString().split("T")[1].split(".")[0].split(":")[0]).concat(":").concat(cur.toISOString().split("T")[1].split(".")[0].split(":")[1])
+    console.log("ini tgl", data)
+    if(output == data){
+      auth = true
+    }
+    console.log("output ",auth)
+  }
+
   // useEffect(() => {
   //   fetchData();
   // }, {});
@@ -568,7 +585,7 @@ function ReworkLandingPage3() {
                 <h2 style={{ color: "#CD2028cc" }}>KIRIM</h2>
               </Button>
               <Button
-                href="/ManajemenPintu"
+                // href="/ManajemenPintu"
                 style={{
                   backgroundColor: "#ffff",
                   height: "100px",
@@ -583,6 +600,7 @@ function ReworkLandingPage3() {
                   //   marginBottom: "3rem",
                   color: "#CD2028cc",
                 }}
+                onClick={()=> tesInput()}
               >
                 <FaUser
                   style={{

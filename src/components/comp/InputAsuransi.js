@@ -401,6 +401,17 @@ class InputPaketkeyboard extends Component {
                 }}
                 // styles={colourStyles}
               />
+               <p
+                style={{
+                  left: "0",
+                  //   backgroundColor: "yellow",
+                  textAlign: "left",
+                  marginTop: "10px",
+                  zIndex: "5",
+                }}
+              >
+                Paket Yang Akan di Asuransikan Minimal Ber Value Rp 500.000
+              </p>
 
               {/* <Button
                 // showResults="false"
@@ -428,7 +439,7 @@ class InputPaketkeyboard extends Component {
                 )}
               </Button> */}
             </div>
-            <div style={{ zindex: "5" }}>
+            <div style={{ zindex: "5", marginLeft:"20px" }}>
               {this.state.default.labelasuransi.value == "Iya" && (
                 <div style={{ marginTop: "50px", width: "50rem" }}>
                   Masukan Estimasi Value Paket Anda :

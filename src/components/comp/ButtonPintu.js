@@ -140,6 +140,8 @@ function ButtonPintu() {
     setShowButton(true);
   };
 
+
+
   const commandDoor = (command) => {
     axios({
       method: "POST",
@@ -149,6 +151,7 @@ function ButtonPintu() {
         number: boxNumber,
       },
     }).then((res) => {
+      console.log("command door", res.data)
       if (res.data == undefined) {
         Swal.fire({
           position: "center",
@@ -190,11 +193,12 @@ function ButtonPintu() {
   const openDoor = () => {
     axios({
       method: "POST",
-      url: `${config.local_server}/service/operator-box`,
+      url: `${config.local_server}/service/open-box`,
       data: {
         number: boxNumber,
       },
     }).then((res) => {
+      console.log("ini data respon open", res.data)
       if (res.data == undefined) {
         Swal.fire({
           position: "center",
@@ -309,13 +313,13 @@ function ButtonPintu() {
                     {size.status}
                     <br />
                     {size.box_type_id ==
-                      "b5e1240b-a94f-48d9-97e8-c89158ed80d7" && (
+                      "fc330ef9-ae19-43d6-b26d-03cd9d3a86cd" && (
                       <p style={{ textAlign: "center" }}>S</p>
                     )}
                     {size.box_type_id ==
-                      "c0477fb0-813a-4d51-acfe-c99dffbd9c18" && <p>M</p>}
+                      "e4fd497f-7160-4335-aa94-63147f86ed3f" && <p>M</p>}
                     {size.box_type_id ==
-                      "6aad688e-8df7-426e-89c4-dcd84ae0359b" && <p>L</p>}
+                      "5ca272f3-a44f-4cc0-a2d0-057719afd7fe" && <p>L</p>}
                   </ButtonToggle>
                 </Grid>
               );
@@ -339,13 +343,13 @@ function ButtonPintu() {
                     {size.status}
                     <br />
                     {size.box_type_id ==
-                      "b31e343b-3a13-489b-b696-2bb27115abda" && (
+                      "fc330ef9-ae19-43d6-b26d-03cd9d3a86cd" && (
                       <p style={{ textAlign: "center" }}>S</p>
                     )}
                     {size.box_type_id ==
-                      "f19f05de-6232-4448-98c0-356aa1a1f49b" && <p>M</p>}
+                      "e4fd497f-7160-4335-aa94-63147f86ed3f" && <p>M</p>}
                     {size.box_type_id ==
-                      "9512c05e-85de-48b7-bf34-0d1f3ab5081f" && <p>L</p>}
+                      "5ca272f3-a44f-4cc0-a2d0-057719afd7fe" && <p>L</p>}
                   </ButtonToggle2>
                 </Grid>
               );
@@ -369,13 +373,13 @@ function ButtonPintu() {
                     {size.status}
                     <br />
                     {size.box_type_id ==
-                      "b31e343b-3a13-489b-b696-2bb27115abda" && (
+                      "fc330ef9-ae19-43d6-b26d-03cd9d3a86cd" && (
                       <p style={{ textAlign: "center" }}>S</p>
                     )}
                     {size.box_type_id ==
-                      "f19f05de-6232-4448-98c0-356aa1a1f49b" && <p>M</p>}
+                      "e4fd497f-7160-4335-aa94-63147f86ed3f" && <p>M</p>}
                     {size.box_type_id ==
-                      "9512c05e-85de-48b7-bf34-0d1f3ab5081f" && <p>L</p>}
+                      "5ca272f3-a44f-4cc0-a2d0-057719afd7fe" && <p>L</p>}
                   </ButtonToggle3>
                 </Grid>
               );
