@@ -14,6 +14,10 @@ import InputBeratPaket from "../comp/InputBeratPaket";
 import ButtonPintu from "../comp/ButtonPintu";
 import BukaPintu from "../comp/BukaPintu";
 import ButtonPrint from "../comp/ButtonPrint";
+import Modal from "react-bootstrap/Modal";
+import Spinner from "react-bootstrap/Spinner";
+import axios from "axios";
+import config from "../comp/config.json";
 
 function disableRightClick() {
   document.addEventListener("contextmenu", (e) => {
